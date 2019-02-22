@@ -1,0 +1,994 @@
+2019-02-21 20:12:29.693382 5 NOTICE nc_log.c:274 io_thread_pool successfully initilized 
+2019-02-21 20:12:29.694285 0 SPECIAL nc.c:212 nutcracker-0.3.0 20180723_122838_sync_write_queue_df0385f_dirty_7 built for Linux 4.4.0-33.bm.1-amd64 x86_64 started on pid 647839
+2019-02-21 20:12:29.694298 0 SPECIAL nc.c:217 run, rabbit run / dig that hole, forget the sun / and when at last the work is done / don't sit down / it's time to dig another one
+2019-02-21 20:12:29.694301 7 DEBUG nc_mbuf.c:299 mbuf hsize 56 chunk size 2048 offset 1992 length 1992 free limit 100000
+2019-02-21 20:12:29.694304 7 DEBUG nc_message.c:444 msg size 344
+2019-02-21 20:12:29.694306 7 DEBUG nc_message.c:452 msg free limit 100000
+2019-02-21 20:12:29.694309 7 DEBUG nc_connection.c:358 conn size 368
+2019-02-21 20:12:29.694311 9 VVERB nc_util.c:253 malloc(176) at 0x80e4b0 @ nc_core.c:53
+2019-02-21 20:12:29.694319 9 VVERB nc_util.c:253 malloc(760) at 0x80e7b0 @ nc_conf.c:928
+2019-02-21 20:12:29.694325 9 VVERB nc_util.c:253 malloc(48) at 0x80d1f0 @ nc_array.c:59
+2019-02-21 20:12:29.694330 9 VVERB nc_util.c:253 malloc(2368) at 0x80eab0 @ nc_array.c:59
+
+                            //  conf_validate_document(cf)
+2019-02-21 20:12:29.694334 9 VVERB nc_conf.c:961 opened conf '/data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunjia.yaml'
+                            //  conf_validate_tokens(cf)
+2019-02-21 20:12:29.694476 9 VVERB nc_conf.c:1117 conf '/data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunjia.yaml' has valid tokens
+                            //  conf_validate_structure(cf)
+2019-02-21 20:12:29.694491 9 VVERB nc_conf.c:1185 next event 1 depth 0 seq 0
+2019-02-21 20:12:29.694499 9 VVERB nc_conf.c:1185 next event 3 depth 0 seq 0
+2019-02-21 20:12:29.694504 9 VVERB nc_conf.c:1185 next event 9 depth 0 seq 0
+2019-02-21 20:12:29.694506 9 VVERB nc_conf.c:1185 next event 6 depth 1 seq 0
+2019-02-21 20:12:29.694509 9 VVERB nc_conf.c:1185 next event 9 depth 1 seq 0
+2019-02-21 20:12:29.694514 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694517 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694520 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694526 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694528 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694534 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694537 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694542 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694545 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694548 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694553 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694556 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694560 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694565 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694568 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694571 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694576 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694588 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694593 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694596 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694601 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694604 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694609 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694612 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694615 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694621 9 VVERB nc_conf.c:1185 next event 7 depth 2 seq 0
+2019-02-21 20:12:29.694624 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694631 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694634 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694639 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694642 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694645 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694647 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694650 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694655 9 VVERB nc_conf.c:1185 next event 8 depth 2 seq 1
+2019-02-21 20:12:29.694658 9 VVERB nc_conf.c:1185 next event 10 depth 2 seq 1
+2019-02-21 20:12:29.694660 9 VVERB nc_conf.c:1185 next event 6 depth 1 seq 0
+2019-02-21 20:12:29.694666 9 VVERB nc_conf.c:1185 next event 9 depth 1 seq 0
+2019-02-21 20:12:29.694668 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694672 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694677 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694680 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694683 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694688 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694691 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694696 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694699 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694702 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694708 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694710 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694714 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694719 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694722 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694725 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694730 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694733 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694736 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694741 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694744 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694750 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694753 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694756 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694762 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694764 9 VVERB nc_conf.c:1185 next event 7 depth 2 seq 0
+2019-02-21 20:12:29.694768 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694773 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694776 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694781 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694784 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694790 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694793 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694799 9 VVERB nc_conf.c:1185 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.694801 9 VVERB nc_conf.c:1185 next event 8 depth 2 seq 1
+2019-02-21 20:12:29.694806 9 VVERB nc_conf.c:1185 next event 10 depth 2 seq 1
+2019-02-21 20:12:29.694809 9 VVERB nc_conf.c:1185 next event 10 depth 1 seq 0
+2019-02-21 20:12:29.694811 9 VVERB nc_conf.c:1185 next event 4 depth 0 seq 0
+2019-02-21 20:12:29.694816 9 VVERB nc_conf.c:1185 next event 2 depth 0 seq 0
+                            //  conf_begin_parse(cf)
+2019-02-21 20:12:29.694826 9 VVERB nc_conf.c:721 next begin event 1
+2019-02-21 20:12:29.694832 9 VVERB nc_conf.c:721 next begin event 3
+2019-02-21 20:12:29.694835 9 VVERB nc_conf.c:721 next begin event 9
+
+                            //  conf_parse_core(cf)
+2019-02-21 20:12:29.694848 9 VVERB nc_conf.c:797 next event 6 depth 1 seq 0
+2019-02-21 20:12:29.694850 9 VVERB nc_conf.c:631 push 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.694854 9 VVERB nc_conf.c:667 conf handler on 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.694859 9 VVERB nc_util.c:253 malloc(1344) at 0x81fe80 @ nc_array.c:59
+2019-02-21 20:12:29.694862 9 VVERB nc_conf.c:346 init conf pool 0x80eab0, 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.694865 9 VVERB nc_conf.c:797 next event 9 depth 1 seq 0
+2019-02-21 20:12:29.694867 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694870 9 VVERB nc_conf.c:631 push 'listen'
+2019-02-21 20:12:29.694874 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694878 9 VVERB nc_conf.c:631 push '10.224.5.194:3737'
+2019-02-21 20:12:29.694881 9 VVERB nc_conf.c:676 conf handler on listen: 10.224.5.194:3737
+2019-02-21 20:12:29.694893 9 VVERB nc_conf.c:654 pop '10.224.5.194:3737'
+2019-02-21 20:12:29.694898 9 VVERB nc_util.c:299 free(0x81fdd0) @ nc_string.c:54
+2019-02-21 20:12:29.694900 9 VVERB nc_conf.c:654 pop 'listen'
+2019-02-21 20:12:29.694902 9 VVERB nc_util.c:299 free(0x80e0f0) @ nc_string.c:54
+2019-02-21 20:12:29.694908 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694910 9 VVERB nc_conf.c:631 push 'redis'
+2019-02-21 20:12:29.694913 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694918 9 VVERB nc_conf.c:631 push 'true'
+2019-02-21 20:12:29.694921 9 VVERB nc_conf.c:676 conf handler on redis: true
+2019-02-21 20:12:29.694923 9 VVERB nc_conf.c:654 pop 'true'
+2019-02-21 20:12:29.694928 9 VVERB nc_util.c:299 free(0x8203d0) @ nc_string.c:54
+2019-02-21 20:12:29.694930 9 VVERB nc_conf.c:654 pop 'redis'
+2019-02-21 20:12:29.694932 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.694938 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694940 9 VVERB nc_conf.c:631 push 'hash'
+2019-02-21 20:12:29.694943 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694947 9 VVERB nc_conf.c:631 push 'one_at_a_time'
+2019-02-21 20:12:29.694950 9 VVERB nc_conf.c:676 conf handler on hash: one_at_a_time
+2019-02-21 20:12:29.694955 9 VVERB nc_conf.c:654 pop 'one_at_a_time'
+2019-02-21 20:12:29.694957 9 VVERB nc_util.c:299 free(0x80e110) @ nc_string.c:54
+2019-02-21 20:12:29.694960 9 VVERB nc_conf.c:654 pop 'hash'
+2019-02-21 20:12:29.694962 9 VVERB nc_util.c:299 free(0x81fdd0) @ nc_string.c:54
+2019-02-21 20:12:29.694965 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694970 9 VVERB nc_conf.c:631 push 'distribution'
+2019-02-21 20:12:29.694973 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.694978 9 VVERB nc_conf.c:631 push 'ketama'
+2019-02-21 20:12:29.694980 9 VVERB nc_conf.c:676 conf handler on distribution: ketama
+2019-02-21 20:12:29.694983 9 VVERB nc_conf.c:654 pop 'ketama'
+2019-02-21 20:12:29.694988 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.694990 9 VVERB nc_conf.c:654 pop 'distribution'
+2019-02-21 20:12:29.694992 9 VVERB nc_util.c:299 free(0x80e0f0) @ nc_string.c:54
+2019-02-21 20:12:29.694996 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695001 9 VVERB nc_conf.c:631 push 'timeout'
+2019-02-21 20:12:29.695003 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695008 9 VVERB nc_conf.c:631 push '1000'
+2019-02-21 20:12:29.695010 9 VVERB nc_conf.c:676 conf handler on timeout: 1000
+2019-02-21 20:12:29.695015 9 VVERB nc_conf.c:654 pop '1000'
+2019-02-21 20:12:29.695018 9 VVERB nc_util.c:299 free(0x80e110) @ nc_string.c:54
+2019-02-21 20:12:29.695020 9 VVERB nc_conf.c:654 pop 'timeout'
+2019-02-21 20:12:29.695025 9 VVERB nc_util.c:299 free(0x81fdd0) @ nc_string.c:54
+2019-02-21 20:12:29.695028 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695030 9 VVERB nc_conf.c:631 push 'backlog'
+2019-02-21 20:12:29.695035 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695037 9 VVERB nc_conf.c:631 push '1024'
+2019-02-21 20:12:29.695040 9 VVERB nc_conf.c:676 conf handler on backlog: 1024
+2019-02-21 20:12:29.695044 9 VVERB nc_conf.c:654 pop '1024'
+2019-02-21 20:12:29.695047 9 VVERB nc_util.c:299 free(0x8203d0) @ nc_string.c:54
+2019-02-21 20:12:29.695049 9 VVERB nc_conf.c:654 pop 'backlog'
+2019-02-21 20:12:29.695052 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.695055 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695057 9 VVERB nc_conf.c:631 push 'server_connections'
+2019-02-21 20:12:29.695060 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695064 9 VVERB nc_conf.c:631 push '1'
+2019-02-21 20:12:29.695068 9 VVERB nc_conf.c:676 conf handler on server_connections: 1
+2019-02-21 20:12:29.695073 9 VVERB nc_conf.c:654 pop '1'
+2019-02-21 20:12:29.695075 9 VVERB nc_util.c:299 free(0x80e0f0) @ nc_string.c:54
+2019-02-21 20:12:29.695077 9 VVERB nc_conf.c:654 pop 'server_connections'
+2019-02-21 20:12:29.695082 9 VVERB nc_util.c:299 free(0x80e110) @ nc_string.c:54
+2019-02-21 20:12:29.695085 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695088 9 VVERB nc_conf.c:631 push 'preconnect'
+2019-02-21 20:12:29.695093 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695095 9 VVERB nc_conf.c:631 push 'true'
+2019-02-21 20:12:29.695098 9 VVERB nc_conf.c:676 conf handler on preconnect: true
+2019-02-21 20:12:29.695102 9 VVERB nc_conf.c:654 pop 'true'
+2019-02-21 20:12:29.695105 9 VVERB nc_util.c:299 free(0x8203d0) @ nc_string.c:54
+2019-02-21 20:12:29.695110 9 VVERB nc_conf.c:654 pop 'preconnect'
+2019-02-21 20:12:29.695112 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.695115 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695120 9 VVERB nc_conf.c:631 push 'auto_eject_hosts'
+2019-02-21 20:12:29.695123 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695127 9 VVERB nc_conf.c:631 push 'true'
+2019-02-21 20:12:29.695130 9 VVERB nc_conf.c:676 conf handler on auto_eject_hosts: true
+2019-02-21 20:12:29.695141 9 VVERB nc_conf.c:654 pop 'true'
+2019-02-21 20:12:29.695144 9 VVERB nc_util.c:299 free(0x81fdd0) @ nc_string.c:54
+2019-02-21 20:12:29.695149 9 VVERB nc_conf.c:654 pop 'auto_eject_hosts'
+2019-02-21 20:12:29.695152 9 VVERB nc_util.c:299 free(0x80e0f0) @ nc_string.c:54
+2019-02-21 20:12:29.695158 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695160 9 VVERB nc_conf.c:631 push 'server_retry_timeout'
+2019-02-21 20:12:29.695162 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695167 9 VVERB nc_conf.c:631 push '30000'
+2019-02-21 20:12:29.695169 9 VVERB nc_conf.c:676 conf handler on server_retry_timeout: 30000
+2019-02-21 20:12:29.695172 9 VVERB nc_conf.c:654 pop '30000'
+2019-02-21 20:12:29.695177 9 VVERB nc_util.c:299 free(0x8203d0) @ nc_string.c:54
+2019-02-21 20:12:29.695179 9 VVERB nc_conf.c:654 pop 'server_retry_timeout'
+2019-02-21 20:12:29.695181 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.695185 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695190 9 VVERB nc_conf.c:631 push 'server_failure_limit'
+2019-02-21 20:12:29.695193 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695197 9 VVERB nc_conf.c:631 push '2'
+2019-02-21 20:12:29.695200 9 VVERB nc_conf.c:676 conf handler on server_failure_limit: 2
+2019-02-21 20:12:29.695205 9 VVERB nc_conf.c:654 pop '2'
+2019-02-21 20:12:29.695208 9 VVERB nc_util.c:299 free(0x81fdd0) @ nc_string.c:54
+2019-02-21 20:12:29.695210 9 VVERB nc_conf.c:654 pop 'server_failure_limit'
+2019-02-21 20:12:29.695213 9 VVERB nc_util.c:299 free(0x80e0f0) @ nc_string.c:54
+2019-02-21 20:12:29.695218 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695220 9 VVERB nc_conf.c:631 push 'hash_tag'
+2019-02-21 20:12:29.695223 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695228 9 VVERB nc_conf.c:631 push '{}'
+2019-02-21 20:12:29.695231 9 VVERB nc_conf.c:676 conf handler on hash_tag: {}
+2019-02-21 20:12:29.695235 9 VVERB nc_conf.c:654 pop '{}'
+2019-02-21 20:12:29.695238 9 VVERB nc_util.c:299 free(0x8203d0) @ nc_string.c:54
+2019-02-21 20:12:29.695241 9 VVERB nc_conf.c:654 pop 'hash_tag'
+2019-02-21 20:12:29.695245 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.695248 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695251 9 VVERB nc_conf.c:631 push 'servers'
+2019-02-21 20:12:29.695253 9 VVERB nc_conf.c:797 next event 7 depth 2 seq 0
+2019-02-21 20:12:29.695256 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695261 9 VVERB nc_conf.c:631 push '10.224.5.194:5050:1'
+2019-02-21 20:12:29.695264 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5050:1
+2019-02-21 20:12:29.695270 9 VVERB nc_conf.c:201 init conf server 0x81fe80
+2019-02-21 20:12:29.695282 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.695286 9 VVERB nc_conf.c:654 pop '10.224.5.194:5050:1'
+2019-02-21 20:12:29.695289 9 VVERB nc_util.c:299 free(0x8203f0) @ nc_string.c:54
+2019-02-21 20:12:29.695292 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695296 9 VVERB nc_conf.c:631 push '10.224.5.194:5051:1'
+2019-02-21 20:12:29.695299 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5051:1
+2019-02-21 20:12:29.695301 9 VVERB nc_conf.c:201 init conf server 0x81ff28
+2019-02-21 20:12:29.695313 9 VVERB nc_util.c:299 free(0x8203f0) @ nc_string.c:54
+2019-02-21 20:12:29.695318 9 VVERB nc_conf.c:654 pop '10.224.5.194:5051:1'
+2019-02-21 20:12:29.695320 9 VVERB nc_util.c:299 free(0x820430) @ nc_string.c:54
+2019-02-21 20:12:29.695323 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695328 9 VVERB nc_conf.c:631 push '10.224.5.194:5052:1'
+2019-02-21 20:12:29.695330 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5052:1
+2019-02-21 20:12:29.695333 9 VVERB nc_conf.c:201 init conf server 0x81ffd0
+2019-02-21 20:12:29.695344 9 VVERB nc_util.c:299 free(0x820430) @ nc_string.c:54
+2019-02-21 20:12:29.695349 9 VVERB nc_conf.c:654 pop '10.224.5.194:5052:1'
+2019-02-21 20:12:29.695351 9 VVERB nc_util.c:299 free(0x820470) @ nc_string.c:54
+2019-02-21 20:12:29.695354 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695359 9 VVERB nc_conf.c:631 push '10.224.5.194:5053:1'
+2019-02-21 20:12:29.695361 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5053:1
+2019-02-21 20:12:29.695364 9 VVERB nc_conf.c:201 init conf server 0x820078
+2019-02-21 20:12:29.695375 9 VVERB nc_util.c:299 free(0x820470) @ nc_string.c:54
+2019-02-21 20:12:29.695380 9 VVERB nc_conf.c:654 pop '10.224.5.194:5053:1'
+2019-02-21 20:12:29.695383 9 VVERB nc_util.c:299 free(0x8204b0) @ nc_string.c:54
+2019-02-21 20:12:29.695385 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695390 9 VVERB nc_conf.c:631 push '10.224.5.194:5054:1'
+2019-02-21 20:12:29.695393 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5054:1
+2019-02-21 20:12:29.695395 9 VVERB nc_conf.c:201 init conf server 0x820120
+2019-02-21 20:12:29.695406 9 VVERB nc_util.c:299 free(0x8204b0) @ nc_string.c:54
+2019-02-21 20:12:29.695411 9 VVERB nc_conf.c:654 pop '10.224.5.194:5054:1'
+2019-02-21 20:12:29.695415 9 VVERB nc_util.c:299 free(0x8204f0) @ nc_string.c:54
+2019-02-21 20:12:29.695418 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695423 9 VVERB nc_conf.c:631 push '10.224.5.194:5055:1'
+2019-02-21 20:12:29.695426 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5055:1
+2019-02-21 20:12:29.695428 9 VVERB nc_conf.c:201 init conf server 0x8201c8
+2019-02-21 20:12:29.695440 9 VVERB nc_util.c:299 free(0x8204f0) @ nc_string.c:54
+2019-02-21 20:12:29.695444 9 VVERB nc_conf.c:654 pop '10.224.5.194:5055:1'
+2019-02-21 20:12:29.695448 9 VVERB nc_util.c:299 free(0x820530) @ nc_string.c:54
+2019-02-21 20:12:29.695451 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695456 9 VVERB nc_conf.c:631 push '10.224.5.194:5056:1'
+2019-02-21 20:12:29.695459 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5056:1
+2019-02-21 20:12:29.695462 9 VVERB nc_conf.c:201 init conf server 0x820270
+2019-02-21 20:12:29.695474 9 VVERB nc_util.c:299 free(0x820530) @ nc_string.c:54
+2019-02-21 20:12:29.695479 9 VVERB nc_conf.c:654 pop '10.224.5.194:5056:1'
+2019-02-21 20:12:29.695481 9 VVERB nc_util.c:299 free(0x820570) @ nc_string.c:54
+2019-02-21 20:12:29.695484 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695489 9 VVERB nc_conf.c:631 push '10.224.5.194:5057:1'
+2019-02-21 20:12:29.695492 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:5057:1
+2019-02-21 20:12:29.695494 9 VVERB nc_conf.c:201 init conf server 0x820318
+2019-02-21 20:12:29.695503 9 VVERB nc_util.c:299 free(0x820570) @ nc_string.c:54
+2019-02-21 20:12:29.695508 9 VVERB nc_conf.c:654 pop '10.224.5.194:5057:1'
+2019-02-21 20:12:29.695511 9 VVERB nc_util.c:299 free(0x8205b0) @ nc_string.c:54
+2019-02-21 20:12:29.695516 9 VVERB nc_conf.c:797 next event 8 depth 2 seq 1
+2019-02-21 20:12:29.695518 9 VVERB nc_conf.c:654 pop 'servers'
+2019-02-21 20:12:29.695521 9 VVERB nc_util.c:299 free(0x80e110) @ nc_string.c:54
+2019-02-21 20:12:29.695526 9 VVERB nc_conf.c:797 next event 10 depth 2 seq 0
+2019-02-21 20:12:29.695529 9 VVERB nc_conf.c:654 pop 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.695531 9 VVERB nc_util.c:299 free(0x81fd50) @ nc_string.c:54
+2019-02-21 20:12:29.695536 9 VVERB nc_conf.c:797 next event 6 depth 1 seq 0
+2019-02-21 20:12:29.695538 9 VVERB nc_conf.c:631 push 'sync_cache_peer'
+2019-02-21 20:12:29.695540 9 VVERB nc_conf.c:667 conf handler on 'sync_cache_peer'
+2019-02-21 20:12:29.695546 9 VVERB nc_util.c:253 malloc(1344) at 0x8205b0 @ nc_array.c:59
+2019-02-21 20:12:29.695548 9 VVERB nc_conf.c:346 init conf pool 0x80ebd8, 'sync_cache_peer'
+2019-02-21 20:12:29.695552 9 VVERB nc_conf.c:797 next event 9 depth 1 seq 0
+2019-02-21 20:12:29.695557 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695559 9 VVERB nc_conf.c:631 push 'listen'
+2019-02-21 20:12:29.695562 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695567 9 VVERB nc_conf.c:631 push '0.0.0.0:1100'
+2019-02-21 20:12:29.695570 9 VVERB nc_conf.c:676 conf handler on listen: 0.0.0.0:1100
+2019-02-21 20:12:29.695573 9 VVERB nc_conf.c:654 pop '0.0.0.0:1100'
+2019-02-21 20:12:29.695577 9 VVERB nc_util.c:299 free(0x820b20) @ nc_string.c:54
+2019-02-21 20:12:29.695580 9 VVERB nc_conf.c:654 pop 'listen'
+2019-02-21 20:12:29.695582 9 VVERB nc_util.c:299 free(0x81fdf0) @ nc_string.c:54
+2019-02-21 20:12:29.695585 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695590 9 VVERB nc_conf.c:631 push 'redis'
+2019-02-21 20:12:29.695593 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695596 9 VVERB nc_conf.c:631 push 'true'
+2019-02-21 20:12:29.695600 9 VVERB nc_conf.c:676 conf handler on redis: true
+2019-02-21 20:12:29.695603 9 VVERB nc_conf.c:654 pop 'true'
+2019-02-21 20:12:29.695605 9 VVERB nc_util.c:299 free(0x820bd0) @ nc_string.c:54
+2019-02-21 20:12:29.695610 9 VVERB nc_conf.c:654 pop 'redis'
+2019-02-21 20:12:29.695613 9 VVERB nc_util.c:299 free(0x820bb0) @ nc_string.c:54
+2019-02-21 20:12:29.695617 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695621 9 VVERB nc_conf.c:631 push 'hash'
+2019-02-21 20:12:29.695624 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695627 9 VVERB nc_conf.c:631 push 'one_at_a_time'
+2019-02-21 20:12:29.695632 9 VVERB nc_conf.c:676 conf handler on hash: one_at_a_time
+2019-02-21 20:12:29.695634 9 VVERB nc_conf.c:654 pop 'one_at_a_time'
+2019-02-21 20:12:29.695636 9 VVERB nc_util.c:299 free(0x820b90) @ nc_string.c:54
+2019-02-21 20:12:29.695641 9 VVERB nc_conf.c:654 pop 'hash'
+2019-02-21 20:12:29.695644 9 VVERB nc_util.c:299 free(0x820b20) @ nc_string.c:54
+2019-02-21 20:12:29.695646 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695651 9 VVERB nc_conf.c:631 push 'distribution'
+2019-02-21 20:12:29.695654 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695657 9 VVERB nc_conf.c:631 push 'redis_cluster'
+2019-02-21 20:12:29.695662 9 VVERB nc_conf.c:676 conf handler on distribution: redis_cluster
+2019-02-21 20:12:29.695664 9 VVERB nc_conf.c:654 pop 'redis_cluster'
+2019-02-21 20:12:29.695667 9 VVERB nc_util.c:299 free(0x820bb0) @ nc_string.c:54
+2019-02-21 20:12:29.695672 9 VVERB nc_conf.c:654 pop 'distribution'
+2019-02-21 20:12:29.695674 9 VVERB nc_util.c:299 free(0x81fdf0) @ nc_string.c:54
+2019-02-21 20:12:29.695677 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695679 9 VVERB nc_conf.c:631 push 'timeout'
+2019-02-21 20:12:29.695681 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695686 9 VVERB nc_conf.c:631 push '1000'
+2019-02-21 20:12:29.695690 9 VVERB nc_conf.c:676 conf handler on timeout: 1000
+2019-02-21 20:12:29.695692 9 VVERB nc_conf.c:654 pop '1000'
+2019-02-21 20:12:29.695697 9 VVERB nc_util.c:299 free(0x820c00) @ nc_string.c:54
+2019-02-21 20:12:29.695699 9 VVERB nc_conf.c:654 pop 'timeout'
+2019-02-21 20:12:29.695702 9 VVERB nc_util.c:299 free(0x820b90) @ nc_string.c:54
+2019-02-21 20:12:29.695707 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695709 9 VVERB nc_conf.c:631 push 'backlog'
+2019-02-21 20:12:29.695712 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695716 9 VVERB nc_conf.c:631 push '1024'
+2019-02-21 20:12:29.695719 9 VVERB nc_conf.c:676 conf handler on backlog: 1024
+2019-02-21 20:12:29.695721 9 VVERB nc_conf.c:654 pop '1024'
+2019-02-21 20:12:29.695724 9 VVERB nc_util.c:299 free(0x820b20) @ nc_string.c:54
+2019-02-21 20:12:29.695726 9 VVERB nc_conf.c:654 pop 'backlog'
+2019-02-21 20:12:29.695731 9 VVERB nc_util.c:299 free(0x820bb0) @ nc_string.c:54
+2019-02-21 20:12:29.695734 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695736 9 VVERB nc_conf.c:631 push 'server_connections'
+2019-02-21 20:12:29.695739 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695744 9 VVERB nc_conf.c:631 push '1'
+2019-02-21 20:12:29.695747 9 VVERB nc_conf.c:676 conf handler on server_connections: 1
+2019-02-21 20:12:29.695749 9 VVERB nc_conf.c:654 pop '1'
+2019-02-21 20:12:29.695754 9 VVERB nc_util.c:299 free(0x81fdf0) @ nc_string.c:54
+2019-02-21 20:12:29.695756 9 VVERB nc_conf.c:654 pop 'server_connections'
+2019-02-21 20:12:29.695758 9 VVERB nc_util.c:299 free(0x820c00) @ nc_string.c:54
+2019-02-21 20:12:29.695763 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695766 9 VVERB nc_conf.c:631 push 'preconnect'
+2019-02-21 20:12:29.695768 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695773 9 VVERB nc_conf.c:631 push 'true'
+2019-02-21 20:12:29.695776 9 VVERB nc_conf.c:676 conf handler on preconnect: true
+2019-02-21 20:12:29.695778 9 VVERB nc_conf.c:654 pop 'true'
+2019-02-21 20:12:29.695783 9 VVERB nc_util.c:299 free(0x820b20) @ nc_string.c:54
+2019-02-21 20:12:29.695785 9 VVERB nc_conf.c:654 pop 'preconnect'
+2019-02-21 20:12:29.695787 9 VVERB nc_util.c:299 free(0x820be0) @ nc_string.c:54
+2019-02-21 20:12:29.695793 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695795 9 VVERB nc_conf.c:631 push 'auto_eject_hosts'
+2019-02-21 20:12:29.695798 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695803 9 VVERB nc_conf.c:631 push 'true'
+2019-02-21 20:12:29.695805 9 VVERB nc_conf.c:676 conf handler on auto_eject_hosts: true
+2019-02-21 20:12:29.695808 9 VVERB nc_conf.c:654 pop 'true'
+2019-02-21 20:12:29.695813 9 VVERB nc_util.c:299 free(0x820b90) @ nc_string.c:54
+2019-02-21 20:12:29.695815 9 VVERB nc_conf.c:654 pop 'auto_eject_hosts'
+2019-02-21 20:12:29.695817 9 VVERB nc_util.c:299 free(0x81fdf0) @ nc_string.c:54
+2019-02-21 20:12:29.695822 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695825 9 VVERB nc_conf.c:631 push 'server_retry_timeout'
+2019-02-21 20:12:29.695828 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695833 9 VVERB nc_conf.c:631 push '30000'
+2019-02-21 20:12:29.695835 9 VVERB nc_conf.c:676 conf handler on server_retry_timeout: 30000
+2019-02-21 20:12:29.695838 9 VVERB nc_conf.c:654 pop '30000'
+2019-02-21 20:12:29.695842 9 VVERB nc_util.c:299 free(0x820b20) @ nc_string.c:54
+2019-02-21 20:12:29.695845 9 VVERB nc_conf.c:654 pop 'server_retry_timeout'
+2019-02-21 20:12:29.695847 9 VVERB nc_util.c:299 free(0x820be0) @ nc_string.c:54
+2019-02-21 20:12:29.695852 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695855 9 VVERB nc_conf.c:631 push 'server_failure_limit'
+2019-02-21 20:12:29.695858 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695860 9 VVERB nc_conf.c:631 push '2'
+2019-02-21 20:12:29.695862 9 VVERB nc_conf.c:676 conf handler on server_failure_limit: 2
+2019-02-21 20:12:29.695868 9 VVERB nc_conf.c:654 pop '2'
+2019-02-21 20:12:29.695871 9 VVERB nc_util.c:299 free(0x820b90) @ nc_string.c:54
+2019-02-21 20:12:29.695873 9 VVERB nc_conf.c:654 pop 'server_failure_limit'
+2019-02-21 20:12:29.695878 9 VVERB nc_util.c:299 free(0x81fdf0) @ nc_string.c:54
+2019-02-21 20:12:29.695881 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695883 9 VVERB nc_conf.c:631 push 'hash_tag'
+2019-02-21 20:12:29.695886 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695891 9 VVERB nc_conf.c:631 push '{}'
+2019-02-21 20:12:29.695895 9 VVERB nc_conf.c:676 conf handler on hash_tag: {}
+2019-02-21 20:12:29.695898 9 VVERB nc_conf.c:654 pop '{}'
+2019-02-21 20:12:29.695902 9 VVERB nc_util.c:299 free(0x820b20) @ nc_string.c:54
+2019-02-21 20:12:29.695905 9 VVERB nc_conf.c:654 pop 'hash_tag'
+2019-02-21 20:12:29.695907 9 VVERB nc_util.c:299 free(0x820be0) @ nc_string.c:54
+2019-02-21 20:12:29.695912 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 0
+2019-02-21 20:12:29.695916 9 VVERB nc_conf.c:631 push 'servers'
+2019-02-21 20:12:29.695918 9 VVERB nc_conf.c:797 next event 7 depth 2 seq 0
+2019-02-21 20:12:29.695924 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695926 9 VVERB nc_conf.c:631 push '10.224.5.194:8050:1'
+2019-02-21 20:12:29.695928 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8050:1
+2019-02-21 20:12:29.695933 9 VVERB nc_conf.c:201 init conf server 0x8205b0
+2019-02-21 20:12:29.695942 9 VVERB nc_util.c:299 free(0x820be0) @ nc_string.c:54
+2019-02-21 20:12:29.695947 9 VVERB nc_conf.c:654 pop '10.224.5.194:8050:1'
+2019-02-21 20:12:29.695950 9 VVERB nc_util.c:299 free(0x820c20) @ nc_string.c:54
+2019-02-21 20:12:29.695955 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695958 9 VVERB nc_conf.c:631 push '10.224.5.194:8051:1'
+2019-02-21 20:12:29.695961 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8051:1
+2019-02-21 20:12:29.695966 9 VVERB nc_conf.c:201 init conf server 0x820658
+2019-02-21 20:12:29.695975 9 VVERB nc_util.c:299 free(0x820c20) @ nc_string.c:54
+2019-02-21 20:12:29.695979 9 VVERB nc_conf.c:654 pop '10.224.5.194:8051:1'
+2019-02-21 20:12:29.695982 9 VVERB nc_util.c:299 free(0x820c60) @ nc_string.c:54
+2019-02-21 20:12:29.695985 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.695990 9 VVERB nc_conf.c:631 push '10.224.5.194:8052:1'
+2019-02-21 20:12:29.695992 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8052:1
+2019-02-21 20:12:29.695995 9 VVERB nc_conf.c:201 init conf server 0x820700
+2019-02-21 20:12:29.696006 9 VVERB nc_util.c:299 free(0x820c60) @ nc_string.c:54
+2019-02-21 20:12:29.696011 9 VVERB nc_conf.c:654 pop '10.224.5.194:8052:1'
+2019-02-21 20:12:29.696013 9 VVERB nc_util.c:299 free(0x820ca0) @ nc_string.c:54
+2019-02-21 20:12:29.696016 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.696021 9 VVERB nc_conf.c:631 push '10.224.5.194:8053:1'
+2019-02-21 20:12:29.696024 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8053:1
+2019-02-21 20:12:29.696026 9 VVERB nc_conf.c:201 init conf server 0x8207a8
+2019-02-21 20:12:29.696037 9 VVERB nc_util.c:299 free(0x820ca0) @ nc_string.c:54
+2019-02-21 20:12:29.696042 9 VVERB nc_conf.c:654 pop '10.224.5.194:8053:1'
+2019-02-21 20:12:29.696044 9 VVERB nc_util.c:299 free(0x820ce0) @ nc_string.c:54
+2019-02-21 20:12:29.696047 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.696052 9 VVERB nc_conf.c:631 push '10.224.5.194:8054:1'
+2019-02-21 20:12:29.696055 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8054:1
+2019-02-21 20:12:29.696057 9 VVERB nc_conf.c:201 init conf server 0x820850
+2019-02-21 20:12:29.696068 9 VVERB nc_util.c:299 free(0x820ce0) @ nc_string.c:54
+2019-02-21 20:12:29.696073 9 VVERB nc_conf.c:654 pop '10.224.5.194:8054:1'
+2019-02-21 20:12:29.696075 9 VVERB nc_util.c:299 free(0x820d20) @ nc_string.c:54
+2019-02-21 20:12:29.696078 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.696080 9 VVERB nc_conf.c:631 push '10.224.5.194:8055:1'
+2019-02-21 20:12:29.696085 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8055:1
+2019-02-21 20:12:29.696088 9 VVERB nc_conf.c:201 init conf server 0x8208f8
+2019-02-21 20:12:29.696097 9 VVERB nc_util.c:299 free(0x820d20) @ nc_string.c:54
+2019-02-21 20:12:29.696101 9 VVERB nc_conf.c:654 pop '10.224.5.194:8055:1'
+2019-02-21 20:12:29.696104 9 VVERB nc_util.c:299 free(0x820d60) @ nc_string.c:54
+2019-02-21 20:12:29.696107 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.696112 9 VVERB nc_conf.c:631 push '10.224.5.194:8056:1'
+2019-02-21 20:12:29.696114 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8056:1
+2019-02-21 20:12:29.696116 9 VVERB nc_conf.c:201 init conf server 0x8209a0
+2019-02-21 20:12:29.696128 9 VVERB nc_util.c:299 free(0x820d60) @ nc_string.c:54
+2019-02-21 20:12:29.696133 9 VVERB nc_conf.c:654 pop '10.224.5.194:8056:1'
+2019-02-21 20:12:29.696135 9 VVERB nc_util.c:299 free(0x820da0) @ nc_string.c:54
+2019-02-21 20:12:29.696141 9 VVERB nc_conf.c:797 next event 6 depth 2 seq 1
+2019-02-21 20:12:29.696144 9 VVERB nc_conf.c:631 push '10.224.5.194:8057:1'
+2019-02-21 20:12:29.696149 9 VVERB nc_conf.c:676 conf handler on servers: 10.224.5.194:8057:1
+2019-02-21 20:12:29.696151 9 VVERB nc_conf.c:201 init conf server 0x820a48
+2019-02-21 20:12:29.696160 9 VVERB nc_util.c:299 free(0x820da0) @ nc_string.c:54
+2019-02-21 20:12:29.696165 9 VVERB nc_conf.c:654 pop '10.224.5.194:8057:1'
+2019-02-21 20:12:29.696167 9 VVERB nc_util.c:299 free(0x820de0) @ nc_string.c:54
+2019-02-21 20:12:29.696170 9 VVERB nc_conf.c:797 next event 8 depth 2 seq 1
+2019-02-21 20:12:29.696175 9 VVERB nc_conf.c:654 pop 'servers'
+2019-02-21 20:12:29.696177 9 VVERB nc_util.c:299 free(0x820c00) @ nc_string.c:54
+2019-02-21 20:12:29.696182 9 VVERB nc_conf.c:797 next event 10 depth 2 seq 0
+2019-02-21 20:12:29.696185 9 VVERB nc_conf.c:654 pop 'sync_cache_peer'
+2019-02-21 20:12:29.696187 9 VVERB nc_util.c:299 free(0x81fd50) @ nc_string.c:54
+2019-02-21 20:12:29.696192 9 VVERB nc_conf.c:797 next event 10 depth 1 seq 0
+2019-02-21 20:12:29.696194 9 VVERB nc_conf.c:761 next end event 4
+2019-02-21 20:12:29.696197 9 VVERB nc_conf.c:761 next end event 2
+                            //  结束解析conf
+
+                            //  conf_dump(cf)
+2019-02-21 20:12:29.696206 9 VVERB nc_conf.c:487 2 pools in configuration file '/data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunjia.yaml'
+2019-02-21 20:12:29.696212 9 VVERB nc_conf.c:492 sync_cache_peer
+2019-02-21 20:12:29.696214 9 VVERB nc_conf.c:494   listen: 0.0.0.0:1100
+2019-02-21 20:12:29.696217 9 VVERB nc_conf.c:495   timeout: 1000
+2019-02-21 20:12:29.696222 9 VVERB nc_conf.c:496   backlog: 1024
+2019-02-21 20:12:29.696224 9 VVERB nc_conf.c:497   hash: 0
+2019-02-21 20:12:29.696226 9 VVERB nc_conf.c:499   hash_tag: "{}"
+2019-02-21 20:12:29.696231 9 VVERB nc_conf.c:500   distribution: 3
+2019-02-21 20:12:29.696233 9 VVERB nc_conf.c:501   read_prefer: 0
+2019-02-21 20:12:29.696236 9 VVERB nc_conf.c:502   read_local_first: 0
+2019-02-21 20:12:29.696240 9 VVERB nc_conf.c:503   sync_write_queue: 1
+2019-02-21 20:12:29.696243 9 VVERB nc_conf.c:505   client_connections: 0
+2019-02-21 20:12:29.696245 9 VVERB nc_conf.c:506   redis: 1
+2019-02-21 20:12:29.696248 9 VVERB nc_conf.c:507   preconnect: 1
+2019-02-21 20:12:29.696253 9 VVERB nc_conf.c:508   auto_eject_hosts: 1
+2019-02-21 20:12:29.696255 9 VVERB nc_conf.c:510   server_connections: 1
+2019-02-21 20:12:29.696257 9 VVERB nc_conf.c:512   server_connections_wr: 1
+2019-02-21 20:12:29.696260 9 VVERB nc_conf.c:514   server_retry_timeout: 30000
+2019-02-21 20:12:29.696265 9 VVERB nc_conf.c:516   server_failure_limit: 2
+2019-02-21 20:12:29.696267 9 VVERB nc_conf.c:519   servers: 8
+2019-02-21 20:12:29.696269 9 VVERB nc_conf.c:525     10.224.5.194:8050:1 name:10.224.5.194:8050 slave:0 local:0
+2019-02-21 20:12:29.696274 9 VVERB nc_conf.c:525     10.224.5.194:8051:1 name:10.224.5.194:8051 slave:0 local:0
+2019-02-21 20:12:29.696277 9 VVERB nc_conf.c:525     10.224.5.194:8052:1 name:10.224.5.194:8052 slave:0 local:0
+2019-02-21 20:12:29.696279 9 VVERB nc_conf.c:525     10.224.5.194:8053:1 name:10.224.5.194:8053 slave:0 local:0
+2019-02-21 20:12:29.696281 9 VVERB nc_conf.c:525     10.224.5.194:8054:1 name:10.224.5.194:8054 slave:0 local:0
+2019-02-21 20:12:29.696284 9 VVERB nc_conf.c:525     10.224.5.194:8055:1 name:10.224.5.194:8055 slave:0 local:0
+2019-02-21 20:12:29.696289 9 VVERB nc_conf.c:525     10.224.5.194:8056:1 name:10.224.5.194:8056 slave:0 local:0
+2019-02-21 20:12:29.696291 9 VVERB nc_conf.c:525     10.224.5.194:8057:1 name:10.224.5.194:8057 slave:0 local:0
+2019-02-21 20:12:29.696293 9 VVERB nc_conf.c:492 HL_redis_chenjunjia
+2019-02-21 20:12:29.696298 9 VVERB nc_conf.c:494   listen: 10.224.5.194:3737
+2019-02-21 20:12:29.696300 9 VVERB nc_conf.c:495   timeout: 1000
+2019-02-21 20:12:29.696302 9 VVERB nc_conf.c:496   backlog: 1024
+2019-02-21 20:12:29.696308 9 VVERB nc_conf.c:497   hash: 0
+2019-02-21 20:12:29.696310 9 VVERB nc_conf.c:499   hash_tag: "{}"
+2019-02-21 20:12:29.696313 9 VVERB nc_conf.c:500   distribution: 0
+2019-02-21 20:12:29.696316 9 VVERB nc_conf.c:501   read_prefer: 0
+2019-02-21 20:12:29.696320 9 VVERB nc_conf.c:502   read_local_first: 0
+2019-02-21 20:12:29.696324 9 VVERB nc_conf.c:503   sync_write_queue: 1
+2019-02-21 20:12:29.696326 9 VVERB nc_conf.c:505   client_connections: 0
+2019-02-21 20:12:29.696330 9 VVERB nc_conf.c:506   redis: 1
+2019-02-21 20:12:29.696333 9 VVERB nc_conf.c:507   preconnect: 1
+2019-02-21 20:12:29.696335 9 VVERB nc_conf.c:508   auto_eject_hosts: 1
+2019-02-21 20:12:29.696341 9 VVERB nc_conf.c:510   server_connections: 1
+2019-02-21 20:12:29.696343 9 VVERB nc_conf.c:512   server_connections_wr: 1
+2019-02-21 20:12:29.696345 9 VVERB nc_conf.c:514   server_retry_timeout: 30000
+2019-02-21 20:12:29.696348 9 VVERB nc_conf.c:516   server_failure_limit: 2
+2019-02-21 20:12:29.696353 9 VVERB nc_conf.c:519   servers: 8
+2019-02-21 20:12:29.696355 9 VVERB nc_conf.c:525     10.224.5.194:5050:1 name:10.224.5.194:5050 slave:0 local:0
+2019-02-21 20:12:29.696358 9 VVERB nc_conf.c:525     10.224.5.194:5051:1 name:10.224.5.194:5051 slave:0 local:0
+2019-02-21 20:12:29.696362 9 VVERB nc_conf.c:525     10.224.5.194:5052:1 name:10.224.5.194:5052 slave:0 local:0
+2019-02-21 20:12:29.696365 9 VVERB nc_conf.c:525     10.224.5.194:5053:1 name:10.224.5.194:5053 slave:0 local:0
+2019-02-21 20:12:29.696367 9 VVERB nc_conf.c:525     10.224.5.194:5054:1 name:10.224.5.194:5054 slave:0 local:0
+2019-02-21 20:12:29.696372 9 VVERB nc_conf.c:525     10.224.5.194:5055:1 name:10.224.5.194:5055 slave:0 local:0
+2019-02-21 20:12:29.696374 9 VVERB nc_conf.c:525     10.224.5.194:5056:1 name:10.224.5.194:5056 slave:0 local:0
+2019-02-21 20:12:29.696376 9 VVERB nc_conf.c:525     10.224.5.194:5057:1 name:10.224.5.194:5057 slave:0 local:0
+
+
+                            //  server_pool_init(&ctx->pool, &ctx->cf->pool, ctx)
+2019-02-21 20:12:29.696389 9 VVERB nc_util.c:253 malloc(8528) at 0x80f400 @ nc_array.c:59
+2019-02-21 20:12:29.696397 9 VVERB nc_util.c:253 malloc(1856) at 0x811560 @ nc_array.c:59
+2019-02-21 20:12:29.696404 9 VVERB nc_util.c:253 malloc(1856) at 0x811cb0 @ nc_array.c:59
+2019-02-21 20:12:29.696409 9 VVERB nc_util.c:253 malloc(8) at 0x80e490 @ nc_array.c:59
+2019-02-21 20:12:29.696412 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8050:1'
+2019-02-21 20:12:29.696414 8 VERB nc_server.c:219 server init server 0 stub '10.224.5.194:8050:1' master
+2019-02-21 20:12:29.696419 9 VVERB nc_util.c:253 malloc(1856) at 0x812400 @ nc_array.c:59
+2019-02-21 20:12:29.696422 9 VVERB nc_util.c:253 malloc(8) at 0x81fe60 @ nc_array.c:59
+2019-02-21 20:12:29.696425 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8051:1'
+2019-02-21 20:12:29.696429 8 VERB nc_server.c:219 server init server 1 stub '10.224.5.194:8051:1' master
+2019-02-21 20:12:29.696432 9 VVERB nc_util.c:253 malloc(1856) at 0x812b50 @ nc_array.c:59
+2019-02-21 20:12:29.696434 9 VVERB nc_util.c:253 malloc(8) at 0x820c00 @ nc_array.c:59
+2019-02-21 20:12:29.696439 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8052:1'
+2019-02-21 20:12:29.696442 8 VERB nc_server.c:219 server init server 2 stub '10.224.5.194:8052:1' master
+2019-02-21 20:12:29.696444 9 VVERB nc_util.c:253 malloc(1856) at 0x8132a0 @ nc_array.c:59
+2019-02-21 20:12:29.696446 9 VVERB nc_util.c:253 malloc(8) at 0x820da0 @ nc_array.c:59
+2019-02-21 20:12:29.696449 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8053:1'
+2019-02-21 20:12:29.696452 8 VERB nc_server.c:219 server init server 3 stub '10.224.5.194:8053:1' master
+2019-02-21 20:12:29.696458 9 VVERB nc_util.c:253 malloc(1856) at 0x8139f0 @ nc_array.c:59
+2019-02-21 20:12:29.696464 9 VVERB nc_util.c:253 malloc(8) at 0x820bb0 @ nc_array.c:59
+2019-02-21 20:12:29.696466 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8054:1'
+2019-02-21 20:12:29.696468 8 VERB nc_server.c:219 server init server 4 stub '10.224.5.194:8054:1' master
+2019-02-21 20:12:29.696473 9 VVERB nc_util.c:253 malloc(1856) at 0x814140 @ nc_array.c:59
+2019-02-21 20:12:29.696476 9 VVERB nc_util.c:253 malloc(8) at 0x80cf40 @ nc_array.c:59
+2019-02-21 20:12:29.696478 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8055:1'
+2019-02-21 20:12:29.696482 8 VERB nc_server.c:219 server init server 5 stub '10.224.5.194:8055:1' master
+2019-02-21 20:12:29.696485 9 VVERB nc_util.c:253 malloc(1856) at 0x814890 @ nc_array.c:59
+2019-02-21 20:12:29.696487 9 VVERB nc_util.c:253 malloc(8) at 0x81fe10 @ nc_array.c:59
+2019-02-21 20:12:29.696492 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8056:1'
+2019-02-21 20:12:29.696494 8 VERB nc_server.c:219 server init server 6 stub '10.224.5.194:8056:1' master
+2019-02-21 20:12:29.696499 9 VVERB nc_util.c:253 malloc(1856) at 0x814fe0 @ nc_array.c:59
+2019-02-21 20:12:29.696504 9 VVERB nc_util.c:253 malloc(8) at 0x7e01f0 @ nc_array.c:59
+2019-02-21 20:12:29.696506 8 VERB nc_conf.c:259 transform to server '10.224.5.194:8057:1'
+2019-02-21 20:12:29.696508 8 VERB nc_server.c:219 server init server 7 stub '10.224.5.194:8057:1' master
+2019-02-21 20:12:29.696513 7 DEBUG nc_server.c:252 init 8 servers in pool 0 'sync_cache_peer'
+2019-02-21 20:12:29.696516 8 VERB nc_conf.c:469 transform to pool 0 'sync_cache_peer'
+2019-02-21 20:12:29.696518 9 VVERB nc_util.c:253 malloc(1856) at 0x815730 @ nc_array.c:59
+2019-02-21 20:12:29.696525 9 VVERB nc_util.c:253 malloc(1856) at 0x815e80 @ nc_array.c:59
+2019-02-21 20:12:29.696530 9 VVERB nc_util.c:253 malloc(8) at 0x80d0a0 @ nc_array.c:59
+2019-02-21 20:12:29.696533 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5050:1'
+2019-02-21 20:12:29.696535 8 VERB nc_server.c:219 server init server 0 stub '10.224.5.194:5050:1' master
+2019-02-21 20:12:29.696537 9 VVERB nc_util.c:253 malloc(1856) at 0x8165d0 @ nc_array.c:59
+2019-02-21 20:12:29.696540 9 VVERB nc_util.c:253 malloc(8) at 0x7e0b50 @ nc_array.c:59
+2019-02-21 20:12:29.696545 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5051:1'
+2019-02-21 20:12:29.696547 8 VERB nc_server.c:219 server init server 1 stub '10.224.5.194:5051:1' master
+2019-02-21 20:12:29.696551 9 VVERB nc_util.c:253 malloc(1856) at 0x816d20 @ nc_array.c:59
+2019-02-21 20:12:29.696553 9 VVERB nc_util.c:253 malloc(8) at 0x7e0b70 @ nc_array.c:59
+2019-02-21 20:12:29.696556 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5052:1'
+2019-02-21 20:12:29.696558 8 VERB nc_server.c:219 server init server 2 stub '10.224.5.194:5052:1' master
+2019-02-21 20:12:29.696560 9 VVERB nc_util.c:253 malloc(1856) at 0x817470 @ nc_array.c:59
+2019-02-21 20:12:29.696562 9 VVERB nc_util.c:253 malloc(8) at 0x820b40 @ nc_array.c:59
+2019-02-21 20:12:29.696564 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5053:1'
+2019-02-21 20:12:29.696566 8 VERB nc_server.c:219 server init server 3 stub '10.224.5.194:5053:1' master
+2019-02-21 20:12:29.696570 9 VVERB nc_util.c:253 malloc(1856) at 0x817bc0 @ nc_array.c:59
+2019-02-21 20:12:29.696572 9 VVERB nc_util.c:253 malloc(8) at 0x820b60 @ nc_array.c:59
+2019-02-21 20:12:29.696575 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5054:1'
+2019-02-21 20:12:29.696576 8 VERB nc_server.c:219 server init server 4 stub '10.224.5.194:5054:1' master
+2019-02-21 20:12:29.696579 9 VVERB nc_util.c:253 malloc(1856) at 0x818310 @ nc_array.c:59
+2019-02-21 20:12:29.696581 9 VVERB nc_util.c:253 malloc(8) at 0x7e0bc0 @ nc_array.c:59
+2019-02-21 20:12:29.696583 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5055:1'
+2019-02-21 20:12:29.696585 8 VERB nc_server.c:219 server init server 5 stub '10.224.5.194:5055:1' master
+2019-02-21 20:12:29.696589 9 VVERB nc_util.c:253 malloc(1856) at 0x818a60 @ nc_array.c:59
+2019-02-21 20:12:29.696591 9 VVERB nc_util.c:253 malloc(8) at 0x7e0be0 @ nc_array.c:59
+2019-02-21 20:12:29.696593 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5056:1'
+2019-02-21 20:12:29.696595 8 VERB nc_server.c:219 server init server 6 stub '10.224.5.194:5056:1' master
+2019-02-21 20:12:29.696598 9 VVERB nc_util.c:253 malloc(1856) at 0x8191b0 @ nc_array.c:59
+2019-02-21 20:12:29.696600 9 VVERB nc_util.c:253 malloc(8) at 0x7e0c00 @ nc_array.c:59
+2019-02-21 20:12:29.696605 8 VERB nc_conf.c:259 transform to server '10.224.5.194:5057:1'
+2019-02-21 20:12:29.696607 8 VERB nc_server.c:219 server init server 7 stub '10.224.5.194:5057:1' master
+2019-02-21 20:12:29.696610 7 DEBUG nc_server.c:252 init 8 servers in pool 1 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.696615 8 VERB nc_conf.c:469 transform to pool 1 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.696622 9 VVERB nc_util.c:253 malloc(131104) at 0x7fb46cb57010 @ nc_redis_cluster.c:8
+2019-02-21 20:12:29.696628 9 VVERB nc_util.c:253 malloc(16) at 0x80d230 @ nc_slot.c:22
+2019-02-21 20:12:29.696631 9 VVERB nc_util.c:253 malloc(368) at 0x80e570 @ nc_connection.c:121
+2019-02-21 20:12:29.696636 9 VVERB nc_client.c:46 ref conn 0x80e570 owner 0x80f400 into pool 'sync_cache_peer'
+2019-02-21 20:12:29.696639 9 VVERB nc_connection.c:238 get conn 0x80e570 client 1
+2019-02-21 20:12:29.696643 9 VVERB nc_util.c:253 malloc(5120) at 0x819900 @ nc_hash_table.c:42
+2019-02-21 20:12:29.696715 9 VVERB nc_util.c:253 malloc(40) at 0x80e6f0 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696722 9 VVERB nc_util.c:253 malloc(40) at 0x80e720 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696725 9 VVERB nc_util.c:253 malloc(40) at 0x80e750 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696727 9 VVERB nc_util.c:253 malloc(40) at 0x80e780 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696730 9 VVERB nc_util.c:253 malloc(40) at 0x80d250 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696735 9 VVERB nc_util.c:253 malloc(40) at 0x80d280 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696738 9 VVERB nc_util.c:253 malloc(40) at 0x80d2b0 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696740 9 VVERB nc_util.c:253 malloc(40) at 0x80d2e0 @ nc_hash_table.c:21
+2019-02-21 20:12:29.696746 4 WARN nc_ketama.c:138 need to update. old 8, new 8
+2019-02-21 20:12:29.696748 7 DEBUG nc_ketama.c:149 8 of 8 servers are live for pool 1 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.696753 9 VVERB nc_util.c:289 realloc(23040) at 0x820de0 @ nc_ketama.c:162
+2019-02-21 20:12:29.696760 8 VERB nc_ketama.c:195 10.224.5.194:5050:5050 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.696799 8 VERB nc_ketama.c:195 10.224.5.194:5051:5051 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.696835 8 VERB nc_ketama.c:195 10.224.5.194:5052:5052 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.696870 8 VERB nc_ketama.c:195 10.224.5.194:5053:5053 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.696906 8 VERB nc_ketama.c:195 10.224.5.194:5054:5054 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.696941 8 VERB nc_ketama.c:195 10.224.5.194:5055:5055 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.696977 8 VERB nc_ketama.c:195 10.224.5.194:5056:5056 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.697012 8 VERB nc_ketama.c:195 10.224.5.194:5057:5057 weight 1 of 8 pct 0.12500 points per server 160
+2019-02-21 20:12:29.697200 8 VERB nc_ketama.c:237 updated pool 1 'HL_redis_chenjunjia' with 8 of 8 servers live in 18 slots and 1280 active points in 4480 slots
+2019-02-21 20:12:29.697209 7 DEBUG nc_server.c:1464 init 2 pools
+2019-02-21 20:12:29.697213 5 NOTICE nc_core.c:42 current rlimit nofile 1024768, max_nsconn 18, max_ncconn 1024718
+2019-02-21 20:12:29.697216 9 VVERB nc_util.c:253 malloc(544) at 0x81ad10 @ nc_stats.c:1159
+2019-02-21 20:12:29.697221 9 VVERB nc_util.c:253 malloc(160) at 0x81af40 @ nc_array.c:59
+2019-02-21 20:12:29.697227 9 VVERB nc_util.c:253 malloc(224) at 0x81aff0 @ nc_array.c:59
+2019-02-21 20:12:29.697229 9 VVERB nc_util.c:253 malloc(640) at 0x81b0e0 @ nc_array.c:59
+2019-02-21 20:12:29.697232 9 VVERB nc_util.c:253 malloc(832) at 0x81b370 @ nc_array.c:59
+2019-02-21 20:12:29.697237 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8050' with 26 metric
+2019-02-21 20:12:29.697240 9 VVERB nc_util.c:253 malloc(832) at 0x81b6c0 @ nc_array.c:59
+2019-02-21 20:12:29.697245 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8051' with 26 metric
+2019-02-21 20:12:29.697247 9 VVERB nc_util.c:253 malloc(832) at 0x81ba10 @ nc_array.c:59
+2019-02-21 20:12:29.697250 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8052' with 26 metric
+2019-02-21 20:12:29.697254 9 VVERB nc_util.c:253 malloc(832) at 0x81bd60 @ nc_array.c:59
+2019-02-21 20:12:29.697257 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8053' with 26 metric
+2019-02-21 20:12:29.697259 9 VVERB nc_util.c:253 malloc(832) at 0x81c0b0 @ nc_array.c:59
+2019-02-21 20:12:29.697264 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8054' with 26 metric
+2019-02-21 20:12:29.697267 9 VVERB nc_util.c:253 malloc(832) at 0x81c400 @ nc_array.c:59
+2019-02-21 20:12:29.697269 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8055' with 26 metric
+2019-02-21 20:12:29.697274 9 VVERB nc_util.c:253 malloc(832) at 0x81c750 @ nc_array.c:59
+2019-02-21 20:12:29.697276 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8056' with 26 metric
+2019-02-21 20:12:29.697279 9 VVERB nc_util.c:253 malloc(832) at 0x81caa0 @ nc_array.c:59
+2019-02-21 20:12:29.697284 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8057' with 26 metric
+2019-02-21 20:12:29.697286 10 VVVERB nc_stats.c:301 map 8 stats servers
+2019-02-21 20:12:29.697288 10 VVVERB nc_stats.c:344 init stats pool 'sync_cache_peer' with 7 metric and 7 server
+2019-02-21 20:12:29.697294 9 VVERB nc_util.c:253 malloc(224) at 0x81cdf0 @ nc_array.c:59
+2019-02-21 20:12:29.697296 9 VVERB nc_util.c:253 malloc(640) at 0x81cee0 @ nc_array.c:59
+2019-02-21 20:12:29.697298 9 VVERB nc_util.c:253 malloc(832) at 0x81d170 @ nc_array.c:59
+2019-02-21 20:12:29.697303 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5050' with 26 metric
+2019-02-21 20:12:29.697306 9 VVERB nc_util.c:253 malloc(832) at 0x81d4c0 @ nc_array.c:59
+2019-02-21 20:12:29.697308 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5051' with 26 metric
+2019-02-21 20:12:29.697313 9 VVERB nc_util.c:253 malloc(832) at 0x81d810 @ nc_array.c:59
+2019-02-21 20:12:29.697316 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5052' with 26 metric
+2019-02-21 20:12:29.697318 9 VVERB nc_util.c:253 malloc(832) at 0x81db60 @ nc_array.c:59
+2019-02-21 20:12:29.697323 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5053' with 26 metric
+2019-02-21 20:12:29.697327 9 VVERB nc_util.c:253 malloc(832) at 0x81deb0 @ nc_array.c:59
+2019-02-21 20:12:29.697332 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5054' with 26 metric
+2019-02-21 20:12:29.697335 9 VVERB nc_util.c:253 malloc(832) at 0x81e200 @ nc_array.c:59
+2019-02-21 20:12:29.697337 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5055' with 26 metric
+2019-02-21 20:12:29.697342 9 VVERB nc_util.c:253 malloc(832) at 0x81e550 @ nc_array.c:59
+2019-02-21 20:12:29.697344 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5056' with 26 metric
+2019-02-21 20:12:29.697347 9 VVERB nc_util.c:253 malloc(832) at 0x81e8a0 @ nc_array.c:59
+2019-02-21 20:12:29.697352 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5057' with 26 metric
+2019-02-21 20:12:29.697354 10 VVVERB nc_stats.c:301 map 8 stats servers
+2019-02-21 20:12:29.697356 10 VVVERB nc_stats.c:344 init stats pool 'HL_redis_chenjunjia' with 7 metric and 7 server
+2019-02-21 20:12:29.697361 10 VVVERB nc_stats.c:394 map 2 stats pools
+2019-02-21 20:12:29.697363 9 VVERB nc_util.c:253 malloc(160) at 0x81ebf0 @ nc_array.c:59
+2019-02-21 20:12:29.697366 9 VVERB nc_util.c:253 malloc(224) at 0x81eca0 @ nc_array.c:59
+2019-02-21 20:12:29.697368 9 VVERB nc_util.c:253 malloc(640) at 0x81ed90 @ nc_array.c:59
+2019-02-21 20:12:29.697371 9 VVERB nc_util.c:253 malloc(832) at 0x81f020 @ nc_array.c:59
+2019-02-21 20:12:29.697376 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8050' with 26 metric
+2019-02-21 20:12:29.697379 9 VVERB nc_util.c:253 malloc(832) at 0x81f370 @ nc_array.c:59
+2019-02-21 20:12:29.697381 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8051' with 26 metric
+2019-02-21 20:12:29.697386 9 VVERB nc_util.c:253 malloc(832) at 0x81f6c0 @ nc_array.c:59
+2019-02-21 20:12:29.697388 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8052' with 26 metric
+2019-02-21 20:12:29.697391 9 VVERB nc_util.c:253 malloc(832) at 0x81fa10 @ nc_array.c:59
+2019-02-21 20:12:29.697396 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8053' with 26 metric
+2019-02-21 20:12:29.697398 9 VVERB nc_util.c:253 malloc(832) at 0x8267f0 @ nc_array.c:59
+2019-02-21 20:12:29.697401 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8054' with 26 metric
+2019-02-21 20:12:29.697406 9 VVERB nc_util.c:253 malloc(832) at 0x826b40 @ nc_array.c:59
+2019-02-21 20:12:29.697409 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8055' with 26 metric
+2019-02-21 20:12:29.697414 9 VVERB nc_util.c:253 malloc(832) at 0x826e90 @ nc_array.c:59
+2019-02-21 20:12:29.697419 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8056' with 26 metric
+2019-02-21 20:12:29.697422 9 VVERB nc_util.c:253 malloc(832) at 0x8271e0 @ nc_array.c:59
+2019-02-21 20:12:29.697424 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8057' with 26 metric
+2019-02-21 20:12:29.697429 10 VVVERB nc_stats.c:301 map 8 stats servers
+2019-02-21 20:12:29.697431 10 VVVERB nc_stats.c:344 init stats pool 'sync_cache_peer' with 7 metric and 7 server
+2019-02-21 20:12:29.697434 9 VVERB nc_util.c:253 malloc(224) at 0x827530 @ nc_array.c:59
+2019-02-21 20:12:29.697439 9 VVERB nc_util.c:253 malloc(640) at 0x827620 @ nc_array.c:59
+2019-02-21 20:12:29.697441 9 VVERB nc_util.c:253 malloc(832) at 0x8278b0 @ nc_array.c:59
+2019-02-21 20:12:29.697444 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5050' with 26 metric
+2019-02-21 20:12:29.697449 9 VVERB nc_util.c:253 malloc(832) at 0x827c00 @ nc_array.c:59
+2019-02-21 20:12:29.697451 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5051' with 26 metric
+2019-02-21 20:12:29.697455 9 VVERB nc_util.c:253 malloc(832) at 0x827f50 @ nc_array.c:59
+2019-02-21 20:12:29.697460 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5052' with 26 metric
+2019-02-21 20:12:29.697463 9 VVERB nc_util.c:253 malloc(832) at 0x8282a0 @ nc_array.c:59
+2019-02-21 20:12:29.697465 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5053' with 26 metric
+2019-02-21 20:12:29.697470 9 VVERB nc_util.c:253 malloc(832) at 0x8285f0 @ nc_array.c:59
+2019-02-21 20:12:29.697474 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5054' with 26 metric
+2019-02-21 20:12:29.697480 9 VVERB nc_util.c:253 malloc(832) at 0x828940 @ nc_array.c:59
+2019-02-21 20:12:29.697482 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5055' with 26 metric
+2019-02-21 20:12:29.697484 9 VVERB nc_util.c:253 malloc(832) at 0x828c90 @ nc_array.c:59
+2019-02-21 20:12:29.697489 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5056' with 26 metric
+2019-02-21 20:12:29.697494 9 VVERB nc_util.c:253 malloc(832) at 0x828fe0 @ nc_array.c:59
+2019-02-21 20:12:29.697499 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5057' with 26 metric
+2019-02-21 20:12:29.697501 10 VVVERB nc_stats.c:301 map 8 stats servers
+2019-02-21 20:12:29.697503 10 VVVERB nc_stats.c:344 init stats pool 'HL_redis_chenjunjia' with 7 metric and 7 server
+2019-02-21 20:12:29.697508 10 VVVERB nc_stats.c:394 map 2 stats pools
+2019-02-21 20:12:29.697510 9 VVERB nc_util.c:253 malloc(160) at 0x829330 @ nc_array.c:59
+2019-02-21 20:12:29.697513 9 VVERB nc_util.c:253 malloc(224) at 0x8293e0 @ nc_array.c:59
+2019-02-21 20:12:29.697515 9 VVERB nc_util.c:253 malloc(640) at 0x8294d0 @ nc_array.c:59
+2019-02-21 20:12:29.697518 9 VVERB nc_util.c:253 malloc(832) at 0x829760 @ nc_array.c:59
+2019-02-21 20:12:29.697521 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8050' with 26 metric
+2019-02-21 20:12:29.697525 9 VVERB nc_util.c:253 malloc(832) at 0x829ab0 @ nc_array.c:59
+2019-02-21 20:12:29.697528 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8051' with 26 metric
+2019-02-21 20:12:29.697532 9 VVERB nc_util.c:253 malloc(832) at 0x829e00 @ nc_array.c:59
+2019-02-21 20:12:29.697537 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8052' with 26 metric
+2019-02-21 20:12:29.697540 9 VVERB nc_util.c:253 malloc(832) at 0x82a150 @ nc_array.c:59
+2019-02-21 20:12:29.697542 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8053' with 26 metric
+2019-02-21 20:12:29.697547 9 VVERB nc_util.c:253 malloc(832) at 0x82a4a0 @ nc_array.c:59
+2019-02-21 20:12:29.697549 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8054' with 26 metric
+2019-02-21 20:12:29.697551 9 VVERB nc_util.c:253 malloc(832) at 0x82a7f0 @ nc_array.c:59
+2019-02-21 20:12:29.697556 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8055' with 26 metric
+2019-02-21 20:12:29.697559 9 VVERB nc_util.c:253 malloc(832) at 0x82ab40 @ nc_array.c:59
+2019-02-21 20:12:29.697561 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8056' with 26 metric
+2019-02-21 20:12:29.697568 9 VVERB nc_util.c:253 malloc(832) at 0x82ae90 @ nc_array.c:59
+2019-02-21 20:12:29.697571 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:8057' with 26 metric
+2019-02-21 20:12:29.697576 10 VVVERB nc_stats.c:301 map 8 stats servers
+2019-02-21 20:12:29.697579 10 VVVERB nc_stats.c:344 init stats pool 'sync_cache_peer' with 7 metric and 7 server
+2019-02-21 20:12:29.697584 9 VVERB nc_util.c:253 malloc(224) at 0x82b1e0 @ nc_array.c:59
+2019-02-21 20:12:29.697586 9 VVERB nc_util.c:253 malloc(640) at 0x82b2d0 @ nc_array.c:59
+2019-02-21 20:12:29.697589 9 VVERB nc_util.c:253 malloc(832) at 0x82b560 @ nc_array.c:59
+2019-02-21 20:12:29.697594 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5050' with 26 metric
+2019-02-21 20:12:29.697596 9 VVERB nc_util.c:253 malloc(832) at 0x82b8b0 @ nc_array.c:59
+2019-02-21 20:12:29.697599 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5051' with 26 metric
+2019-02-21 20:12:29.697603 9 VVERB nc_util.c:253 malloc(832) at 0x82bc00 @ nc_array.c:59
+2019-02-21 20:12:29.697606 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5052' with 26 metric
+2019-02-21 20:12:29.697610 9 VVERB nc_util.c:253 malloc(832) at 0x82bf50 @ nc_array.c:59
+2019-02-21 20:12:29.697615 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5053' with 26 metric
+2019-02-21 20:12:29.697617 9 VVERB nc_util.c:253 malloc(832) at 0x82c2a0 @ nc_array.c:59
+2019-02-21 20:12:29.697620 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5054' with 26 metric
+2019-02-21 20:12:29.697625 9 VVERB nc_util.c:253 malloc(832) at 0x82c5f0 @ nc_array.c:59
+2019-02-21 20:12:29.697627 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5055' with 26 metric
+2019-02-21 20:12:29.697629 9 VVERB nc_util.c:253 malloc(832) at 0x82c940 @ nc_array.c:59
+2019-02-21 20:12:29.697634 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5056' with 26 metric
+2019-02-21 20:12:29.697637 9 VVERB nc_util.c:253 malloc(832) at 0x82cc90 @ nc_array.c:59
+2019-02-21 20:12:29.697639 10 VVVERB nc_stats.c:189 init stats server '10.224.5.194:5057' with 26 metric
+2019-02-21 20:12:29.697644 10 VVVERB nc_stats.c:301 map 8 stats servers
+2019-02-21 20:12:29.697646 10 VVVERB nc_stats.c:344 init stats pool 'HL_redis_chenjunjia' with 7 metric and 7 server
+2019-02-21 20:12:29.697649 10 VVVERB nc_stats.c:394 map 2 stats pools
+2019-02-21 20:12:29.697656 9 VVERB nc_util.c:253 malloc(20416) at 0x82cfe0 @ nc_stats.c:543
+2019-02-21 20:12:29.697661 7 DEBUG nc_stats.c:551 stats buffer size 20416
+2019-02-21 20:12:29.697683 3 ERROR nc_stats.c:1103 bind on m 7 to addr '127.0.0.1:7373' failed: Address already in use
+2019-02-21 20:12:29.697694 9 VVERB nc_util.c:299 free(0x82b1e0) @ nc_array.c:77
+2019-02-21 20:12:29.697699 9 VVERB nc_util.c:299 free(0x82cc90) @ nc_array.c:77
+2019-02-21 20:12:29.697702 9 VVERB nc_util.c:299 free(0x82c940) @ nc_array.c:77
+2019-02-21 20:12:29.697705 9 VVERB nc_util.c:299 free(0x82c5f0) @ nc_array.c:77
+2019-02-21 20:12:29.697710 9 VVERB nc_util.c:299 free(0x82c2a0) @ nc_array.c:77
+2019-02-21 20:12:29.697712 9 VVERB nc_util.c:299 free(0x82bf50) @ nc_array.c:77
+2019-02-21 20:12:29.697714 9 VVERB nc_util.c:299 free(0x82bc00) @ nc_array.c:77
+2019-02-21 20:12:29.697719 9 VVERB nc_util.c:299 free(0x82b8b0) @ nc_array.c:77
+2019-02-21 20:12:29.697722 9 VVERB nc_util.c:299 free(0x82b560) @ nc_array.c:77
+2019-02-21 20:12:29.697724 9 VVERB nc_util.c:299 free(0x82b2d0) @ nc_array.c:77
+2019-02-21 20:12:29.697729 10 VVVERB nc_stats.c:319 unmap 8 stats servers
+2019-02-21 20:12:29.697731 9 VVERB nc_util.c:299 free(0x8293e0) @ nc_array.c:77
+2019-02-21 20:12:29.697736 9 VVERB nc_util.c:299 free(0x82ae90) @ nc_array.c:77
+2019-02-21 20:12:29.697738 9 VVERB nc_util.c:299 free(0x82ab40) @ nc_array.c:77
+2019-02-21 20:12:29.697741 9 VVERB nc_util.c:299 free(0x82a7f0) @ nc_array.c:77
+2019-02-21 20:12:29.697745 9 VVERB nc_util.c:299 free(0x82a4a0) @ nc_array.c:77
+2019-02-21 20:12:29.697748 9 VVERB nc_util.c:299 free(0x82a150) @ nc_array.c:77
+2019-02-21 20:12:29.697750 9 VVERB nc_util.c:299 free(0x829e00) @ nc_array.c:77
+2019-02-21 20:12:29.697755 9 VVERB nc_util.c:299 free(0x829ab0) @ nc_array.c:77
+2019-02-21 20:12:29.697757 9 VVERB nc_util.c:299 free(0x829760) @ nc_array.c:77
+2019-02-21 20:12:29.697760 9 VVERB nc_util.c:299 free(0x8294d0) @ nc_array.c:77
+2019-02-21 20:12:29.697764 10 VVVERB nc_stats.c:319 unmap 8 stats servers
+2019-02-21 20:12:29.697767 9 VVERB nc_util.c:299 free(0x829330) @ nc_array.c:77
+2019-02-21 20:12:29.697769 10 VVVERB nc_stats.c:413 unmap 2 stats pool
+2019-02-21 20:12:29.697774 9 VVERB nc_util.c:299 free(0x827530) @ nc_array.c:77
+2019-02-21 20:12:29.697776 9 VVERB nc_util.c:299 free(0x828fe0) @ nc_array.c:77
+2019-02-21 20:12:29.697778 9 VVERB nc_util.c:299 free(0x828c90) @ nc_array.c:77
+2019-02-21 20:12:29.697783 9 VVERB nc_util.c:299 free(0x828940) @ nc_array.c:77
+2019-02-21 20:12:29.697785 9 VVERB nc_util.c:299 free(0x8285f0) @ nc_array.c:77
+2019-02-21 20:12:29.697792 9 VVERB nc_util.c:299 free(0x8282a0) @ nc_array.c:77
+2019-02-21 20:12:29.697794 9 VVERB nc_util.c:299 free(0x827f50) @ nc_array.c:77
+2019-02-21 20:12:29.697796 9 VVERB nc_util.c:299 free(0x827c00) @ nc_array.c:77
+2019-02-21 20:12:29.697801 9 VVERB nc_util.c:299 free(0x8278b0) @ nc_array.c:77
+2019-02-21 20:12:29.697805 9 VVERB nc_util.c:299 free(0x827620) @ nc_array.c:77
+2019-02-21 20:12:29.697808 10 VVVERB nc_stats.c:319 unmap 8 stats servers
+2019-02-21 20:12:29.697812 9 VVERB nc_util.c:299 free(0x81eca0) @ nc_array.c:77
+2019-02-21 20:12:29.697815 9 VVERB nc_util.c:299 free(0x8271e0) @ nc_array.c:77
+2019-02-21 20:12:29.697817 9 VVERB nc_util.c:299 free(0x826e90) @ nc_array.c:77
+2019-02-21 20:12:29.697822 9 VVERB nc_util.c:299 free(0x826b40) @ nc_array.c:77
+2019-02-21 20:12:29.697824 9 VVERB nc_util.c:299 free(0x8267f0) @ nc_array.c:77
+2019-02-21 20:12:29.697827 9 VVERB nc_util.c:299 free(0x81fa10) @ nc_array.c:77
+2019-02-21 20:12:29.697832 9 VVERB nc_util.c:299 free(0x81f6c0) @ nc_array.c:77
+2019-02-21 20:12:29.697834 9 VVERB nc_util.c:299 free(0x81f370) @ nc_array.c:77
+2019-02-21 20:12:29.697836 9 VVERB nc_util.c:299 free(0x81f020) @ nc_array.c:77
+2019-02-21 20:12:29.697841 9 VVERB nc_util.c:299 free(0x81ed90) @ nc_array.c:77
+2019-02-21 20:12:29.697843 10 VVVERB nc_stats.c:319 unmap 8 stats servers
+2019-02-21 20:12:29.697846 9 VVERB nc_util.c:299 free(0x81ebf0) @ nc_array.c:77
+2019-02-21 20:12:29.697850 10 VVVERB nc_stats.c:413 unmap 2 stats pool
+2019-02-21 20:12:29.697853 9 VVERB nc_util.c:299 free(0x81cdf0) @ nc_array.c:77
+2019-02-21 20:12:29.697855 9 VVERB nc_util.c:299 free(0x81e8a0) @ nc_array.c:77
+2019-02-21 20:12:29.697860 9 VVERB nc_util.c:299 free(0x81e550) @ nc_array.c:77
+2019-02-21 20:12:29.697862 9 VVERB nc_util.c:299 free(0x81e200) @ nc_array.c:77
+2019-02-21 20:12:29.697864 9 VVERB nc_util.c:299 free(0x81deb0) @ nc_array.c:77
+2019-02-21 20:12:29.697867 9 VVERB nc_util.c:299 free(0x81db60) @ nc_array.c:77
+2019-02-21 20:12:29.697870 9 VVERB nc_util.c:299 free(0x81d810) @ nc_array.c:77
+2019-02-21 20:12:29.697875 9 VVERB nc_util.c:299 free(0x81d4c0) @ nc_array.c:77
+2019-02-21 20:12:29.697877 9 VVERB nc_util.c:299 free(0x81d170) @ nc_array.c:77
+2019-02-21 20:12:29.697879 9 VVERB nc_util.c:299 free(0x81cee0) @ nc_array.c:77
+2019-02-21 20:12:29.697884 10 VVVERB nc_stats.c:319 unmap 8 stats servers
+2019-02-21 20:12:29.697886 9 VVERB nc_util.c:299 free(0x81aff0) @ nc_array.c:77
+2019-02-21 20:12:29.697889 9 VVERB nc_util.c:299 free(0x81caa0) @ nc_array.c:77
+2019-02-21 20:12:29.697894 9 VVERB nc_util.c:299 free(0x81c750) @ nc_array.c:77
+2019-02-21 20:12:29.697896 9 VVERB nc_util.c:299 free(0x81c400) @ nc_array.c:77
+2019-02-21 20:12:29.697898 9 VVERB nc_util.c:299 free(0x81c0b0) @ nc_array.c:77
+2019-02-21 20:12:29.697903 9 VVERB nc_util.c:299 free(0x81bd60) @ nc_array.c:77
+2019-02-21 20:12:29.697905 9 VVERB nc_util.c:299 free(0x81ba10) @ nc_array.c:77
+2019-02-21 20:12:29.697908 9 VVERB nc_util.c:299 free(0x81b6c0) @ nc_array.c:77
+2019-02-21 20:12:29.697913 9 VVERB nc_util.c:299 free(0x81b370) @ nc_array.c:77
+2019-02-21 20:12:29.697915 9 VVERB nc_util.c:299 free(0x81b0e0) @ nc_array.c:77
+2019-02-21 20:12:29.697917 10 VVVERB nc_stats.c:319 unmap 8 stats servers
+2019-02-21 20:12:29.697922 9 VVERB nc_util.c:299 free(0x81af40) @ nc_array.c:77
+2019-02-21 20:12:29.697924 10 VVVERB nc_stats.c:413 unmap 2 stats pool
+2019-02-21 20:12:29.697926 9 VVERB nc_util.c:299 free(0x82cfe0) @ nc_stats.c:561
+2019-02-21 20:12:29.697934 9 VVERB nc_util.c:299 free(0x81ad10) @ nc_stats.c:1255
+2019-02-21 20:12:29.697939 9 VVERB nc_util.c:299 free(0x820de0) @ nc_server.c:1482
+2019-02-21 20:12:29.697943 9 VVERB nc_util.c:299 free(0x8191b0) @ nc_array.c:77
+2019-02-21 20:12:29.697948 9 VVERB nc_util.c:299 free(0x818a60) @ nc_array.c:77
+2019-02-21 20:12:29.697950 9 VVERB nc_util.c:299 free(0x818310) @ nc_array.c:77
+2019-02-21 20:12:29.697952 9 VVERB nc_util.c:299 free(0x817bc0) @ nc_array.c:77
+2019-02-21 20:12:29.697955 9 VVERB nc_util.c:299 free(0x817470) @ nc_array.c:77
+2019-02-21 20:12:29.697957 9 VVERB nc_util.c:299 free(0x816d20) @ nc_array.c:77
+2019-02-21 20:12:29.697962 9 VVERB nc_util.c:299 free(0x8165d0) @ nc_array.c:77
+2019-02-21 20:12:29.697965 9 VVERB nc_util.c:299 free(0x815e80) @ nc_array.c:77
+2019-02-21 20:12:29.697967 9 VVERB nc_util.c:299 free(0x815730) @ nc_array.c:77
+2019-02-21 20:12:29.697969 7 DEBUG nc_server.c:1491 deinit pool 1 'HL_redis_chenjunjia'
+2019-02-21 20:12:29.697974 9 VVERB nc_util.c:299 free(0x814fe0) @ nc_array.c:77
+2019-02-21 20:12:29.697977 9 VVERB nc_util.c:299 free(0x814890) @ nc_array.c:77
+2019-02-21 20:12:29.697979 9 VVERB nc_util.c:299 free(0x814140) @ nc_array.c:77
+2019-02-21 20:12:29.697982 9 VVERB nc_util.c:299 free(0x8139f0) @ nc_array.c:77
+2019-02-21 20:12:29.698020 9 VVERB nc_util.c:299 free(0x8132a0) @ nc_array.c:77
+2019-02-21 20:12:29.698023 9 VVERB nc_util.c:299 free(0x812b50) @ nc_array.c:77
+2019-02-21 20:12:29.698025 9 VVERB nc_util.c:299 free(0x812400) @ nc_array.c:77
+2019-02-21 20:12:29.698031 9 VVERB nc_util.c:299 free(0x811cb0) @ nc_array.c:77
+2019-02-21 20:12:29.698034 9 VVERB nc_util.c:299 free(0x811560) @ nc_array.c:77
+2019-02-21 20:12:29.698036 7 DEBUG nc_server.c:1491 deinit pool 0 'sync_cache_peer'
+2019-02-21 20:12:29.698041 9 VVERB nc_util.c:299 free(0x80f400) @ nc_array.c:77
+2019-02-21 20:12:29.698043 7 DEBUG nc_server.c:1496 deinit 2 pools
+2019-02-21 20:12:29.698045 9 VVERB nc_util.c:299 free(0x80d1f0) @ nc_array.c:77
+2019-02-21 20:12:29.698063 9 VVERB nc_util.c:299 free(0x81fd70) @ nc_string.c:54
+2019-02-21 20:12:29.698074 9 VVERB nc_util.c:299 free(0x81fdb0) @ nc_string.c:54
+2019-02-21 20:12:29.698081 9 VVERB nc_util.c:299 free(0x81fd90) @ nc_string.c:54
+2019-02-21 20:12:29.698083 9 VVERB nc_util.c:299 free(0x80e0f0) @ nc_string.c:54
+2019-02-21 20:12:29.698085 9 VVERB nc_util.c:299 free(0x820590) @ nc_string.c:54
+2019-02-21 20:12:29.698088 9 VVERB nc_util.c:299 free(0x820530) @ nc_string.c:54
+2019-02-21 20:12:29.698090 9 VVERB nc_conf.c:210 deinit conf server 0x820318
+2019-02-21 20:12:29.698093 9 VVERB nc_util.c:299 free(0x820550) @ nc_string.c:54
+2019-02-21 20:12:29.698095 9 VVERB nc_util.c:299 free(0x8204f0) @ nc_string.c:54
+2019-02-21 20:12:29.698100 9 VVERB nc_conf.c:210 deinit conf server 0x820270
+2019-02-21 20:12:29.698103 9 VVERB nc_util.c:299 free(0x820510) @ nc_string.c:54
+2019-02-21 20:12:29.698106 9 VVERB nc_util.c:299 free(0x8204b0) @ nc_string.c:54
+2019-02-21 20:12:29.698111 9 VVERB nc_conf.c:210 deinit conf server 0x8201c8
+2019-02-21 20:12:29.698113 9 VVERB nc_util.c:299 free(0x8204d0) @ nc_string.c:54
+2019-02-21 20:12:29.698118 9 VVERB nc_util.c:299 free(0x820470) @ nc_string.c:54
+2019-02-21 20:12:29.698120 9 VVERB nc_conf.c:210 deinit conf server 0x820120
+2019-02-21 20:12:29.698122 9 VVERB nc_util.c:299 free(0x820490) @ nc_string.c:54
+2019-02-21 20:12:29.698125 9 VVERB nc_util.c:299 free(0x820430) @ nc_string.c:54
+2019-02-21 20:12:29.698128 9 VVERB nc_conf.c:210 deinit conf server 0x820078
+2019-02-21 20:12:29.698132 9 VVERB nc_util.c:299 free(0x820450) @ nc_string.c:54
+2019-02-21 20:12:29.698135 9 VVERB nc_util.c:299 free(0x8203f0) @ nc_string.c:54
+2019-02-21 20:12:29.698137 9 VVERB nc_conf.c:210 deinit conf server 0x81ffd0
+2019-02-21 20:12:29.698140 9 VVERB nc_util.c:299 free(0x820410) @ nc_string.c:54
+2019-02-21 20:12:29.698142 9 VVERB nc_util.c:299 free(0x81fe40) @ nc_string.c:54
+2019-02-21 20:12:29.698147 9 VVERB nc_conf.c:210 deinit conf server 0x81ff28
+2019-02-21 20:12:29.698150 9 VVERB nc_util.c:299 free(0x8203d0) @ nc_string.c:54
+2019-02-21 20:12:29.698153 9 VVERB nc_util.c:299 free(0x81fdd0) @ nc_string.c:54
+2019-02-21 20:12:29.698158 9 VVERB nc_conf.c:210 deinit conf server 0x81fe80
+2019-02-21 20:12:29.698161 9 VVERB nc_util.c:299 free(0x81fe80) @ nc_array.c:77
+2019-02-21 20:12:29.698164 9 VVERB nc_conf.c:365 deinit conf pool 0x80ebd8
+2019-02-21 20:12:29.698169 9 VVERB nc_util.c:299 free(0x80e110) @ nc_string.c:54
+2019-02-21 20:12:29.698171 9 VVERB nc_util.c:299 free(0x820b00) @ nc_string.c:54
+2019-02-21 20:12:29.698173 9 VVERB nc_util.c:299 free(0x820570) @ nc_string.c:54
+2019-02-21 20:12:29.698178 9 VVERB nc_util.c:299 free(0x81fdf0) @ nc_string.c:54
+2019-02-21 20:12:29.698181 9 VVERB nc_util.c:299 free(0x820dc0) @ nc_string.c:54
+2019-02-21 20:12:29.698183 9 VVERB nc_util.c:299 free(0x820d60) @ nc_string.c:54
+2019-02-21 20:12:29.698188 9 VVERB nc_conf.c:210 deinit conf server 0x820a48
+2019-02-21 20:12:29.698191 9 VVERB nc_util.c:299 free(0x820d80) @ nc_string.c:54
+2019-02-21 20:12:29.698193 9 VVERB nc_util.c:299 free(0x820d20) @ nc_string.c:54
+2019-02-21 20:12:29.698198 9 VVERB nc_conf.c:210 deinit conf server 0x8209a0
+2019-02-21 20:12:29.698200 9 VVERB nc_util.c:299 free(0x820d40) @ nc_string.c:54
+2019-02-21 20:12:29.698203 9 VVERB nc_util.c:299 free(0x820ce0) @ nc_string.c:54
+2019-02-21 20:12:29.698207 9 VVERB nc_conf.c:210 deinit conf server 0x8208f8
+2019-02-21 20:12:29.698211 9 VVERB nc_util.c:299 free(0x820d00) @ nc_string.c:54
+2019-02-21 20:12:29.698214 9 VVERB nc_util.c:299 free(0x820ca0) @ nc_string.c:54
+2019-02-21 20:12:29.698218 9 VVERB nc_conf.c:210 deinit conf server 0x820850
+2019-02-21 20:12:29.698222 9 VVERB nc_util.c:299 free(0x820cc0) @ nc_string.c:54
+2019-02-21 20:12:29.698225 9 VVERB nc_util.c:299 free(0x820c60) @ nc_string.c:54
+2019-02-21 20:12:29.698229 9 VVERB nc_conf.c:210 deinit conf server 0x8207a8
+2019-02-21 20:12:29.698233 9 VVERB nc_util.c:299 free(0x820c80) @ nc_string.c:54
+2019-02-21 20:12:29.698237 9 VVERB nc_util.c:299 free(0x820c20) @ nc_string.c:54
+2019-02-21 20:12:29.698240 9 VVERB nc_conf.c:210 deinit conf server 0x820700
+2019-02-21 20:12:29.698242 9 VVERB nc_util.c:299 free(0x820c40) @ nc_string.c:54
+2019-02-21 20:12:29.698247 9 VVERB nc_util.c:299 free(0x820be0) @ nc_string.c:54
+2019-02-21 20:12:29.698249 9 VVERB nc_conf.c:210 deinit conf server 0x820658
+2019-02-21 20:12:29.698251 9 VVERB nc_util.c:299 free(0x820b20) @ nc_string.c:54
+2019-02-21 20:12:29.698254 9 VVERB nc_util.c:299 free(0x820b90) @ nc_string.c:54
+2019-02-21 20:12:29.698256 9 VVERB nc_conf.c:210 deinit conf server 0x8205b0
+2019-02-21 20:12:29.698260 9 VVERB nc_util.c:299 free(0x8205b0) @ nc_array.c:77
+2019-02-21 20:12:29.698263 9 VVERB nc_conf.c:365 deinit conf pool 0x80eab0
+2019-02-21 20:12:29.698265 9 VVERB nc_util.c:299 free(0x80eab0) @ nc_array.c:77
+2019-02-21 20:12:29.698268 9 VVERB nc_util.c:299 free(0x80e7b0) @ nc_conf.c:1601
+2019-02-21 20:12:29.698271 9 VVERB nc_util.c:299 free(0x80e4b0) @ nc_core.c:109
+2019-02-21 20:12:29.698311 0 SPECIAL nc.c:223 done, rabbit done
+
+
+
+
+
+---------------------------redis-cli set key 6MxRM ----------------------------
+
+
+
+
+
+2019-02-21 20:36:55.031072 9 VVERB nc_epoll.c:303 epoll 0001 triggered on conn 0x23eca70
+2019-02-21 20:36:55.031108 9 VVERB nc_core.c:397 event 00FF on p 27
+2019-02-21 20:36:55.031124 9 VVERB nc_client.c:46 ref conn 0x23ebb70 owner 0x23c64a8 into pool 'HL_redis_chenjunjia'
+2019-02-21 20:36:55.031128 9 VVERB nc_connection.c:238 get conn 0x23ebb70 client 1
+2019-02-21 20:36:55.031132 10 VVVERB nc_stats.c:1343 metric 'client_connections' in pool 1
+2019-02-21 20:36:55.031135 10 VVVERB nc_stats.c:1360 incr field 'client_connections' to 1
+2019-02-21 20:36:55.031149 5 NOTICE nc_proxy.c:418 accepted c 11 on p 27 from '10.91.50.123:59524'
+2019-02-21 20:36:55.031159 8 VERB nc_proxy.c:318 accept on p 27 not ready - eagain
+2019-02-21 20:36:55.031169 9 VVERB nc_epoll.c:303 epoll 0004 triggered on conn 0x23ebb70
+2019-02-21 20:36:55.031172 9 VVERB nc_core.c:397 event FF00 on c 11
+2019-02-21 20:36:55.031248 9 VVERB nc_epoll.c:303 epoll 0001 triggered on conn 0x23ebb70
+2019-02-21 20:36:55.031276 9 VVERB nc_core.c:397 event 00FF on c 11
+2019-02-21 20:36:55.031281 9 VVERB nc_message.c:324 get msg 0x23ecbf0 id 48 request 1 owner sd 11
+2019-02-21 20:36:55.031285 9 VVERB nc_mbuf.c:112 get mbuf 0x23ed518
+2019-02-21 20:36:55.031287 9 VVERB nc_mbuf.c:208 insert mbuf 0x23ed518 len 0
+2019-02-21 20:36:55.031295 8 VERB nc_connection.c:389 recv on sd 11 57 of 1992
+2019-02-21 20:36:55.031299 8 VERB nc_redis.c:1017 parsed command 'SET'
+2019-02-21 20:36:55.031303 8 VERB nc_redis.c:1588 parsed req 48 res 0 type 51 state 0 rpos 57 of 57
+2019-02-21 20:36:55.031310 8 VERB nc_redis.c:1588 DUMP 00000000  2a 33 0d 0a 24 33 0d 0a  53 45 54 0d 0a 24 31 30   |*3..$3..SET..$10|
+2019-02-21 20:36:55.031316 8 VERB nc_redis.c:1588 DUMP 00000010  0d 0a 69 36 37 6c 42 4f  79 58 56 38 0d 0a 24 32   |..i67lBOyXV8..$2|
+2019-02-21 20:36:55.031321 8 VERB nc_redis.c:1588 DUMP 00000020  30 0d 0a 59 32 58 55 56  41 66 7a 6b 37 6b 68 53   |0..Y2XUVAfzk7khS|
+2019-02-21 20:36:55.031327 8 VERB nc_redis.c:1588 DUMP 00000030  46 4c 33 67 42 75 35 0d  0a                        |FL3gBu5..|
+2019-02-21 20:36:55.031332 8 VERB nc_server.c:877 key 'i67lBOyXV8' on dist 0 maps to server '10.224.5.194:5054:1'
+2019-02-21 20:36:55.031335 6 INFO nc_server.c:1204 get server 10.224.5.194:5054:1 for key:i67lBOyXV8
+2019-02-21 20:36:55.031338 4 WARN nc_server.c:946 no server for write request in pool 'HL_redis_chenjunjia'
+2019-02-21 20:36:55.031343 6 INFO nc_request.c:594 forward req 48 len 57 type 51 from c 11 failed: Resource temporarily unavailable
+2019-02-21 20:36:55.031349 9 VVERB nc_epoll.c:303 epoll 0004 triggered on conn 0x23ebb70
+2019-02-21 20:36:55.031351 9 VVERB nc_core.c:397 event FF00 on c 11
+2019-02-21 20:36:55.031354 9 VVERB nc_mbuf.c:112 get mbuf 0x23efd88
+2019-02-21 20:36:55.031357 9 VVERB nc_mbuf.c:208 insert mbuf 0x23efd88 len 0
+2019-02-21 20:36:55.031359 9 VVERB nc_message.c:358 get msg 0x23ef460 id 49 len 39 error 'Resource temporarily unavailable'
+2019-02-21 20:36:55.031362 10 VVVERB nc_stats.c:1343 metric 'forward_error' in pool 1
+2019-02-21 20:36:55.031364 10 VVVERB nc_stats.c:1360 incr field 'forward_error' to 1
+2019-02-21 20:36:55.031367 9 VVERB nc_response.c:613 send next rsp 49 on c 11
+2019-02-21 20:36:55.031383 8 VERB nc_connection.c:440 sendv on sd 11 39 of 39 in 1 buffers
+2019-02-21 20:36:55.031386 9 VVERB nc_response.c:626 send done rsp 49 on c 11
+2019-02-21 20:36:55.031389 9 VVERB nc_message.c:408 put msg 0x23ef460 id 49
+2019-02-21 20:36:55.031391 9 VVERB nc_mbuf.c:217 remove mbuf 0x23efd88 len 0
+2019-02-21 20:36:55.031393 9 VVERB nc_mbuf.c:134 put mbuf 0x23efd88 len 0
+2019-02-21 20:36:55.031395 9 VVERB nc_message.c:408 put msg 0x23ecbf0 id 48
+2019-02-21 20:36:55.031397 9 VVERB nc_mbuf.c:217 remove mbuf 0x23ed518 len 57
+2019-02-21 20:36:55.031399 9 VVERB nc_mbuf.c:134 put mbuf 0x23ed518 len 57
+2019-02-21 20:36:55.076834 9 VVERB nc_epoll.c:303 epoll 0001 triggered on conn 0x23ebb70
+2019-02-21 20:36:55.076875 9 VVERB nc_core.c:397 event 00FF on c 11
+2019-02-21 20:36:55.076880 9 VVERB nc_message.c:324 get msg 0x23ecbf0 id 50 request 1 owner sd 11
+2019-02-21 20:36:55.076884 9 VVERB nc_mbuf.c:112 get mbuf 0x23ed518
+2019-02-21 20:36:55.076887 9 VVERB nc_mbuf.c:208 insert mbuf 0x23ed518 len 0
+2019-02-21 20:36:55.076893 8 VERB nc_connection.c:389 recv on sd 11 0 of 1992
+2019-02-21 20:36:55.076896 6 INFO nc_connection.c:403 recv on sd 11 eof rb 57 sb 39
+2019-02-21 20:36:55.076899 8 VERB nc_request.c:548 filter empty req 50 from c 11
+2019-02-21 20:36:55.076902 9 VVERB nc_message.c:408 put msg 0x23ecbf0 id 50
+2019-02-21 20:36:55.076904 9 VVERB nc_mbuf.c:217 remove mbuf 0x23ed518 len 0
+2019-02-21 20:36:55.076906 9 VVERB nc_mbuf.c:134 put mbuf 0x23ed518 len 0
+2019-02-21 20:36:55.076909 6 INFO nc_request.c:356 c 11 is done
+2019-02-21 20:36:55.076916 5 NOTICE nc_core.c:259 close c 11 '10.91.50.123:59524' on event 00FF eof 1 done 1 rb 57 sb 39  
+2019-02-21 20:36:55.076923 10 VVVERB nc_stats.c:1343 metric 'client_connections' in pool 1
+2019-02-21 20:36:55.076925 10 VVVERB nc_stats.c:1375 decr field 'client_connections' to -1
+2019-02-21 20:36:55.076928 10 VVVERB nc_stats.c:1343 metric 'client_eof' in pool 1
+2019-02-21 20:36:55.076930 10 VVVERB nc_stats.c:1360 incr field 'client_eof' to 1
+2019-02-21 20:36:55.076933 9 VVERB nc_client.c:65 unref conn 0x23ebb70 owner 0x23c64a8 from pool 'HL_redis_chenjunjia'
+2019-02-21 20:36:55.076961 9 VVERB nc_connection.c:344 put conn 0x23ebb70
+
+
+
+/data00/home/chenjunjia/software/cache_manager/bin/twemproxy-1.5.0 -c ~/twemproxy-master.conf -o ~/bug_moved/conf/Cluster0/Tproxy/twemproxy-master.log -s 9393 -a 127.0.0.1 -i 1000 -v 10 -m 2048 -C twemproxy_redis_wlz_stress_lf -L 16 -l 20 -r 100 -T 0 -R -N &

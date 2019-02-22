@@ -1,0 +1,110 @@
+MAINTAINERCLEANFILES = Makefile.in
+
+AM_CPPFLAGS =
+if !OS_SOLARIS
+AM_CPPFLAGS += -D_GNU_SOURCE
+endif
+AM_CPPFLAGS += -I $(top_srcdir)/src/hashkit
+AM_CPPFLAGS += -I $(top_srcdir)/src/proto
+AM_CPPFLAGS += -I $(top_srcdir)/src/event
+AM_CPPFLAGS += -I $(top_srcdir)/src/buildinfo
+AM_CPPFLAGS += -I $(top_srcdir)/contrib/yaml-0.1.4/include
+AM_CPPFLAGS += -I $(top_srcdir)/src/crypto
+AM_CPPFLAGS += $(LIBMETRIC_CFLAGS)
+
+AM_CFLAGS =
+AM_CFLAGS += -Wall -Wshadow
+AM_CFLAGS += -Wpointer-arith
+AM_CFLAGS += -Winline
+AM_CFLAGS += -Wunused-function -Wunused-variable -Wunused-value
+AM_CFLAGS += -Wno-unused-parameter -Wno-unused-value
+AM_CFLAGS += -Wconversion -Wsign-compare
+AM_CFLAGS += -Wstrict-prototypes -Wmissing-prototypes -Wredundant-decls -Wmissing-declarations
+
+AM_LDFLAGS =
+AM_LDFLAGS += -lm -lpthread -rdynamic
+AM_LDFLAGS += $(LIBMETRIC_LIBS)
+if OS_SOLARIS
+AM_LDFLAGS += -lnsl -lsocket
+endif
+
+SUBDIRS = hashkit proto event buildinfo
+
+sbin_PROGRAMS = nutcracker key_distribute
+
+nutcracker_SOURCES =			\
+	nc_core.c nc_core.h		\
+	nc_connection.c nc_connection.h	\
+	nc_client.c nc_client.h		\
+	nc_server.c nc_server.h		\
+	nc_proxy.c nc_proxy.h		\
+	nc_manage.c nc_manage.h     \
+	nc_migrate.c nc_migrate.h	\
+	nc_message.c nc_message.h	\
+	nc_request.c			\
+	nc_response.c			\
+	nc_slot.c nc_slot.h		\
+	nc_redis_cluster.c nc_redis_cluster.h		\
+	nc_mbuf.c nc_mbuf.h		\
+	nc_conf.c nc_conf.h		\
+	nc_stats.c nc_stats.h		\
+	nc_signal.c nc_signal.h		\
+	nc_rbtree.c nc_rbtree.h		\
+	nc_hash_table.c nc_hash_table.h		\
+	nc_log.c nc_log.h		\
+	nc_string.c nc_string.h		\
+	nc_array.c nc_array.h		\
+	nc_util.c nc_util.h		\
+	nc_queue.h			\
+	nc_blacklist.h nc_blacklist.c	\
+	nc_metric.h nc_metric.c \
+	nc_route.h nc_route.c \
+	extern/crc32.h extern/crc32.c  \
+	nc.c cJSON.c chromiumbase64.c \
+	gdpr.c
+
+nutcracker_LDADD = $(top_builddir)/src/hashkit/libhashkit.a
+nutcracker_LDADD += $(top_builddir)/src/proto/libproto.a
+nutcracker_LDADD += $(top_builddir)/src/event/libevent.a
+nutcracker_LDADD += $(top_builddir)/src/buildinfo/buildinfo.o
+nutcracker_LDADD += $(top_builddir)/contrib/yaml-0.1.4/src/.libs/libyaml.a
+nutcracker_LDADD += $(top_builddir)/src/crypto/libcrypto.a
+
+key_distribute_SOURCES =			\
+	nc_core.c nc_core.h		\
+	nc_connection.c nc_connection.h	\
+	nc_client.c nc_client.h		\
+	nc_server.c nc_server.h		\
+	nc_proxy.c nc_proxy.h		\
+	nc_manage.c nc_manage.h     \
+	nc_migrate.c nc_migrate.h	\
+	nc_message.c nc_message.h	\
+	nc_request.c			\
+	nc_response.c			\
+	nc_slot.c nc_slot.h		\
+	nc_redis_cluster.c nc_redis_cluster.h		\
+	nc_mbuf.c nc_mbuf.h		\
+	nc_conf.c nc_conf.h		\
+	nc_stats.c nc_stats.h		\
+	nc_signal.c nc_signal.h		\
+	nc_rbtree.c nc_rbtree.h		\
+	nc_hash_table.c nc_hash_table.h		\
+	nc_log.c nc_log.h		\
+	nc_string.c nc_string.h		\
+	nc_array.c nc_array.h		\
+	nc_util.c nc_util.h		\
+	nc_queue.h			\
+	nc_blacklist.h nc_blacklist.c	\
+	nc_metric.h nc_metric.c \
+	nc_route.h nc_route.c \
+	extern/crc32.h extern/crc32.c \
+	tool/key_distribute.c cJSON.c \
+	gdpr.c chromiumbase64.c
+
+
+key_distribute_LDADD = $(top_builddir)/src/hashkit/libhashkit.a
+key_distribute_LDADD += $(top_builddir)/src/proto/libproto.a
+key_distribute_LDADD += $(top_builddir)/src/event/libevent.a
+key_distribute_LDADD += $(top_builddir)/src/buildinfo/buildinfo.o
+key_distribute_LDADD += $(top_builddir)/contrib/yaml-0.1.4/src/.libs/libyaml.a
+key_distribute_LDADD += $(top_builddir)/src/crypto/libcrypto.a
