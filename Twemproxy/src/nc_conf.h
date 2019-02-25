@@ -81,6 +81,7 @@ struct conf_listen {
     unsigned        valid:1; /* valid? */
 };
 
+// 配置文件里的servers, 各个节点
 struct conf_server {
     struct string   pname;      /* server: as "name:port:weight" */
     struct string   name;       /* name */

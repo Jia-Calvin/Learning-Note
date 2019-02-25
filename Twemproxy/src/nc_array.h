@@ -24,10 +24,10 @@ typedef int (*array_compare_t)(const void *, const void *);
 typedef rstatus_t (*array_each_t)(void *, void *);
 
 struct array {
-    uint32_t nelem;  /* # element */
-    void     *elem;  /* element */
-    size_t   size;   /* element size */
-    uint32_t nalloc; /* # allocated element */
+    uint32_t nelem;  /* 已记录了元素的个数 */
+    void     *elem;  /* 元素内存空间的起始指针 */
+    size_t   size;   /* 每一个元素的大小，每个元素大小必须相等 */
+    uint32_t nalloc; /* 已申请的内存空间大小，size的个数 */
 };
 
 #define null_array { 0, NULL, 0, 0 }
