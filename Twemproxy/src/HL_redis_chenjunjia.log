@@ -629,9 +629,11 @@
                             //  server_pool_init 结束
 
 
-
+                            // stats_create(nci->stats_port, nci->stats_addr, nci->stats_interval, nci->hostname, &ctx->pool);
 2019-02-22 18:33:49.461146 5 NOTICE nc_core.c:42 current rlimit nofile 1024768, max_nsconn 18, max_ncconn 1024718
 2019-02-22 18:33:49.461148 9 VVERB nc_util.c:253 malloc(544) at 0x893d10 @ nc_stats.c:1159
+
+                            // stats_pool_map(&st->current, server_pool)
 2019-02-22 18:33:49.461153 9 VVERB nc_util.c:253 malloc(160) at 0x893f40 @ nc_array.c:59
 2019-02-22 18:33:49.461156 9 VVERB nc_util.c:253 malloc(224) at 0x893ff0 @ nc_array.c:59
 2019-02-22 18:33:49.461162 9 VVERB nc_util.c:253 malloc(640) at 0x8940e0 @ nc_array.c:59
@@ -674,6 +676,8 @@
 2019-02-22 18:33:49.461288 10 VVVERB nc_stats.c:301 map 8 stats servers
 2019-02-22 18:33:49.461293 10 VVVERB nc_stats.c:344 init stats pool 'HL_redis_chenjunjia' with 7 metric and 7 server
 2019-02-22 18:33:49.461296 10 VVVERB nc_stats.c:394 map 2 stats pools
+
+                            //  stats_pool_map(&st->shadow, server_pool)
 2019-02-22 18:33:49.461298 9 VVERB nc_util.c:253 malloc(160) at 0x897bf0 @ nc_array.c:59
 2019-02-22 18:33:49.461301 9 VVERB nc_util.c:253 malloc(224) at 0x897ca0 @ nc_array.c:59
 2019-02-22 18:33:49.461303 9 VVERB nc_util.c:253 malloc(640) at 0x897d90 @ nc_array.c:59
@@ -716,6 +720,9 @@
 2019-02-22 18:33:49.461441 10 VVVERB nc_stats.c:301 map 8 stats servers
 2019-02-22 18:33:49.461443 10 VVVERB nc_stats.c:344 init stats pool 'HL_redis_chenjunjia' with 7 metric and 7 server
 2019-02-22 18:33:49.461446 10 VVVERB nc_stats.c:394 map 2 stats pools
+
+
+                            //  stats_pool_map(&st->sum, server_pool)
 2019-02-22 18:33:49.461448 9 VVERB nc_util.c:253 malloc(160) at 0x8a2330 @ nc_array.c:59
 2019-02-22 18:33:49.461453 9 VVERB nc_util.c:253 malloc(224) at 0x8a23e0 @ nc_array.c:59
 2019-02-22 18:33:49.461456 9 VVERB nc_util.c:253 malloc(640) at 0x8a24d0 @ nc_array.c:59
@@ -758,12 +765,20 @@
 2019-02-22 18:33:49.461592 10 VVVERB nc_stats.c:301 map 8 stats servers
 2019-02-22 18:33:49.461594 10 VVVERB nc_stats.c:344 init stats pool 'HL_redis_chenjunjia' with 7 metric and 7 server
 2019-02-22 18:33:49.461599 10 VVVERB nc_stats.c:394 map 2 stats pools
+
+
+                            //  stats_create_buf(st) 开始
 2019-02-22 18:33:49.461605 9 VVERB nc_util.c:253 malloc(20416) at 0x8a5fe0 @ nc_stats.c:543
 2019-02-22 18:33:49.461611 7 DEBUG nc_stats.c:551 stats buffer size 20416
 2019-02-22 18:33:49.461633 5 NOTICE nc_stats.c:1114 m 7 listening on '127.0.0.1:7373'
+
+                            //  event_base_create(EVENT_SIZE, &core_core, num_signals, signals, &signal_handler);
 2019-02-22 18:33:49.461668 9 VVERB nc_util.c:253 malloc(12288) at 0x8ab0e0 @ nc_epoll.c:75
 2019-02-22 18:33:49.461679 9 VVERB nc_util.c:253 malloc(48) at 0x886310 @ nc_epoll.c:84
 2019-02-22 18:33:49.461688 6 INFO nc_epoll.c:111 e 8 with nevent 1024
+
+
+                            //  server_pool_preconnect(ctx)
 2019-02-22 18:33:49.461694 9 VVERB nc_util.c:253 malloc(368) at 0x8ae0f0 @ nc_connection.c:121
 2019-02-22 18:33:49.461696 9 VVERB nc_server.c:55 ref conn 0x8ae0f0 owner 0x88a560 into '10.224.5.194:8050:1
 2019-02-22 18:33:49.461703 9 VVERB nc_connection.c:238 get conn 0x8ae0f0 client 0
@@ -844,21 +859,26 @@
 2019-02-22 18:33:49.462409 9 VVERB nc_connection.c:238 get conn 0x8af770 client 0
 2019-02-22 18:33:49.462411 9 VVERB nc_server.c:668 connect to server '10.224.5.194:5057:1'
 2019-02-22 18:33:49.462434 7 DEBUG nc_server.c:716 connecting on s 26 to server '10.224.5.194:5057:1'
+
+
+                            //  proxy_init(ctx);
 2019-02-22 18:33:49.462440 9 VVERB nc_util.c:253 malloc(368) at 0x8af8f0 @ nc_connection.c:121
 2019-02-22 18:33:49.462443 9 VVERB nc_client.c:46 ref conn 0x8af8f0 owner 0x888400 into pool 'sync_cache_peer'
 2019-02-22 18:33:49.462446 9 VVERB nc_connection.c:238 get conn 0x8af8f0 client 1
+
 2019-02-22 18:33:49.462448 9 VVERB nc_util.c:253 malloc(368) at 0x8afa70 @ nc_connection.c:121
 2019-02-22 18:33:49.462450 9 VVERB nc_proxy.c:42 ref conn 0x8afa70 owner 0x8894a8 into pool 1
 2019-02-22 18:33:49.462455 9 VVERB nc_connection.c:285 get conn 0x8afa70 proxy 1
 2019-02-22 18:33:49.462466 5 NOTICE nc_proxy.c:242 p 27 listening on '10.224.5.194:3737' in redis pool 1 'HL_redis_chenjunjia' with 8 servers
 2019-02-22 18:33:49.462471 9 VVERB nc_proxy.c:261 init proxy with 2 pools
+
 2019-02-22 18:33:49.462474 9 VVERB nc_core.c:156 created ctx 0x8874b0 id 1
+                            //  core_start(nci) 结束
 
 
-
-
+                            //  core_loop(ctx) 开始
 2019-02-22 18:33:49.462481 9 VVERB nc_epoll.c:303 epoll 0004 triggered on conn 0x8ae0f0
-2019-02-22 18:33:49.462487 9 VVERB nc_core.c:397 event FF00 on s 11
+2019-02-22 18:33:49.462487 9 VVERB nc_core.c:397 event FF00 on s 11  -> FF00 = 65280 = EVENT_WRITE
 2019-02-22 18:33:49.462493 10 VVVERB nc_stats.c:1444 metric 'server_connections' in pool 0 server 0
 2019-02-22 18:33:49.462498 10 VVVERB nc_stats.c:1461 incr field 'server_connections' to 1
 2019-02-22 18:33:49.462501 6 INFO nc_server.c:750 connected on s 11 to server '10.224.5.194:8050:1'
@@ -877,6 +897,9 @@
 2019-02-22 18:33:49.462548 10 VVVERB nc_stats.c:1444 metric 'server_connections' in pool 0 server 3
 2019-02-22 18:33:49.462553 10 VVVERB nc_stats.c:1461 incr field 'server_connections' to 1
 2019-02-22 18:33:49.462555 6 INFO nc_server.c:750 connected on s 14 to server '10.224.5.194:8053:1'
+
+
+                            // slave的点，似乎同样处理
 2019-02-22 18:33:49.462561 9 VVERB nc_epoll.c:303 epoll 0004 triggered on conn 0x8ae6f0
 2019-02-22 18:33:49.462563 9 VVERB nc_core.c:397 event FF00 on s 15
 2019-02-22 18:33:49.462566 10 VVVERB nc_stats.c:1444 metric 'server_connections' in pool 0 server 4
@@ -956,6 +979,7 @@
 2019-02-22 18:38:32.841330 9 VVERB nc_epoll.c:303 epoll 0005 triggered on conn 0x8afbf0
 2019-02-22 18:38:32.841333 9 VVERB nc_core.c:397 event FFFF on c 28
 2019-02-22 18:38:32.841338 9 VVERB nc_message.c:324 get msg 0x8b2760 id 38 request 1 owner sd 28
+                            //  msg_recv_chain
 2019-02-22 18:38:32.841342 9 VVERB nc_mbuf.c:112 get mbuf 0x8b3088
 2019-02-22 18:38:32.841346 9 VVERB nc_mbuf.c:208 insert mbuf 0x8b3088 len 0
 2019-02-22 18:38:32.841353 8 VERB nc_connection.c:389 recv on sd 28 45 of 1992
@@ -1005,3 +1029,10 @@
 
 
 /data00/home/chenjunjia/software/cache_manager/bin/twemproxy-1.5.0 -c ~/twemproxy-master.conf -o ~/bug_moved/conf/Cluster0/Tproxy/twemproxy-master.log -s 9393 -a 127.0.0.1 -i 1000 -v 10 -m 2048 -C twemproxy_redis_wlz_stress_lf -L 16 -l 20 -r 100 -T 0 -R -N &
+
+
+run -c /data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunjia.yaml -o /data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunjia.log -p /data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunjia.pid -s 7373 -a 127.0.0.1 -i 1000 -v 10 -m 2048 -C HL_redis_chenjunjia -L 16 -T 0 -R -N
+
+
+b nc_epoll.c:297
+b nc_message.c:754

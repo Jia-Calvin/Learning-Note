@@ -307,6 +307,7 @@ proxy_accept(struct context *ctx, struct conn *p)
     ASSERT(p->recv_active && p->recv_ready);
 
     for (;;) {
+        // 接受连接，对返回的客户协议地址不感兴趣，全设置为NULL了
         sd = accept(p->sd, NULL, NULL);
         if (sd < 0) {
             if (errno == EINTR) {
@@ -351,6 +352,7 @@ proxy_accept(struct context *ctx, struct conn *p)
             return NC_ERROR;
         }
         addr_len = sizeof(addr);
+        // 获取客户的名字 getsockname
         if (getsockname(sd, (struct sockaddr *)&addr, &addr_len)) {
             log_error("getsockname on p %d failed: %s", p->sd, strerror(errno));
             close(sd);

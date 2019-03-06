@@ -600,11 +600,14 @@ nc_pre_run(struct instance *nci)
 {
     rstatus_t status;
 
+    // 信号初始化，这里指定了对什么信号要进行处理
+    // 信号列表放在了signals[]里
     status = signal_init();
     if (status != NC_OK) {
         return status;
     }
 
+    // log的初始化
     status = log_init(nci->log_level, nci->log_filename, nci->log_limit,
                       nci->log_access_sampling);
     if (status != NC_OK) {
@@ -666,8 +669,10 @@ static void
 nc_run(struct instance *nci)
 {
     rstatus_t status;
+    // 申明对应的上下文
     struct context *ctx;
 
+    // 创建上下文ctx，包括里面的所有服务池的初始化
     ctx = core_start(nci);
     if (ctx == NULL) {
         return;

@@ -21,7 +21,7 @@
 #include <nc_core.h>
 #include <nc_signal.h>
 
-// 对这些信号进行掩蔽？mask 信号掩码
+// 需要处理的信号集合
 const int signals[] = {
     SIGUSR1, SIGUSR2, SIGTTIN, SIGTTOU, SIGINT,
 };
@@ -61,9 +61,11 @@ signal_init(void)
         return NC_ERROR;
     }
 
-    // 初始化由 mask 指定的信号集，信号集里面的所有信号被清空
+    // 初始化由 mask 指定的信号集
+    // 信号集里面的所有信号被清空
     sigemptyset(&mask);
     for (i = 0; i < sizeof(signals) / sizeof(signals[0]); ++i) {
+        // 将signals中所有信号添加到mask中，需要处理的信号
         sigaddset(&mask, signals[i]);
     }
     // 可以使用pthread_sigmask函数来屏蔽某个线程对某些信号的
@@ -82,6 +84,8 @@ signal_deinit(void)
 {
 }
 
+
+// 信号处理函数，对每种信号的发生都需要处理，如果不处理则会中断整个进程
 void
 signal_handler(int signo)
 {

@@ -1389,6 +1389,7 @@ req_send_next(struct context *ctx, struct conn *conn)
     rstatus_t status;
     struct msg *msg, *nmsg; /* current and next message */
 
+    // 意味着这个函数不是给client以及proxy用的
     ASSERT(!conn->client && !conn->proxy);
 
     if (conn->connecting) {

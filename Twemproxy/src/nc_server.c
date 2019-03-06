@@ -362,7 +362,7 @@ server_conn2(struct server *server, bool is_read)
     TAILQ_INSERT_TAIL(s_conn_q, conn, conn_tqe);
 
     /* update owner */
-    conn->owner = server;
+    con->owner = server;
 
     return conn;
 }

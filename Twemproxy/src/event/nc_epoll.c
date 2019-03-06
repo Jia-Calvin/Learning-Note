@@ -18,7 +18,6 @@
 #include <nc_core.h>
 #include <signal.h>
 
-#ifdef NC_HAVE_EPOLL
 
 #include <sys/epoll.h>
 #include <sys/signalfd.h>
@@ -29,21 +28,28 @@ static int create_signal_fd(int ep, int num_signals, const int *signals)
 {
     sigset_t mask;
     int i, fd;
+    // epoll_event 结构体包含了 events 和 data
     struct epoll_event event;
 
+    // 将maks里面的信号集合设置成signals
     sigemptyset(&mask);
     for (i = 0; i < num_signals; ++i) {
         sigaddset(&mask, signals[i]);
     }
 
+    // signalfd可以将信号抽象为一个文件描述符，当有信号发生时可以对其read，这样可以将信号的监听放到 select、poll、epoll 等监听队列中。
     fd = signalfd(-1, &mask, SFD_CLOEXEC | SFD_NONBLOCK);
     if (fd < 0) {
         log_error("failed to signalfd: %s", strerror(errno));
         goto err;
     }
 
+    // EPOLLET： 将EPOLL设为边缘触发(Edge Triggered)模式，这是相对于水平触发(Level Triggered)来说的。
+    // EPOLLIN ：表示对应的文件描述符可以读（包括对端SOCKET正常关闭）
     event.events = EPOLLIN | EPOLLET;
     event.data.ptr = &signal_data;
+    // epoll_ctl第二个参数，表示op操作，用三个宏来表示：添加EPOLL_CTL_ADD，删除EPOLL_CTL_DEL，修改EPOLL_CTL_MOD。分别添加、删除和修改对fd的监听事件。
+    // 实则是将信号事情放入epoll队列里，也就是要监听这些信号的发生
     if (epoll_ctl(ep, EPOLL_CTL_ADD, fd, &event)) {
         log_error("failed to epoll_ctl: %s", strerror(errno));
         goto err2;
@@ -66,12 +72,14 @@ event_base_create(int nevent, event_cb_t cb, int num_signals,
 
     ASSERT(nevent > 0);
 
+    // 调用系统函数epoll_create创建epoll的描述符
     ep = epoll_create(nevent);
     if (ep < 0) {
         log_error("epoll create of size %d failed: %s", nevent, strerror(errno));
         return NULL;
     }
-
+    // 申请event的空间, nevent = 1024，多成员，1024个event指针
+    // 实则是数据指针？
     event = nc_calloc(nevent, sizeof(*event));
     if (event == NULL) {
         status = close(ep);
@@ -81,6 +89,7 @@ event_base_create(int nevent, event_cb_t cb, int num_signals,
         return NULL;
     }
 
+    // 申请evb的空间
     evb = nc_alloc(sizeof(*evb));
     if (evb == NULL) {
         nc_free(event);
@@ -94,8 +103,12 @@ event_base_create(int nevent, event_cb_t cb, int num_signals,
     evb->ep = ep;
     evb->event = event;
     evb->nevent = nevent;
+
+    // 这里还没有调用，只是将函数core_core地址给了它
     evb->cb = cb;
 
+    // 创建信号描述符，放入了epoll->ep队列中，意味着需要监听这些信号
+    // 当然在发生时也需要处理这些信号
     evb->signal_fd = create_signal_fd(ep, num_signals, signals);
     if (evb->signal_fd < 0) {
         nc_free(evb);
@@ -218,13 +231,16 @@ event_del_out(struct event_base *evb, struct conn *c)
     }
 
     event.events = (uint32_t)(EPOLLIN | EPOLLET);
+    // 事件 返回的数据 指向 conn
     event.data.ptr = c;
 
+    // EPOLL_CTL_MOD, modify 修改 sd 的监听事件（修改为监听in以及ET模式）
     status = epoll_ctl(ep, EPOLL_CTL_MOD, c->sd, &event);
     if (status < 0) {
         log_error("epoll ctl on e %d sd %d failed: %s", ep, c->sd,
                   strerror(errno));
     } else {
+        // 将其发送修改为不活跃，此时在监听in事件
         c->send_active = 0;
     }
 
@@ -293,6 +309,7 @@ event_wait(struct event_base *evb, int timeout)
     for (;;) {
         int i, nsd;
 
+        // 等待epfd上的io事件，参数events用来从内核得到事件的集合
         nsd = epoll_wait(ep, event, nevent, timeout);
         if (nsd > 0) {
             for (i = 0; i < nsd; i++) {
@@ -310,10 +327,13 @@ event_wait(struct event_base *evb, int timeout)
                     events |= EVENT_READ;
                 }
 
+                //  ev->events = 0004, events = 65280
                 if (ev->events & EPOLLOUT) {
                     events |= EVENT_WRITE;
                 }
 
+                // 判断数据是否是signals里面的信号集合
+                // 在赋予signals的event时，其data是用静态变量signal_data给予地址的
                 if (ev->data.ptr == &signal_data) {
                     struct signalfd_siginfo fdsi;
                     ssize_t s;
@@ -330,6 +350,8 @@ event_wait(struct event_base *evb, int timeout)
                         evb->signal_handler(fdsi.ssi_signo);
                     }
                 } else if (evb->cb != NULL) {
+                    // 调用core_core函数，一开始赋予evb的
+                    // 传入epoll的 数据返回参数 以及 事件返回参数
                     evb->cb(ev->data.ptr, events);
                 }
             }
@@ -405,4 +427,3 @@ error:
     ep = -1;
 }
 
-#endif /* NC_HAVE_EPOLL */

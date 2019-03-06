@@ -1227,7 +1227,7 @@ stats_create(uint16_t stats_port, char *stats_ip, int stats_interval,
         goto error;
     }
 
-    status = stats_create_buf(st);
+    status = stats_creatxe_buf(st);
     if (status != NC_OK) {
         goto error;
     }

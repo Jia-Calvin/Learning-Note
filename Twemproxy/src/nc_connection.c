@@ -97,9 +97,12 @@ conn_to_ctx(struct conn *conn)
 {
     struct server_pool *pool;
 
+    // 如果是 代理来的连接conn 或者是 客户端来的连接conn
     if (conn->proxy || conn->client) {
+        // 则conn结构体存放的owner就是服务池
         pool = conn->owner;
     } else {
+        // 如果不是，则conn结构体存放的owner会是服务
         struct server *server = conn->owner;
         pool = server->owner;
     }

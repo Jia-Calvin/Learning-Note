@@ -24,7 +24,7 @@
 #include <nc_manage.h>
 #include <nc_signal.h>
 
-static uint32_t ctx_id; /* context generation */
+static uint32_t ctx_id; /* context generation, default: 0 */
 struct instance global_nci;
 
 static rstatus_t
@@ -111,6 +111,7 @@ core_ctx_create(struct instance *nci)
     }
 
     /* initialize event handling for client, proxy and server */
+    // core_core是一个函数，传入函数地址指针
     ctx->evb = event_base_create(EVENT_SIZE, &core_core, num_signals,
                                  signals, &signal_handler);
     if (ctx->evb == NULL) {
@@ -181,6 +182,7 @@ core_start(struct instance *nci)
         return NULL;
     }
 
+    // 将在实例的参数拿出来放在静态变量当中
     mbuf_init(nci);
     msg_init(nci);
     conn_init();
@@ -229,6 +231,8 @@ core_send(struct context *ctx, struct conn *conn)
 {
     rstatus_t status;
 
+    // rstatus_t msg_send(struct context *ctx, struct conn *conn)
+    //  在初始化时
     status = conn->send(ctx, conn);
     if (status != NC_OK) {
         log_info("send on %c %d failed: %s",
@@ -388,11 +392,14 @@ core_retry(struct context *ctx)
     return NC_OK;
 }
 
+// 这个函数是当epoll_wait返回的events事件不是signals信号集合的时候调用的
 rstatus_t
 core_core(void *arg, uint32_t events)
 {
     rstatus_t status;
+    // 发送过来的数据是 conn 结构体
     struct conn *conn = arg;
+    // 取出其对应的 上下文
     struct context *ctx = conn_to_ctx(conn);
 
     log_debug(LOG_VVERB, "event %04"PRIX32" on %c %d", events,
@@ -407,6 +414,7 @@ core_core(void *arg, uint32_t events)
     }
 
     /* read takes precedence over write */
+    // 数据读取，读优先于写，正常，读更多，读会更快
     if (events & EVENT_READ) {
         status = core_recv(ctx, conn);
         if (status != NC_OK || conn->done || conn->err) {
@@ -415,6 +423,7 @@ core_core(void *arg, uint32_t events)
         }
     }
 
+    // 数据写入
     if (events & EVENT_WRITE) {
         status = core_send(ctx, conn);
         if (status != NC_OK || conn->done || conn->err) {

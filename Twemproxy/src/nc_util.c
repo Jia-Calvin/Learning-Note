@@ -163,8 +163,11 @@ nc_get_soerror(int sd)
     err = 0;
     len = sizeof(err);
 
+    // SOL_SOCKET级别中的SO_ERROR，指的是获取待处理错误并清除
+    // 结果放在err中（值-结果参数）
     status = getsockopt(sd, SOL_SOCKET, SO_ERROR, &err, &len);
     if (status == 0) {
+        // 调用成功的话则赋予errno值 = err
         errno = err;
     }
 

@@ -49,7 +49,8 @@
  * for a handler is either a request or response, but never both and
  * similarly the output of an handler is either a request or response or
  * nothing.
- *
+ *处理程序的输入是请求或响应，但绝不是两者，类似地，处理程序的输出是请求或响应，或者什么也不  是。
+
  * Each handler itself is composed of two processing units:
  *
  * 1). filter: manipulates output produced by the handler, usually based
@@ -57,7 +58,8 @@
  *     location.
  * 2). forwarder: chooses one of the backend servers to send the request
  *     to, usually based on the configured distribution and key hasher.
- *
+ *     选择其中一个后端服务器来发送请求，通常基于配置的分发和密钥哈希
+ * 
  * Handlers are registered either with Client or Server or Proxy
  * connections. A Proxy connection only has a read handler as it is only
  * responsible for accepting new connections from client. Read handler
@@ -902,6 +904,7 @@ msg_send(struct context *ctx, struct conn *conn)
 
     conn->send_ready = 1;
     do {
+        // rsp_send_next() 初始化时
         msg = conn->send_next(ctx, conn);
         if (msg == NULL) {
             /* nothing to send */
