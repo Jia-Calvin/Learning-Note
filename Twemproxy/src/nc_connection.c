@@ -391,14 +391,17 @@ conn_recv(struct conn *conn, void *buf, size_t size)
     ASSERT(conn->recv_ready);
 
     for (;;) {
+        // 从描述符里读取数据放入buf里
         n = nc_read(conn->sd, buf, size);
 
         log_debug(LOG_VERB, "recv on sd %d %zd of %zu", conn->sd, n, size);
 
         if (n > 0) {
             if (n < (ssize_t) size) {
+                // 为什么？
                 conn->recv_ready = 0;
             }
+            // 增加其接手的数据量
             conn->recv_bytes += (size_t)n;
             return n;
         }

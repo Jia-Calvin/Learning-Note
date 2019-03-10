@@ -350,8 +350,9 @@ event_wait(struct event_base *evb, int timeout)
                         evb->signal_handler(fdsi.ssi_signo);
                     }
                 } else if (evb->cb != NULL) {
-                    // 调用core_core函数，一开始赋予evb的
+                    // 调用 core_core 函数，一开始赋予evb的
                     // 传入epoll的 数据返回参数 以及 事件返回参数
+                    core_core()
                     evb->cb(ev->data.ptr, events);
                 }
             }

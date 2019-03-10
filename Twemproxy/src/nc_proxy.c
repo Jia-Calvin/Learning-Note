@@ -316,6 +316,9 @@ proxy_accept(struct context *ctx, struct conn *p)
             }
 
             if (errno == EAGAIN || errno == EWOULDBLOCK || errno == ECONNABORTED) {
+                // 这里留下来的 EAGAIN , 可以 debug 看看 具体是 什么errno
+                // errno == EAGAIN, errno == EWOULDBLOCK 定义的都是  /* Resource temporarily unavailable */
+                //  errno == ECONNABORTED /* Software caused connection abort */
                 log_debug(LOG_VERB, "accept on p %d not ready - eagain", p->sd);
                 p->recv_ready = 0;
                 return NC_OK;

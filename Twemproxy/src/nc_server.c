@@ -845,6 +845,8 @@ server_pool_server(struct server_pool *pool, uint8_t *key, uint32_t keylen)
     struct server *server;
     uint32_t hash, idx;
 
+    // server_pool_idx 移出来的
+    
     ASSERT(array_n(&pool->server) != 0);
     ASSERT(key != NULL && keylen != 0);
 
@@ -926,7 +928,6 @@ static inline bool route_ctx_match(struct route_ctx *ctx, struct server *server,
         return (ntohl(clnt_addr->sin_addr.s_addr ^ serv_addr->sin_addr.s_addr) & ctx->lpm_mask) == 0;
     }
 }
-
 
 static struct server *
 server_pool_server_balance(struct server_pool *pool, struct server *stub,
@@ -1148,7 +1149,7 @@ server_double_conf(struct context *ctx)
         return NC_ERROR;
     }
 
-    log_info("after reload, old pool server num:%d", array_n(&ctx->migrating_pool->server));
+    log_info("after reload, old pool server num:%d", array_n(&ctx->migrating_pool->server))
     ASSERT(ctx->migrating_pool->server_number <= sp->server_number);
 
     //recover old servers
@@ -1205,7 +1206,7 @@ server_pool_conn(struct context *ctx, struct server_pool *pool, uint8_t *key,
     }
     log_info("get server %s for key:%.*s", server->pname.data, keylen, key);
 
-    /* route read request to slaves if possible */
+    /* route read request to slaves if possible （自己加的）*/
     server = server_pool_server_balance(pool, server, is_read, hint, c);
     if (server == NULL) {
         return NULL;

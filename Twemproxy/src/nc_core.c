@@ -216,6 +216,7 @@ core_recv(struct context *ctx, struct conn *conn)
 {
     rstatus_t status;
 
+    proxy_recv()
     status = conn->recv(ctx, conn);
     if (status != NC_OK) {
         log_info("recv on %c %d failed: %s",

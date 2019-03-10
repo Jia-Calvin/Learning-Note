@@ -502,6 +502,7 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
     mbuf = STAILQ_LAST(&msg->mhdr, mbuf, next);
     if (msg->pos == mbuf->last) {
         /* no more data to parse */
+        req_recv_done()
         conn->recv_done(ctx, conn, msg, NULL);
         return NC_OK;
     }
@@ -746,6 +747,7 @@ msg_recv(struct context *ctx, struct conn *conn)
 
     conn->recv_ready = 1;
     do {
+        rsp_recv_next()
         msg = conn->recv_next(ctx, conn, true);
         if (msg == NULL) {
             return NC_OK;
