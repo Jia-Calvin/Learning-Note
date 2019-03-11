@@ -650,11 +650,12 @@ req_forward_error(struct context *ctx, struct conn *conn, struct msg *msg)
              strerror(errno));
 
     msg->done = 1;
-    msg->error = 1;
     if (msg->frag_owner) {
         msg->frag_owner->nfrag_done++;
         msg->frag_owner->nfrag_error++;
     }
+
+    msg->error = 1;
     msg->err = errno;
 
     /* noreply request don't expect any response */

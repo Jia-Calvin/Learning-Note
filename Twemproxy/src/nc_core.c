@@ -216,7 +216,10 @@ core_recv(struct context *ctx, struct conn *conn)
 {
     rstatus_t status;
 
-    proxy_recv()
+    // epoll 0001 proxy连接可读时， 进入 proxy_recv()
+    proxy_recv(ctx, conn;)
+    // epoll 0005, 进入 msg_recv()
+    msg_recv(ctx, conn);
     status = conn->recv(ctx, conn);
     if (status != NC_OK) {
         log_info("recv on %c %d failed: %s",
@@ -403,6 +406,7 @@ core_core(void *arg, uint32_t events)
     // 取出其对应的 上下文
     struct context *ctx = conn_to_ctx(conn);
 
+    // 打印event事件，并打印此次 conn 的身份， 第一次 0001读 的时候是 proxy
     log_debug(LOG_VVERB, "event %04"PRIX32" on %c %d", events,
               conn->client ? 'c' : (conn->proxy ? 'p' : 's'), conn->sd);
 
@@ -415,8 +419,9 @@ core_core(void *arg, uint32_t events)
     }
 
     /* read takes precedence over write */
-    // 数据读取，读优先于写，正常，读更多，读会更快
+    // 数据读取，读优先于写
     if (events & EVENT_READ) {
+        // 第一次 为 proxy_accept
         status = core_recv(ctx, conn);
         if (status != NC_OK || conn->done || conn->err) {
             core_close(ctx, conn);
@@ -441,6 +446,7 @@ core_loop(struct context *ctx)
 {
     int nsd;
 
+    // 事件等待以及处理函数
     nsd = event_wait(ctx->evb, ctx->timeout);
     if (nsd < 0) {
         return nsd;

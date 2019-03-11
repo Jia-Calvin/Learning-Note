@@ -725,12 +725,14 @@ main(int argc, char **argv)
         exit(0);
     }
 
+    // 叫做预处理吧，对log，signal，黑名单，集群名字，守护进程等进行初始化
     status = nc_pre_run(&global_nci);
     if (status != NC_OK) {
         nc_post_run(&global_nci);
         exit(1);
     }
 
+    // 正式开始运行proxy，里面包括了对上下文的初始化以及对死循环epoll等待事件并进行处理
     nc_run(&global_nci);
 
     nc_post_run(&global_nci);

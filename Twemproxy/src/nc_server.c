@@ -945,6 +945,8 @@ server_pool_server_balance(struct server_pool *pool, struct server *stub,
         if (stub->slave) {
             log_warn("no server for write request in pool '%.*s'",
                      pool->name.len, pool->name.data);
+            errno = ENOEXEC;
+            // conn->key_hash_error = 1;
             return NULL;
         } else {
             log_debug(LOG_DEBUG, "write request balance to server '%.*s'",

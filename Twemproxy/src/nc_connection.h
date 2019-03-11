@@ -88,6 +88,7 @@ struct conn {
     unsigned           eof:1;         /* eof? aka passive close? */
     unsigned           done:1;        /* done? aka close? */
     unsigned           redis:1;       /* redis? */
+    unsigned           key_hash_error:1;   /* key map to slave, error? */
     unsigned           is_read:1;     /* is it for the read quest. */
     unsigned           sync_cache_del:1; /* is to sync cache delete for client*/
     unsigned           sync_store_write:1; /* is to sync store write for client*/

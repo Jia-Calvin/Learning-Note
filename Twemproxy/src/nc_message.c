@@ -502,6 +502,7 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
     mbuf = STAILQ_LAST(&msg->mhdr, mbuf, next);
     if (msg->pos == mbuf->last) {
         /* no more data to parse */
+        // 当不存在更多的数据需要解析时，就进入recv_done函数
         req_recv_done()
         conn->recv_done(ctx, conn, msg, NULL);
         return NC_OK;
@@ -706,6 +707,7 @@ msg_recv_chain(struct context *ctx, struct conn *conn, struct msg *msg)
 
     msize = mbuf_size(mbuf);
 
+    // 读取请求的message， 放入mbuf
     n = conn_recv(conn, mbuf->last, msize);
     if (n < 0) {
         if (n == NC_EAGAIN) {
@@ -719,6 +721,7 @@ msg_recv_chain(struct context *ctx, struct conn *conn, struct msg *msg)
     msg->mlen += (uint32_t)n;
 
     for (;;) {
+        // 解析msg，从这里进去报的错
         status = msg_parse(ctx, conn, msg);
         if (status != NC_OK) {
             return status;
@@ -747,12 +750,14 @@ msg_recv(struct context *ctx, struct conn *conn)
 
     conn->recv_ready = 1;
     do {
-        rsp_recv_next()
+        // epoll 0005，对面请求，这边接收信息， 初始化msg？
+        rsp_recv_next();
         msg = conn->recv_next(ctx, conn, true);
         if (msg == NULL) {
             return NC_OK;
         }
 
+        // 责任链设计模式
         status = msg_recv_chain(ctx, conn, msg);
         if (status != NC_OK) {
             return status;

@@ -401,8 +401,9 @@ conn_recv(struct conn *conn, void *buf, size_t size)
                 // 为什么？
                 conn->recv_ready = 0;
             }
-            // 增加其接手的数据量
+            // 增加其接收的数据量
             conn->recv_bytes += (size_t)n;
+            // 直接返回，不判断errno
             return n;
         }
 

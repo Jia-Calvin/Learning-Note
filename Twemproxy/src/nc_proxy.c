@@ -308,7 +308,9 @@ proxy_accept(struct context *ctx, struct conn *p)
 
     for (;;) {
         // 接受连接，对返回的客户协议地址不感兴趣，全设置为NULL了
+        // 第一次的accept 是成功的, 也可以从日志文件看到 sd = 28
         sd = accept(p->sd, NULL, NULL);
+        // 第一次 accept 时将以下的 if 全部跳过
         if (sd < 0) {
             if (errno == EINTR) {
                 log_debug(LOG_VERB, "accept on p %d not ready - eintr", p->sd);
@@ -355,6 +357,7 @@ proxy_accept(struct context *ctx, struct conn *p)
             return NC_ERROR;
         }
         addr_len = sizeof(addr);
+
         // 获取客户的名字 getsockname
         if (getsockname(sd, (struct sockaddr *)&addr, &addr_len)) {
             log_error("getsockname on p %d failed: %s", p->sd, strerror(errno));
@@ -377,6 +380,7 @@ proxy_accept(struct context *ctx, struct conn *p)
         return NC_OK;
     }
 
+    // 对当前的连接初始化
     c = conn_get(p->owner, true, p->redis);
     if (c == NULL) {
         log_error("get conn for c %d from p %d failed: %s", sd, p->sd,
@@ -439,6 +443,7 @@ proxy_recv(struct context *ctx, struct conn *conn)
         if (status != NC_OK) {
             return status;
         }
+        // 第一次初始化时没有对 recv_ready 进行改变
     } while (conn->recv_ready);
 
     return NC_OK;

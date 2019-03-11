@@ -967,19 +967,19 @@
 ---------------------------redis-cli set hLuR3AW tLE_ckR6qyqx ----------------------------
 
 
-                            //  epoll 0001 是 只需要读
+                            //  epoll 0001 是 只需要读   
 2019-02-22 18:38:32.841230 9 VVERB nc_epoll.c:303 epoll 0001 triggered on conn 0x8afa70
-2019-02-22 18:38:32.841264 9 VVERB nc_core.c:397 event 00FF on p 27
+2019-02-22 18:38:32.841264 9 VVERB nc_core.c:397 event 00FF on p 27  <- core_core()
 2019-02-22 18:38:32.841281 9 VVERB nc_client.c:46 ref conn 0x8afbf0 owner 0x8894a8 into pool 'HL_redis_chenjunjia'
 2019-02-22 18:38:32.841285 9 VVERB nc_connection.c:238 get conn 0x8afbf0 client 1
 2019-02-22 18:38:32.841290 10 VVVERB nc_stats.c:1343 metric 'client_connections' in pool 1
 2019-02-22 18:38:32.841293 10 VVVERB nc_stats.c:1360 incr field 'client_connections' to 1
-
 2019-02-22 18:38:32.841308 5 NOTICE nc_proxy.c:418 accepted c 28 on p 27 from '10.91.53.70:54243'
+                            // recv_ready 还等于 1 重新进入 for 循环 proxy_accept，此时会报 连接未准备好
                             // nc_proxy.c: proxy_accept，accept 留下来的 errno /* Resource temporarily unavailable */
 2019-02-22 18:38:32.841318 8 VERB nc_proxy.c:318 accept on p 27 not ready - eagain
 
-                            //  epoll 0005 是 既需要读 有需要写的时候
+                            //  epoll 0005 是 既需要读 又需要写的时候
 2019-02-22 18:38:32.841330 9 VVERB nc_epoll.c:303 epoll 0005 triggered on conn 0x8afbf0
 2019-02-22 18:38:32.841333 9 VVERB nc_core.c:397 event FFFF on c 28
 2019-02-22 18:38:32.841338 9 VVERB nc_message.c:324 get msg 0x8b2760 id 38 request 1 owner sd 28
@@ -1043,12 +1043,20 @@ run -c /data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunji
 
 
 b nc.c:667
-b nc_epoll.c:297 
+b nc_epoll.c:297
 b nc_message.c:754
 b nc_proxy.c:310
 b nc_message.c:749
 b nc_message.c:708
 b nc_message.c:721
+b nc_message.c:505
 b nc_message.c:662
 b nc_request.c:1405
 b nc_request.c:827
+b nc_server.c:1201
+b nc_server.c:1209
+b nc_server.c:943
+
+
+
+/data00/home/chenjunjia/software/cache_manager/bin/twemproxy-1.5.0 -c ~/twemproxy-master.conf -o /data00/home/chenjunjia/bug_moved/conf/Cluster0/Tproxy/HL_redis_chenjunjia.log -s 7373 -a 127.0.0.1 -i 1000 -v 10 -m 2048 -C twemproxy_redis_wlz_stress_lf -L 16 -T 0 -R -N
