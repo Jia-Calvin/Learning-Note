@@ -614,7 +614,6 @@ nc_pre_run(struct instance *nci)
         return status;
     }
 
-    // 判断是否是守护进程启动
     if (daemonize) {
         status = nc_daemonize(1);
         if (status != NC_OK) {
@@ -624,7 +623,6 @@ nc_pre_run(struct instance *nci)
 
     nci->pid = getpid();
 
-    // 创建进程pid的文件
     if (nci->pid_filename) {
         status = nc_create_pidfile(nci);
         if (status != NC_OK) {
@@ -632,14 +630,12 @@ nc_pre_run(struct instance *nci)
         }
     }
 
-    // 黑名单不知道是什么鬼
     if (nci->blacklist_filename) {
         if (!blacklist_init(nci->blacklist_filename)) {
             log_error("Failed to load blacklist: %s", nci->blacklist_filename);
         }
     }
 
-    // 初始化集群
     if (nci->cluster_name) {
         if (NC_OK != nc_init_metric(nci)) {
             log_error("Failed to init metric for cluster %s", nci->cluster_name);
@@ -648,8 +644,7 @@ nc_pre_run(struct instance *nci)
     }
 
     crc32_init();
-    // 这里面打印的run, rabbit run / dig that hole
-    nc_print_run(nci);  
+    nc_print_run(nci);
 
     return NC_OK;
 }
@@ -702,18 +697,14 @@ main(int argc, char **argv)
     // move to global
     //struct instance nci;
 
-    // 设置默认的启动参数
     nc_set_default_options(&global_nci);
 
-    // 这里主要是将所有的启动参数抓下来，替换掉默认的启动参数
-    // 若是没有对应项的启动参数，则选择使用默认的启动参数
     status = nc_get_options(argc, argv, &global_nci);
     if (status != NC_OK) {
         nc_show_usage();
         exit(1);
     }
 
-    // 是否只需要展现版本  --version
     if (show_version) {
         log_stderr("This is nutcracker-%s %s" CRLF, NC_VERSION_STRING, get_buildinfo());
         if (show_help) {
@@ -727,8 +718,6 @@ main(int argc, char **argv)
         exit(0);
     }
 
-    // 是否只是想要测试conf配置文件(他们的配置文件格式是yaml的)
-    // 在这里 -t 只是想要测试这个文件是否符合预期的格式以及标准 
     if (test_conf) {
         if (!nc_test_conf(&global_nci)) {
             exit(1);
@@ -736,7 +725,7 @@ main(int argc, char **argv)
         exit(0);
     }
 
-    // 叫做预处理吧，对log，signal，黑名单，集群metric(规则)，守护进程等进行初始化
+    // 叫做预处理吧，对log，signal，黑名单，集群名字，守护进程等进行初始化
     status = nc_pre_run(&global_nci);
     if (status != NC_OK) {
         nc_post_run(&global_nci);
