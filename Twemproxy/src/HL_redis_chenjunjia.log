@@ -97,6 +97,7 @@
 2019-02-21 20:12:29.694809 9 VVERB nc_conf.c:1185 next event 10 depth 1 seq 0
 2019-02-21 20:12:29.694811 9 VVERB nc_conf.c:1185 next event 4 depth 0 seq 0
 2019-02-21 20:12:29.694816 9 VVERB nc_conf.c:1185 next event 2 depth 0 seq 0
+
                             //  conf_begin_parse(cf)
 2019-02-21 20:12:29.694826 9 VVERB nc_conf.c:721 next begin event 1
 2019-02-21 20:12:29.694832 9 VVERB nc_conf.c:721 next begin event 3
