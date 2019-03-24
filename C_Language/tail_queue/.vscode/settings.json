@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.json": "jsonc",
-        "queue.h": "c",
-        "stdlib.h": "c"
-    }
-}
