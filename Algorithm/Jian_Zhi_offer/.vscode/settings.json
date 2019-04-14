@@ -7,6 +7,7 @@
         "algorithm": "cpp",
         "vector": "cpp",
         "iostream": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "stack": "cpp"
     }
 }
