@@ -1,6 +1,19 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+using namespace std;
+
+void create_vector() {
+    vector<float> tmp1(65536, 0);
+    vector<float> tmp2(65536, 0);
+    vector<float> tmp3(65536, 0);
+    vector<float> tmp4(65536, 0);
+    vector<float> tmp5(65536, 0);
+    vector<float> tmp6(65536, 0);
+    vector<float> tmp7(65536, 0);
+    vector<float> tmp8(65536, 0);
+
+}
 
 int main(int argc, char const *argv[]) {
     std::vector<int> vecInt;
@@ -18,16 +31,7 @@ int main(int argc, char const *argv[]) {
     //     std::cout << vecInt.size() << std::endl;
     // }
 
-    for (auto itr = vecInt.begin(); itr != vecInt.end(); itr++) {
-        std::cout << *itr << ", ";
-        if (*itr == 2) {
-            vecInt.erase(itr);
-        }
-        // std::cout << vecInt.end() << std::endl;
-        // else {
-        //     itr++;
-        // }
-    }
+    create_vector();
 
     return 0;
 }
