@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "*.json": "jsonc",
-        "nc_core.h": "c"
-    }
-}
