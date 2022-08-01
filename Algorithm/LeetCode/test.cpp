@@ -8,70 +8,118 @@
 #include <unordered_map>
 #include <vector>
 
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+struct TreeNode {
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode *left, TreeNode *right)
+      : val(x), left(left), right(right) {}
+};
+
+class Node {
+public:
+  int val;
+  Node *left;
+  Node *right;
+  Node *next;
+
+  Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+
+  Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+
+  Node(int _val, Node *_left, Node *_right, Node *_next)
+      : val(_val), left(_left), right(_right), next(_next) {}
+};
+
+// 中序遍历，递归方法
+void printTreeCore(TreeNode *root) {
+  if (root == nullptr) {
+    return;
+  }
+
+  if (root->left != nullptr) {
+    printTreeCore(root->left);
+  }
+
+  std::cout << root->val << ", ";
+
+  if (root->right != nullptr) {
+    printTreeCore(root->right);
+  }
+}
+
+// 中序遍历，递归方法
+void printTree(TreeNode *root) {
+  printTreeCore(root);
+  std::cout << std::endl;
+}
+
+template <class T> void printVectorCore(std::vector<T> &vec) {
+  for (auto ele : vec) {
+    std::cout << ele << ",";
+  }
+}
+
+template <class T> void printVector(std::vector<T> &vec) {
+  printVectorCore(vec);
+  std::cout << std::endl;
+}
+
+void printList(ListNode *node) {
+  while (node != NULL) {
+    std::cout << node->val << ",";
+    node = node->next;
+  }
+  std::cout << std::endl;
+}
+
 using namespace std;
 class Solution {
 public:
-  double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
-    int middleIndex = nums1.size() + nums2.size() / 2;
-    bool isOdd = false;
-    if ((nums1.size() + nums2.size()) % 2 == 0) {
-      isOdd = true;
+  int titleToNumber(string columnTitle) {
+    int ans = 0;
+    int p = 0;
+    for (int i = columnTitle.size() - 1; i >= 0; i--) {
+      ans += (columnTitle[i] - 'A' + 1) * std::pow(26, p++);
     }
-
-    int start1 = 0, start2 = 0, cur = 0;
-    int selectedEle = 0;
-    double towNumberSum = 0.0;
-    while (start1 < nums1.size() && start2 < nums2.size()) {
-      if (nums1[start1] < nums2[start2]) {
-        selectedEle = nums1[start1++];
-      } else {
-        selectedEle = nums2[start2++];
-      }
-      if (cur == middleIndex - 1 && isOdd) {
-        towNumberSum += selectedEle;
-      }
-      if (cur == middleIndex) {
-        towNumberSum += selectedEle;
-      }
-      cur++;
-    }
-
-    while (start1 < nums1.size()) {
-      selectedEle = nums1[start1++];
-      if (cur == middleIndex - 1 && isOdd) {
-        towNumberSum += selectedEle;
-      }
-      if (cur == middleIndex) {
-        towNumberSum += selectedEle;
-      }
-      cur++;
-    }
-
-    while (start2 < nums2.size()) {
-      selectedEle = nums2[start2++];
-      if (cur == middleIndex - 1 && isOdd) {
-        towNumberSum += selectedEle;
-      }
-      if (cur == middleIndex) {
-        towNumberSum += selectedEle;
-      }
-      cur++;
-    }
-
-    if (!isOdd)
-      towNumberSum = 2 * towNumberSum;
-
-    return towNumberSum / 2;
+    return ans;
   }
 };
 
-int main(int argc, char const *argv[]) {
-  std::vector<int> nums1{1, 3};
-  std::vector<int> nums2{2};
-  Solution s;
-  std::cout << s.findMedianSortedArrays(nums1, nums2) << std::endl;
-  std::vector<int> nums3{1, 2};
-  std::vector<int> nums4{3, 4};
-  std::cout << s.findMedianSortedArrays(nums3, nums4) << std::endl;
+// int main(int argc, char const *argv[]) {
+//   Solution s;
+//   vector<int> nums{2, 3, -2, 4};
+//   std::cout << s.maxProduct(nums) << std::endl;
+//   vector<int> nums1{-2, 0, -1};
+//   std::cout << s.maxProduct(nums1) << std::endl;
+//   vector<int> nums2{-1, -2, -9, -6};
+//   std::cout << s.maxProduct(nums2) << std::endl;
+//   return 0;
+// }
+
+void fun(int &a) {
+  std::cout << "in fun(int &)" << std::endl;
+}
+
+void fun(int &&a) {
+  std::cout << "in fun(int &&)" << std::endl;
+}
+
+int main() {
+  int a = 1;
+  int &&b = 1;
+  
+  fun(std::move(b));
+  
   return 0;
 }
