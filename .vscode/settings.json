@@ -99,7 +99,8 @@
         "__functional_base_03": "cpp",
         "__tree": "cpp",
         "filesystem": "cpp",
-        "__cxx_version": "cpp"
+        "__cxx_version": "cpp",
+        "shared_mutex": "cpp"
     },
     "C_Cpp.clang_format_sortIncludes": true,
     "editor.tabSize": 4,
