@@ -1,4 +1,7 @@
 #include <iostream>
+#include <memory>
+#include <mutex>
+#include <numeric>
 #include <thread>
 #include <vector>
 
