@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -14,12 +14,10 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 class Solution {
-   public:
-    void Path(TreeNode* root, int expectNumber, vector<int>& one_route,
-              vector<vector<int> >& comb) {
+public:
+    void Path(TreeNode* root, int expectNumber, vector<int>& one_route, vector<vector<int>>& comb) {
         int root_value = root->val;
-        if (expectNumber == root_value && root->left == NULL &&
-            root->right == NULL) {
+        if (expectNumber == root_value && root->left == NULL && root->right == NULL) {
             one_route.push_back(root_value);
             comb.push_back(one_route);
             return;
@@ -38,8 +36,8 @@ class Solution {
         }
     }
 
-    vector<vector<int> > FindPath(TreeNode* root, int expectNumber) {
-        vector<vector<int> > comb;
+    vector<vector<int>> FindPath(TreeNode* root, int expectNumber) {
+        vector<vector<int>> comb;
         if (root == NULL) {
             return comb;
         }
@@ -50,4 +48,6 @@ class Solution {
     }
 };
 
-int main(int argc, char const* argv[]) { return 0; }
+int main(int argc, char const* argv[]) {
+    return 0;
+}

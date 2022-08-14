@@ -4,10 +4,10 @@
 #include <stack>
 
 class A {
-   private:
+private:
     std::string val;
 
-   public:
+public:
     A() {
         std::cout << "A construct" << std::endl;
         val = "123";
@@ -16,7 +16,7 @@ class A {
 };
 
 class singleton {
-   public:
+public:
     singleton() = default;
     ~singleton() = default;
 

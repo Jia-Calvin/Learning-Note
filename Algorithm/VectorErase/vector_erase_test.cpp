@@ -12,10 +12,9 @@ void create_vector() {
     vector<float> tmp6(65536, 0);
     vector<float> tmp7(65536, 0);
     vector<float> tmp8(65536, 0);
-
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     std::vector<int> vecInt;
     vecInt.push_back(1);
     vecInt.push_back(2);

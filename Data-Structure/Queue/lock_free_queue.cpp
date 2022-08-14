@@ -9,14 +9,14 @@ struct Node {
 };
 
 class LockFreeQueue {
-   public:
+public:
     LockFreeQueue();
     ~LockFreeQueue();
 
     void EnQueue(const std::string& val);
     std::string DeQueue();
 
-   private:
+private:
     std::atomic<Node*> _head;
     std::atomic<Node*> _tail;
 };
@@ -35,7 +35,8 @@ void LockFreeQueue::EnQueue(const std::string& val) {
 
         tailNext = tail->_next.load();
 
-        if (tail != _tail.load()) continue;
+        if (tail != _tail.load())
+            continue;
 
         if (tailNext != nullptr) {
             _tail.compare_exchange_strong(tail, tailNext);
@@ -57,7 +58,8 @@ std::string LockFreeQueue::DeQueue() {
         headNext = head->_next.load();
         tail = _tail.load();
 
-        if (head != _head.load()) continue;
+        if (head != _head.load())
+            continue;
 
         if (head == tail && headNext == nullptr) {
             std::cout << "Empty Queue, not element" << std::endl;

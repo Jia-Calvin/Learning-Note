@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -14,7 +14,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 class Solution {
-   public:
+public:
     void ConverNode(TreeNode* pRoot, TreeNode** pLastList) {
         if (pRoot == NULL) {
             return;

@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -8,7 +8,7 @@
 using namespace std;
 
 class Solution {
-   public:
+public:
     bool IsPopOrder(vector<int> pushV, vector<int> popV) {
         if (pushV.size() == 0 || popV.size() == 0) {
             return false;

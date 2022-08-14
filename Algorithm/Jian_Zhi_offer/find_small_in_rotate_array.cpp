@@ -1,12 +1,12 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <sstream>
 #include <vector>
 using namespace std;
 
 class Solution {
-   public:
+public:
     int minNumberInRotateArray(vector<int> rotateArray) {
         int start = 0;
         int end = rotateArray.size() - 1;
@@ -33,8 +33,8 @@ class Solution {
     }
 };
 
-int main(int argc, char const *argv[]) {
-    Solution *s = new Solution();
+int main(int argc, char const* argv[]) {
+    Solution* s = new Solution();
     vector<int> rotate{1, 1, 1, 1, 0, 0, 1};
     cout << s->minNumberInRotateArray(rotate) << endl;
 

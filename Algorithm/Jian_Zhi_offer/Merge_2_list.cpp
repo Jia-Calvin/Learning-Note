@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -12,7 +12,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 class Solution {
-   public:
+public:
     ListNode* Merge(ListNode* pHead1, ListNode* pHead2) {
         if (pHead1 == NULL) {
             return pHead2;

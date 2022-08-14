@@ -5,22 +5,18 @@
 #include <thread>
 #include <vector>
 
-void helloLisa()
-{
+void helloLisa() {
     std::cout << "HELLO LISA!" << std::endl;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     std::vector<std::thread> threads;
-    for (int i = 0; i < 100; i++)
-    {
+    for (int i = 0; i < 100; i++) {
         auto t = std::thread(helloLisa);
         threads.push_back(std::move(t));
     }
 
-    for (int i = 0; i < threads.size(); i++)
-    {
+    for (int i = 0; i < threads.size(); i++) {
         threads[i].join();
     }
 

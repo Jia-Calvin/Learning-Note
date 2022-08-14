@@ -4,14 +4,13 @@
 #include <stack>
 
 class AssignMyString {
-   private:
+private:
     std::string _otherData;
     std::unique_ptr<std::string> _data;
 
-   public:
+public:
     // 一般构造函数，主要针对左值
-    explicit AssignMyString(const std::string &data,
-                            const std::string &otherData) {
+    explicit AssignMyString(const std::string& data, const std::string& otherData) {
         // std::unique_ptr<std::string> _tmp =
         //     std::unique_ptr<std::string>(new
         // std::string(std::move(data)));
@@ -23,8 +22,7 @@ class AssignMyString {
 
     //
     // 移动构造函数，主要针对右值引用
-    explicit AssignMyString(const std::string &&data,
-                            const std::string &&otherData) {
+    explicit AssignMyString(const std::string&& data, const std::string&& otherData) {
         // std::unique_ptr<std::string> _tmp =
         //     std::unique_ptr<std::string>(new std::string(std::move(data)));
         // // _data = std::move(_tmp);
@@ -34,12 +32,12 @@ class AssignMyString {
     };
 
     // 复制构造函数
-    explicit AssignMyString(const AssignMyString &other) {
+    explicit AssignMyString(const AssignMyString& other) {
         std::cout << "copy construct" << std::endl;
     };
 
     // 赋值构造函数
-    const AssignMyString &operator=(const AssignMyString otherStr) {
+    const AssignMyString& operator=(const AssignMyString otherStr) {
         if (this == &otherStr) {
             return *this;
         }
@@ -54,8 +52,7 @@ class AssignMyString {
     void print() {
         // std::cout << "data is: " << *_data << ", ptr is:" << _data.get()
         //           << std::endl;
-        std::cout << "otherData is: " << _otherData
-                  << ", ptr is:" << &_otherData << std::endl;
+        std::cout << "otherData is: " << _otherData << ", ptr is:" << &_otherData << std::endl;
     };
 
     ~AssignMyString() {
@@ -64,7 +61,7 @@ class AssignMyString {
     }
 };
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     std::string ccc = "123";
     AssignMyString my(std::move(ccc), "456");
     AssignMyString my2("789", "789");

@@ -1,5 +1,5 @@
-#include <limits.h>
 #include <iostream>
+#include <limits.h>
 using namespace std;
 
 int getWaterStorge(int* arr, int n) {
@@ -17,13 +17,13 @@ int getWaterStorge(int* arr, int n) {
 
     int leftStart = 0;
     int leftPos = leftStart + 1;
-    /* 
+    /*
         从左边开始往右遍历，等到左边起始点遇到最大柱子的序号时跳出
         关键步骤在于for循环内只计算凹槽内的水量，若是连续的两个柱子，
         例如 1，2 则会直接跳出，因为没有凹槽存在，leftPos是寻找比
         左边开始leftStart大的柱子，就计算一次凹槽水量，重复这个过程。
         同样在右边向最大序号遍历过程也是同样操作
-    */ 
+    */
     while (leftStart < maxPillarIndx) {
         while (arr[leftStart] > arr[leftPos]) {
             leftPos++;

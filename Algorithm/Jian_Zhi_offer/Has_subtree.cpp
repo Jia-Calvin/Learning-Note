@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -15,7 +15,7 @@ struct TreeNode {
 };
 
 class Solution {
-   public:
+public:
     bool subTree(TreeNode* pRoot1, TreeNode* pRoot2) {
         if (pRoot2 == NULL) {
             return true;
@@ -24,8 +24,7 @@ class Solution {
         }
 
         if (pRoot1->val == pRoot2->val) {
-            return subTree(pRoot1->left, pRoot2->left) &&
-                   subTree(pRoot1->right, pRoot2->right);
+            return subTree(pRoot1->left, pRoot2->left) && subTree(pRoot1->right, pRoot2->right);
         }
         return false;
     }
@@ -40,8 +39,7 @@ class Solution {
             issubtree = subTree(pRoot1, pRoot2);
         }
 
-        return HasSubtree(pRoot1->left, pRoot2) ||
-               HasSubtree(pRoot1->right, pRoot2) || issubtree;
+        return HasSubtree(pRoot1->left, pRoot2) || HasSubtree(pRoot1->right, pRoot2) || issubtree;
     }
 };
 

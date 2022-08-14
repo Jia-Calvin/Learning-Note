@@ -7,7 +7,7 @@ using namespace std;
     对这个数字开始到P-1位置的数字都进行交换.
 */
 
-void InsertSort(int *arr, int n) {
+void InsertSort(int* arr, int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < i; j++) {
             if (arr[i] < arr[j]) {
@@ -17,7 +17,7 @@ void InsertSort(int *arr, int n) {
     }
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     int arr[] = {6,  5, 3,  4, 2, 1, 13, 3123, 122,  2141,   1,
                  24, 5, 67, 8, 9, 5, 0,  -1,   -123, -12333, -550};
     int n = sizeof(arr) / sizeof(int);

@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void printArr(int *arr, int n) {
+void printArr(int* arr, int n) {
     for (int i = 0; i < n; i++) {
         if (i != n - 1) {
             printf("%2d, ", arr[i]);
@@ -39,7 +39,7 @@ void printArr(int *arr, int n) {
     不断地拼接，最后拼接成一个最长的有序的数组。
   */
 
-void fSort(int *arr, int start, int end) {
+void fSort(int* arr, int start, int end) {
     int pivot = arr[end];
     if (start >= end) {
         return;
@@ -65,9 +65,11 @@ void fSort(int *arr, int start, int end) {
     fSort(arr, i + 1, end);
 }
 
-void fastSort(int *arr, int n) { fSort(arr, 0, n - 1); }
+void fastSort(int* arr, int n) {
+    fSort(arr, 0, n - 1);
+}
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     int arr[] = {3, 4,  3, 231, 335, 11, 62,   13, 3123, 122, 2141, 3,   4,
                  5, 67, 8, 9,   5,   0,  -550, 0,  -1,   -3,  -11,  -550};
     int n = sizeof(arr) / sizeof(int);

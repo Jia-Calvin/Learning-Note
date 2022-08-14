@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -15,7 +15,7 @@ struct TreeNode {
 };
 
 class Solution {
-   public:
+public:
     void Mirror(TreeNode* pRoot) {
         if (pRoot == NULL) {
             return;
@@ -31,4 +31,6 @@ class Solution {
     }
 };
 
-int main(int argc, char const* argv[]) { return 0; }
+int main(int argc, char const* argv[]) {
+    return 0;
+}

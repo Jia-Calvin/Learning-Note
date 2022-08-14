@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -9,21 +9,21 @@ using namespace std;
 
 struct TreeNode {
     int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
+    struct TreeNode* left;
+    struct TreeNode* right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 class Solution {
-   public:
-    vector<int> PrintFromTopToBottom(TreeNode *root) {
+public:
+    vector<int> PrintFromTopToBottom(TreeNode* root) {
         vector<int> result;
         if (root == NULL) {
             return result;
         }
-        queue<TreeNode *> tree_bfs;
+        queue<TreeNode*> tree_bfs;
         tree_bfs.push(root);
         while (tree_bfs.size() > 0) {
-            TreeNode *root_cur = tree_bfs.front();
+            TreeNode* root_cur = tree_bfs.front();
             result.push_back(root_cur->val);
             tree_bfs.pop();
 

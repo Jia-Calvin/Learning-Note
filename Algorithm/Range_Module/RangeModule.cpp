@@ -1,16 +1,16 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <sstream>
 #include <vector>
 
 using namespace std;
 
 class RangeModule {
-   private:
+private:
     vector<vector<int>> range_all;
 
-   public:
+public:
     RangeModule() {}
 
     void printRange() {
@@ -71,14 +71,22 @@ class RangeModule {
     }
 };
 class A {
-   public:
-    A() { printf("A"); }
-    virtual ~A() { printf("~A"); }
+public:
+    A() {
+        printf("A");
+    }
+    virtual ~A() {
+        printf("~A");
+    }
 };
 class B : public A {
-   public:
-    B() { printf("B"); }
-    ~B() { printf("~B"); }
+public:
+    B() {
+        printf("B");
+    }
+    ~B() {
+        printf("~B");
+    }
 };
 
 int main(int argc, char const* argv[]) {
