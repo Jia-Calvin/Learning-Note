@@ -3,24 +3,24 @@ using namespace std;
 
 struct ListNode {
     int value;
-    struct ListNode *next;
+    struct ListNode* next;
 };
 
-ListNode *reverseList(ListNode *header) {
+ListNode* reverseList(ListNode* header) {
     if (header->next == NULL || header == NULL) {
         return header;
     } else {
-        ListNode *newHeader = reverseList(header->next);
+        ListNode* newHeader = reverseList(header->next);
         header->next->next = header;
         header->next = NULL;
         return newHeader;
     }
 }
 
-ListNode *reverseList(ListNode *header) {
-    ListNode *pre = NULL;
-    ListNode *curr = header;
-    ListNode *next = header->next;
+ListNode* reverseList(ListNode* header) {
+    ListNode* pre = NULL;
+    ListNode* curr = header;
+    ListNode* next = header->next;
 
     while (next != NULL) {
         curr->next = pre;
@@ -33,8 +33,8 @@ ListNode *reverseList(ListNode *header) {
     return header;
 }
 
-void printList(ListNode *header) {
-    ListNode *ptr = header;
+void printList(ListNode* header) {
+    ListNode* ptr = header;
     while (ptr != NULL) {
         printf("%d ", ptr->value);
         ptr = ptr->next;
@@ -42,15 +42,15 @@ void printList(ListNode *header) {
     printf("\n");
 }
 
-int main(int argc, char const *argv[]) {
-    ListNode *header;
-    header = (ListNode *)malloc(sizeof(header));
+int main(int argc, char const* argv[]) {
+    ListNode* header;
+    header = (ListNode*)malloc(sizeof(header));
     header->value = 10;
     header->next = NULL;
 
     for (int i = 0; i < 10; i++) {
-        ListNode *node;
-        node = (ListNode *)malloc(sizeof(node));
+        ListNode* node;
+        node = (ListNode*)malloc(sizeof(node));
 
         node->value = i;
 

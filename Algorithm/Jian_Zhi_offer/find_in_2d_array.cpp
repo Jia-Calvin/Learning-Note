@@ -1,16 +1,16 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <math.h>
 #include <sstream>
+#include <vector>
 using namespace std;
 
 int x = 0;
 int y = 0;
 
 class Solution {
-   public:
-    bool Find(int target, vector<vector<int> > array) {
+public:
+    bool Find(int target, vector<vector<int>> array) {
         int i = array.size() - 1;
         if (array[i].size() <= 0) {
             return false;
@@ -39,7 +39,7 @@ class Solution {
 };
 
 int main(int argc, char const* argv[]) {
-    vector<vector<int> > tmp;
+    vector<vector<int>> tmp;
     tmp.push_back(vector<int>{1, 2, 8, 9});
     tmp.push_back(vector<int>{2, 4, 9, 12});
     tmp.push_back(vector<int>{4, 7, 10, 13});

@@ -2,10 +2,10 @@
 // #include <algorithm>
 // #include <string>
 using namespace std;
-void printArr(int *arr, int n);
+void printArr(int* arr, int n);
 
 // 这个函数就是把堆(大小为n)的某个顶上的元素下滤
-void PercDown(int *arr, int i, int n) {
+void PercDown(int* arr, int i, int n) {
     int elementPercDown = arr[i];
     int maxChildIndx;
 
@@ -33,7 +33,7 @@ void PercDown(int *arr, int i, int n) {
     堆排序主要分为两个步骤：第一步，建堆，从右到左，从下到上对所有的堆进行堆特性的排列
     第二步：将堆顶的元素（最大或最小）与数组最后一个元素交换，再对交换后的堆顶元素进行下滤（此时的堆大小需要相应减一）
  */
-void HeapSort(int *arr, int n) {
+void HeapSort(int* arr, int n) {
     // 从右到左，从下到上一步步建堆
     for (int i = n / 2; i >= 0; i--) {
         PercDown(arr, i, n);
@@ -46,7 +46,7 @@ void HeapSort(int *arr, int n) {
     }
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     int arr[] = {6,  5, 3,  4, 2, 1, 13, 3123, 122,  2141,   1,
                  24, 5, 67, 8, 9, 5, 0,  -1,   -123, -12333, -550};
     int N = 22;
@@ -57,7 +57,7 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-void printArr(int *arr, int n) {
+void printArr(int* arr, int n) {
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }

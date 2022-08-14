@@ -15,10 +15,12 @@ vector<int> get_pos(vector<Interval>& intervals, int cut) {
         int currentStart = intervals[i].start;
         int currentEnd = intervals[i].end;
         if (cut - currentStart >= 0 && cut - currentEnd <= 0) {
-            pos[0] = 0; pos[1] = i;
+            pos[0] = 0;
+            pos[1] = i;
             return pos;
         } else if (cut - currentStart < 0) {
-            pos[0] = 1; pos[1] = i;
+            pos[0] = 1;
+            pos[1] = i;
             return pos;
         }
     }
@@ -63,7 +65,8 @@ vector<Interval> insert(vector<Interval>& intervals, Interval newInterval) {
     intervals[start_pos[1]].end = newInterval.end;
 
     if (start_pos[1] + 1 < end_pos[1] + offset) {
-        intervals.erase(intervals.begin() + start_pos[1] + 1, intervals.begin() + end_pos[1] + offset);
+        intervals.erase(intervals.begin() + start_pos[1] + 1,
+                        intervals.begin() + end_pos[1] + offset);
     }
     return intervals;
 }
@@ -93,8 +96,7 @@ int main(int argc, char const* argv[]) {
     // cout << pos[0] << ", " << pos[1] << endl;
 
     for (int i = 0; i < intervals.size(); i++) {
-        cout << "[" << intervals[i].start << ", " << intervals[i].end << "], "
-             << endl;
+        cout << "[" << intervals[i].start << ", " << intervals[i].end << "], " << endl;
     }
     cout << endl;
     system("pause");

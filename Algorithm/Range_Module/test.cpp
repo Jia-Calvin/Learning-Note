@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <string>
 #include <vector>
 using namespace std;
@@ -18,12 +18,11 @@ int lps(string x, int lps_len) {
     if (x[0] == x[x_len - 1]) {
         return lps(x.substr(1, x_len - 2), lps_len + 2);
     } else {
-        return max(lps(x.substr(0, x_len - 1), lps_len),
-                   lps(x.substr(1, x_len - 1), lps_len));
+        return max(lps(x.substr(0, x_len - 1), lps_len), lps(x.substr(1, x_len - 1), lps_len));
     }
 }
 
-void print_vec(vector<vector<int> > vec) {
+void print_vec(vector<vector<int>> vec) {
     for (int i = 0; i < vec.size(); i++) {
         for (int j = 0; j < vec[0].size(); j++) {
             cout << vec[i][j] << ", ";
@@ -36,8 +35,7 @@ void print_vec(vector<vector<int> > vec) {
 int lps_dyn(string x) {
     int x_len = x.length();
 
-    vector<vector<int> > tab =
-        vector<vector<int> >(x_len, vector<int>(x_len, 0));
+    vector<vector<int>> tab = vector<vector<int>>(x_len, vector<int>(x_len, 0));
 
     for (int i = 0; i < x_len; i++) {
         tab[i][i] = 1;

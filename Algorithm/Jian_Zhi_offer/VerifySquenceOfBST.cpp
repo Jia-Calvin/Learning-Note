@@ -1,13 +1,13 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
 #include <vector>
 using namespace std;
 class Solution {
-   public:
+public:
     bool VerifySquenceOfBST(vector<int> sequence) {
         if (sequence.size() == 0) {
             return false;
@@ -33,20 +33,20 @@ class Solution {
 
         bool left_flag = true;
         if (first_cut > 0) {
-            left_flag = VerifySquenceOfBST(
-                vector<int>(sequence.begin(), sequence.begin() + first_cut));
+            left_flag =
+                VerifySquenceOfBST(vector<int>(sequence.begin(), sequence.begin() + first_cut));
         }
         bool right_flag = true;
         if (sequence.size() - 1 > first_cut) {
-            right_flag = VerifySquenceOfBST(
-                vector<int>(sequence.begin() + first_cut, sequence.end() - 1));
+            right_flag =
+                VerifySquenceOfBST(vector<int>(sequence.begin() + first_cut, sequence.end() - 1));
         }
         return right_flag && left_flag;
     }
 };
 
-int main(int argc, char const *argv[]) {
-    Solution *s = new Solution();
+int main(int argc, char const* argv[]) {
+    Solution* s = new Solution();
 
     vector<int> test{4, 7, 6, 8};
     cout << s->VerifySquenceOfBST(test) << endl;

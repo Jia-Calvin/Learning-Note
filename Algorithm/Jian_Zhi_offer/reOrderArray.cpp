@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -8,8 +8,8 @@
 using namespace std;
 
 class Solution {
-   public:
-    void reOrderArray(vector<int> &arr) {
+public:
+    void reOrderArray(vector<int>& arr) {
         if (arr.size() <= 1) {
             return;
         }
@@ -32,8 +32,8 @@ class Solution {
     }
 };
 
-int main(int argc, char const *argv[]) {
-    Solution *s = new Solution();
+int main(int argc, char const* argv[]) {
+    Solution* s = new Solution();
     vector<int> array{0, 1, 5, 8, 2, 6, 66, 44, 2, 1, 5, 7, 7};
     s->reOrderArray(array);
     for (int i = 0; i < array.size(); i++) {

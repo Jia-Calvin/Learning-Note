@@ -24,9 +24,8 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
             num[k++] = nums2[j++];
         }
     }
-    return total % 2 == 0
-               ? ((double)num[(total - 1) / 2] + (double)num[total / 2]) / 2
-               : num[total / 2];
+    return total % 2 == 0 ? ((double)num[(total - 1) / 2] + (double)num[total / 2]) / 2
+                          : num[total / 2];
 }
 int main(int argc, char const* argv[]) {
     // vector<int> nums1 = {21, 12, 45};
@@ -48,8 +47,7 @@ int main(int argc, char const* argv[]) {
     }
     cout << endl;
 
-    cout << "Median of two sorted arrays is: "
-         << findMedianSortedArrays(nums1, nums2) << endl;
+    cout << "Median of two sorted arrays is: " << findMedianSortedArrays(nums1, nums2) << endl;
 
     system("pause");
     return 0;

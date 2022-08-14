@@ -7,15 +7,14 @@
 
 template <class T>
 class ThreadSafeQueueWithLock {
-   private:
+private:
     std::mutex _mutex;
     std::condition_variable _cond;
     std::queue<std::shared_ptr<T>> _data;
 
-   public:
+public:
     ThreadSafeQueueWithLock(ThreadSafeQueueWithLock& other) = delete;
-    ThreadSafeQueueWithLock& operator=(const ThreadSafeQueueWithLock& other) =
-        delete;
+    ThreadSafeQueueWithLock& operator=(const ThreadSafeQueueWithLock& other) = delete;
     ThreadSafeQueueWithLock();
     ~ThreadSafeQueueWithLock();
     void push(T data);

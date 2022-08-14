@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -15,7 +15,7 @@ struct TreeNode {
 };
 
 class Solution {
-   public:
+public:
     TreeNode* constructBinaryTree(vector<int> pre, vector<int> vin) {
         cout << pre.size() << ", " << vin.size() << endl;
         int root_value = pre[0];
@@ -43,14 +43,12 @@ class Solution {
         }
 
         if (cut > 0) {
-            root->left = constructBinaryTree(
-                vector<int>(pre.begin() + 1, pre.begin() + cut + 1),
-                vector<int>(vin.begin(), vin.begin() + cut));
+            root->left = constructBinaryTree(vector<int>(pre.begin() + 1, pre.begin() + cut + 1),
+                                             vector<int>(vin.begin(), vin.begin() + cut));
         }
         if (vin.size() - 1 - cut > 0) {
-            root->right = constructBinaryTree(
-                vector<int>(pre.begin() + cut + 1, pre.end()),
-                vector<int>(vin.begin() + cut + 1, vin.end()));
+            root->right = constructBinaryTree(vector<int>(pre.begin() + cut + 1, pre.end()),
+                                              vector<int>(vin.begin() + cut + 1, vin.end()));
         }
 
         return root;

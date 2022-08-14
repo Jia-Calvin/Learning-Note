@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -8,7 +8,7 @@
 using namespace std;
 
 class Solution {
-   public:
+public:
     void push(int value) {
         stck.push(value);
         if (min_value > value) {
@@ -20,13 +20,19 @@ class Solution {
         stck.pop();
         min_stck.pop();
     }
-    int top() { return stck.top(); }
-    int min() { return min_stck.top(); }
+    int top() {
+        return stck.top();
+    }
+    int min() {
+        return min_stck.top();
+    }
 
-   private:
+private:
     int min_value = 99999999999;
     stack<int> stck;
     stack<int> min_stck;
 };
 
-int main(int argc, char const* argv[]) { return 0; }
+int main(int argc, char const* argv[]) {
+    return 0;
+}

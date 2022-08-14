@@ -5,12 +5,12 @@
 using namespace std;
 
 class LFUCache {
-   public:
+public:
     int cap;
     int minFreq;
     unordered_map<int, int> keyToValue;
     unordered_map<int, int> keyToFreq;
-    unordered_map<int, list<int> > freqToKey;
+    unordered_map<int, list<int>> freqToKey;
 
     void increaseFreq(int key) {
         int curFreq = keyToFreq[key];
@@ -19,7 +19,8 @@ class LFUCache {
         freqToKey[curFreq + 1].push_back(key);
         if (freqToKey[curFreq].empty()) {
             freqToKey.erase(curFreq);
-            if (minFreq == curFreq) minFreq++;
+            if (minFreq == curFreq)
+                minFreq++;
         }
     }
 
@@ -47,7 +48,8 @@ class LFUCache {
     }
 
     void put(int key, int value) {
-        if (cap <= 0) return;
+        if (cap <= 0)
+            return;
         if (keyToValue.find(key) != keyToValue.end()) {
             keyToValue[key] = value;
             increaseFreq(key);
@@ -63,8 +65,8 @@ class LFUCache {
     }
 };
 
-int main(int argc, char const *argv[]) {
-    LFUCache *cache = new LFUCache(2);
+int main(int argc, char const* argv[]) {
+    LFUCache* cache = new LFUCache(2);
     cache->put(1, 1);
     cache->put(2, 2);
     cout << cache->get(1) << endl;  // returns 1

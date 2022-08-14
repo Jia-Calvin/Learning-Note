@@ -6,8 +6,7 @@
 #include <thread>
 #include <vector>
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     std::mutex m1;
     std::mutex m2;
     std::unique_lock<std::mutex> lk1(m1, std::defer_lock);

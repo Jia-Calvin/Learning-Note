@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <sstream>
 #include <stack>
 #include <vector>
@@ -13,7 +13,7 @@ struct ListNode {
 };
 
 class Solution {
-   public:
+public:
     vector<int> printListFromTailToHead(ListNode* head) {
         vector<int> list;
 
@@ -34,7 +34,7 @@ class Solution {
 };
 
 class Solution {
-   public:
+public:
     void printList(ListNode* head, vector<int>& list) {
         if (head == NULL) {
             return;
@@ -53,4 +53,6 @@ class Solution {
     }
 };
 
-int main(int argc, char const* argv[]) { return 0; }
+int main(int argc, char const* argv[]) {
+    return 0;
+}

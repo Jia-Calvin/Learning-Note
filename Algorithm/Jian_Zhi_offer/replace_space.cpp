@@ -1,13 +1,13 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <sstream>
 #include <vector>
 using namespace std;
 
 class Solution {
-   public:
-    void replaceSpace(char *str, int length) {
+public:
+    void replaceSpace(char* str, int length) {
         if (str == NULL || length <= 0) {
             return;
         }
@@ -20,7 +20,7 @@ class Solution {
         }
 
         int tmp_len = length + 2 * space_num;
-        char *tmp = (char *)malloc(sizeof(char) * (tmp_len + 1));
+        char* tmp = (char*)malloc(sizeof(char) * (tmp_len + 1));
         tmp[tmp_len] = '\0';
         int k = tmp_len - 1;
         for (int i = length - 1; i >= 0; i--) {
@@ -41,14 +41,14 @@ class Solution {
     }
 };
 
-int main(int argc, char const *argv[]) {
-    char *str = "daaasdv ddsd.d d  .as ,da  s";
+int main(int argc, char const* argv[]) {
+    char* str = "daaasdv ddsd.d d  .as ,da  s";
     int str_len = 0;
     for (int i = 0; str[i] != '\0'; i++) {
         str_len++;
     }
 
-    Solution *s = new Solution();
+    Solution* s = new Solution();
     s->replaceSpace(str, str_len);
     cout << str << endl;
 

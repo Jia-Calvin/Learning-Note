@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -13,7 +13,7 @@ struct ListNode {
 };
 
 class Solution {
-   public:
+public:
     ListNode* ReverseList(ListNode* pHead) {
         if (pHead == NULL) {
             return NULL;

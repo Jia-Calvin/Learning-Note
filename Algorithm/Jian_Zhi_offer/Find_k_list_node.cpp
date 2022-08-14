@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <sstream>
 #include <vector>
 using namespace std;
@@ -11,7 +11,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 class Solution {
-   public:
+public:
     ListNode* FindKthToTail(ListNode* pListHead, unsigned int k) {
         ListNode* new_head = pListHead;
         for (int i = 0; i < k - 1; i++) {

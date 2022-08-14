@@ -1,6 +1,6 @@
-#include <math.h>
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <queue>
 #include <sstream>
 #include <stack>czx
@@ -14,7 +14,7 @@ struct RandomListNode {
 };
 
 class Solution {
-   public:
+public:
     void clone_node(RandomListNode* pHead) {
         RandomListNode* cp_head = pHead;
         while (cp_head != NULL) {
@@ -63,4 +63,6 @@ class Solution {
         return cut_list(pHead);
     }
 };
-int main(int argc, char const* argv[]) { return 0; }
+int main(int argc, char const* argv[]) {
+    return 0;
+}

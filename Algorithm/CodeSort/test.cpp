@@ -12,8 +12,7 @@ int main() {
         cin >> temp;
         sArray.push_back(temp);
     }
-    sort(sArray.begin(), sArray.end(),
-         [](string s1, string s2) { return (s1 + s2) > (s2 + s1); });
+    sort(sArray.begin(), sArray.end(), [](string s1, string s2) { return (s1 + s2) > (s2 + s1); });
     for (auto s : sArray) {
         cout << s;
     }

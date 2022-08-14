@@ -4,14 +4,14 @@
 #include <stack>
 #include <vector>
 
-void printArr(std::vector<int> &arr) {
+void printArr(std::vector<int>& arr) {
     for (int i = 0; i < arr.size(); i++) {
         std::cout << arr[i];
     }
     std::cout << std::endl;
 }
 
-void pirintOnetoMaxNumCore(std::vector<int> &num, int n, int start) {
+void pirintOnetoMaxNumCore(std::vector<int>& num, int n, int start) {
     if (start == n) {
         printArr(num);
         return;
@@ -23,12 +23,13 @@ void pirintOnetoMaxNumCore(std::vector<int> &num, int n, int start) {
 }
 
 void pirintOnetoMaxNum(int n) {
-    if (n <= 0) return;
+    if (n <= 0)
+        return;
     std::vector<int> num(n, 0);
     pirintOnetoMaxNumCore(num, n, 0);
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     pirintOnetoMaxNum(6);
     return 0;
 }
