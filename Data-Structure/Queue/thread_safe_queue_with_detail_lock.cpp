@@ -71,6 +71,7 @@ void ThreadSafeQueueWithDetailLock<T>::popElement(T& val) {
     if (_head.get() == _getTail()) {
         throw std::runtime_error("Empty Queue");
     }
+    // 先复制，后移动，异常安全
     val = *_head->_next->_value;
     _head = std::move(_head->_next);
 }
@@ -81,6 +82,7 @@ std::shared_ptr<T> ThreadSafeQueueWithDetailLock<T>::popElement() {
     if (_head.get() == _getTail()) {
         throw std::runtime_error("Empty Queue");
     }
+    // 先复制，后移动，异常安全
     std::shared_ptr<T> vPtr = _head->_next->_value;
     _head = std::move(_head->_next);
     return vPtr;
@@ -97,6 +99,7 @@ void ThreadSafeQueueWithDetailLock<T>::waitAndPopElement(T& val, std::chrono::mi
             throw std::runtime_error("wait queue element timeout");
         };
     }
+    // 先复制，后移动，异常安全
     val = *_head->_next->_value;
     _head = std::move(_head->_next);
 }
@@ -112,6 +115,7 @@ std::shared_ptr<T> ThreadSafeQueueWithDetailLock<T>::waitAndPopElement(
             throw std::runtime_error("wait queue element timeout");
         };
     }
+    // 先复制，后移动，异常安全
     std::shared_ptr<T> vPtr = _head->_next->_value;
     _head = std::move(_head->_next);
     return vPtr;
