@@ -6,22 +6,16 @@
 #include <thread>
 #include <vector>
 
-// 执行命令：
-// g++ thread_safe_stack_with_lock_free_reference.cpp -std=c++17 -o
-// thread_safe_stack_with_lock_free_reference.exe &&
-// ./thread_safe_stack_with_lock_free_reference.exe | wc -l
-
-
 // C++ 语言由于没有自动的垃圾回收机制
 // 因此在无锁数据结构里面，最关键的点就是需要考虑内存的回收
 // 如果不需要顾及内存回收（允许内存泄漏），则无锁结构的实现是非常简单的
 // 因此无锁数据结构，Go/JAVA的实现版本是很简单的，因为他们都带有自动回收垃圾的功能
 
-// 以下的版本是使用 “引用计数” 的方法
+// 以下的版本是使用 “风险指针” 的方法
 // 进行垃圾回收的（只需要考虑Pop的并发，Push因为插入即完事，不需要考虑它）
 
 template <class T>
-class ThreadSafeStackWithLockFreeReference {
+class ThreadSafeStackWithLockFreeHazardPointer {
 private:
     struct Node {
         std::shared_ptr<T> _val;
@@ -70,7 +64,7 @@ public:
 };
 
 template <class T>
-void ThreadSafeStackWithLockFreeReference<T>::push(T const& val) {
+void ThreadSafeStackWithLockFreeHazardPointer<T>::push(T const& val) {
     // 先申请各种内存，异常的话，会直接抛出，链表结构不会受到破坏，因此异常安全
     Node* const newNode = new Node(val);
 
@@ -81,7 +75,7 @@ void ThreadSafeStackWithLockFreeReference<T>::push(T const& val) {
 }
 
 template <class T>
-std::shared_ptr<T> ThreadSafeStackWithLockFreeReference<T>::pop() {
+std::shared_ptr<T> ThreadSafeStackWithLockFreeHazardPointer<T>::pop() {
     // 先将计数引用加上，保证其他Pop线程感知到我的加入
     _threadCntInPop++;
 
@@ -103,7 +97,7 @@ std::shared_ptr<T> ThreadSafeStackWithLockFreeReference<T>::pop() {
 }
 
 template <class T>
-void ThreadSafeStackWithLockFreeReference<T>::tryReclaim(Node* oldHead) {
+void ThreadSafeStackWithLockFreeHazardPointer<T>::tryReclaim(Node* oldHead) {
     if (_threadCntInPop.load() == 1) {
         // 可以尝试开始回收，目前只有自己在Pop中，先将 _needToBeDeletedNodes 收归己有
         Node* toBeDeletedNodesInMyThread = _needToBeDeletedNodes.exchange(nullptr);
@@ -132,7 +126,7 @@ void ThreadSafeStackWithLockFreeReference<T>::tryReclaim(Node* oldHead) {
 }
 
 int main(int argc, char const* argv[]) {
-    ThreadSafeStackWithLockFreeReference<int> q;
+    ThreadSafeStackWithLockFreeHazardPointer<int> q;
 
     // push
     int threadCntPush = 100;
