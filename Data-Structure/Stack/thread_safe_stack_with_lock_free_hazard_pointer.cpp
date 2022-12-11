@@ -14,30 +14,26 @@
 // 以下的版本是使用 “风险指针” 的方法
 // 进行垃圾回收的（只需要考虑Pop的并发，Push因为插入即完事，不需要考虑它）
 
-fclass GlobalHazardPointer {
+class GlobalHazardPointer {
 public:
-    GlobalHazardPointer() {
-        for (size_t i = 0; i < MAXHAZARDPOINTERSIZE; i++) {
-            _globalHazardPointer.push_back(HazrdPointer());
-        };
-    };
+    GlobalHazardPointer(){};
     ~GlobalHazardPointer(){};
 
-    struct HazrdPointer {
+    struct HazardPointer {
         std::atomic<std::thread::id> id;
         std::atomic<void*> pointer;
     };
 
     class HazardPointerHolder {
     private:
-        HazrdPointer* _hp;
+        HazardPointer* _hp;
 
     public:
-        HazardPointerHolder(std::vector<HazrdPointer>& globalHazardPointer) {
-            for (size_t i = 0; i < globalHazardPointer.size(); i++) {
-                std::thread::id myThreadId;
-                if (globalHazardPointer[i].id.compare_exchange_strong(myThreadId,
-                                                                      std::this_thread::get_id())) {
+        HazardPointerHolder(HazardPointer globalHazardPointer[]) {
+            for (size_t i = 0; i < MaxHazardPointerSize; i++) {
+                std::thread::id oldId;
+                std::thread::id myThreadId = std::this_thread::get_id();
+                if (globalHazardPointer[i].id.compare_exchange_strong(oldId, myThreadId)) {
                     _hp = &globalHazardPointer[i];
                     return;
                 }
@@ -53,15 +49,15 @@ public:
         }
     };
 
-    std::atomic<void*>& getMyThreadHarzardPointer() {
+    std::atomic<void*>& getMyThreadHazardPointer() {
         static thread_local HazardPointerHolder hph(_globalHazardPointer);
         return hph.getPointer();
     }
 
-    bool isStoreInGlobalHazrdPointer(void* p) {
-        for (size_t i = 0; i < _globalHazardPointer.size(); i++) {
+    bool isStoreInGlobalHazardPointer(void* p) {
+        for (size_t i = 0; i < MaxHazardPointerSize; i++) {
             std::thread::id myThreadId = std::this_thread::get_id();
-            if (_globalHazardPointer[i].id.load() == myThreadId) {
+            if (_globalHazardPointer[i].pointer.load() == p) {
                 return true;
             }
         }
@@ -69,8 +65,8 @@ public:
     }
 
 private:
-    const size_t MAXHAZARDPOINTERSIZE = 100;
-    std::vector<HazrdPointer> _globalHazardPointer;
+    const static size_t MaxHazardPointerSize = 100;
+    HazardPointer _globalHazardPointer[MaxHazardPointerSize];
 };
 
 
@@ -86,23 +82,18 @@ private:
 
     // 回收内存的相关隐私变量
     std::atomic<Node*> _needToBeDeletedNodes;
-    std::unique_ptr<GlobalHazardPointer> globalHazardPointer;
+    std::unique_ptr<GlobalHazardPointer> _globalHazardPointer;
 
 public:
+    ThreadSafeStackWithLockFreeHazardPointer() {
+        _globalHazardPointer = std::make_unique<GlobalHazardPointer>();
+    }
     void push(T const& val);
     std::shared_ptr<T> pop();
 
     // 回收内存的相关方法
     void reclaimLater(Node* oldHead);
     void tryReclaimNodeWithNoHazardPointer();
-    void deleteNodes(Node* head) {
-        while (head) {
-            Node* next = head->_next;
-            printf("delete node\n");
-            delete head;
-            head = next;
-        }
-    };
     void addNodeInToDeletedNodes(Node* node) {
         node->_next = _needToBeDeletedNodes.load();
         while (!_needToBeDeletedNodes.compare_exchange_weak(node->_next, node))
@@ -124,7 +115,7 @@ void ThreadSafeStackWithLockFreeHazardPointer<T>::push(T const& val) {
 template <class T>
 std::shared_ptr<T> ThreadSafeStackWithLockFreeHazardPointer<T>::pop() {
     // 获取当前线程对应的唯一风险指针，通过风险指针放置要访问的节点
-    std::atomic<void*>& hp = globalHazardPointer->getMyThreadHarzardPointer();
+    std::atomic<void*>& hp = _globalHazardPointer->getMyThreadHazardPointer();
 
     // CAS 交换 head，避免 head 的条件竞争
     // 必须通过双重循环的方式放置风险指针
@@ -135,7 +126,8 @@ std::shared_ptr<T> ThreadSafeStackWithLockFreeHazardPointer<T>::pop() {
             tmp = _head.load();
             hp.store(tmp);
             oldHead = _head.load();
-            // oldHead 有可能被清理了，这里必须确保oldHead被清理后，还能被访问
+            // FIXME(calvin): 这里还需要专门针对Node做new 和 delete 的实现，避免
+            // oldHead 被清理了还能被访问，但是我们还拿着它的指针的值在访问，默认的new和delete这个行为是未定义的
             // 需要自己对节点的清理进行实现（new、delete）
         } while (oldHead != tmp);
     } while (oldHead && !_head.compare_exchange_weak(oldHead, oldHead->_next));
@@ -148,11 +140,12 @@ std::shared_ptr<T> ThreadSafeStackWithLockFreeHazardPointer<T>::pop() {
         // 直接将节点的数据全部转移给res，由调用者维护，res销毁，数据即销毁
         // 节点不再含有实际意义的数据了
         res.swap(oldHead->_val);
-        if (globalHazardPointer->isStoreInGlobalHazrdPointer(oldHead)) {
+        if (_globalHazardPointer->isStoreInGlobalHazardPointer(oldHead)) {
             // 同时有别的线程对它设置了风险指针，因此还不能够删除它！
             reclaimLater(oldHead);
         } else {
             // 所有运作中的线程都没不涉及访问到它了，因此可以直接删除了
+            printf("delete node\n");
             delete oldHead;
         }
         // 尝试去回收没有风险指针的节点
@@ -173,9 +166,10 @@ void ThreadSafeStackWithLockFreeHazardPointer<T>::tryReclaimNodeWithNoHazardPoin
     Node* currentNode = _needToBeDeletedNodes.exchange(nullptr);
     while (currentNode) {
         Node* nextNode = currentNode->_next;
-        if (globalHazardPointer->isStoreInGlobalHazrdPointer(currentNode)) {
+        if (_globalHazardPointer->isStoreInGlobalHazardPointer(currentNode)) {
             addNodeInToDeletedNodes(currentNode);
         } else {
+            printf("delete node\n");
             delete currentNode;
         }
         currentNode = nextNode;
