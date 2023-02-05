@@ -7,6 +7,7 @@
 #include <stack>
 #include <unordered_map>
 #include <vector>
+using namespace std;
 
 struct ListNode {
     int val;
@@ -40,87 +41,71 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 
-// 中序遍历，递归方法
-void printTreeCore(TreeNode* root) {
-    if (root == nullptr) {
-        return;
-    }
 
-    if (root->left != nullptr) {
-        printTreeCore(root->left);
-    }
-
-    std::cout << root->val << ", ";
-
-    if (root->right != nullptr) {
-        printTreeCore(root->right);
-    }
-}
-
-// 中序遍历，递归方法
-void printTree(TreeNode* root) {
-    printTreeCore(root);
-    std::cout << std::endl;
-}
-
-template <class T>
-void printVectorCore(std::vector<T>& vec) {
-    for (auto ele : vec) {
-        std::cout << ele << ",";
-    }
-}
-
-template <class T>
-void printVector(std::vector<T>& vec) {
-    printVectorCore(vec);
-    std::cout << std::endl;
-}
-
-void printList(ListNode* node) {
-    while (node != NULL) {
-        std::cout << node->val << ",";
-        node = node->next;
-    }
-    std::cout << std::endl;
-}
-
-using namespace std;
-class Solution {
-public:
-    int titleToNumber(string columnTitle) {
-        int ans = 0;
-        int p = 0;
-        for (int i = columnTitle.size() - 1; i >= 0; i--) {
-            ans += (columnTitle[i] - 'A' + 1) * std::pow(26, p++);
+class MyPrinter {
+protected:
+    MyPrinter(/* args */) = default;
+    ~MyPrinter() = default;
+    // 中序遍历，递归方法
+    static void printTreeCore(TreeNode* root) {
+        if (root == nullptr) {
+            return;
         }
-        return ans;
+
+        if (root->left != nullptr) {
+            printTreeCore(root->left);
+        }
+
+        std::cout << root->val << ", ";
+
+        if (root->right != nullptr) {
+            printTreeCore(root->right);
+        }
+    }
+
+    template <class T>
+    static void printVectorCore(std::vector<T>& vec) {
+        for (auto&& ele : vec) {
+            std::cout << ele << ",";
+        }
+        std::cout << std::endl;
+    }
+
+public:
+    // 中序遍历，递归方法
+    static void printTree(TreeNode* root) {
+        printTreeCore(root);
+        std::cout << std::endl;
+    }
+
+    static void printList(ListNode* node) {
+        while (node != NULL) {
+            std::cout << node->val << ",";
+            node = node->next;
+        }
+        std::cout << std::endl;
+    }
+
+    template <class T>
+    static void printVector(std::vector<T>& vec) {
+        printVectorCore(vec);
+    }
+
+    template <class T>
+    static void print2DVector(std::vector<std::vector<T>>& vec) {
+        for (auto&& firstVec : vec) {
+            printVectorCore(firstVec);
+        }
+        std::cout << std::endl;
     }
 };
 
-// int main(int argc, char const *argv[]) {
-//   Solution s;
-//   vector<int> nums{2, 3, -2, 4};
-//   std::cout << s.maxProduct(nums) << std::endl;
-//   vector<int> nums1{-2, 0, -1};
-//   std::cout << s.maxProduct(nums1) << std::endl;
-//   vector<int> nums2{-1, -2, -9, -6};
-//   std::cout << s.maxProduct(nums2) << std::endl;
-//   return 0;
-// }
+class Solution {
+public:
+};
 
-void fun(int& a) {
-    std::cout << "in fun(int &)" << std::endl;
-}
-
-void fun(int&& a) {
-    std::cout << "in fun(int &&)" << std::endl;
-}
-
-int main() {
-    int a = 1;
-    int&& b = 1;
-
-    fun(std::move(b));
+int main(int argc, char const* argv[]) {
+    Solution s;
 
     return 0;
 }
