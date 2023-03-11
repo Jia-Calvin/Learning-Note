@@ -1,15 +1,15 @@
 # Learning-Note
 
-## 一、算法 Algorithm
+## 1. 算法 algorithm
 
 
 
 
-## 二、数据结构 Data-Structure
+## 2. 数据结构 data-structure
 
 
 
-## 三、数据库 Database
+## 3. 数据库 database
 
 - 索引
 
@@ -28,8 +28,7 @@
 &emsp;&emsp;数据分区、索引分区、数据平衡性等
 
 
-## 四、语言C++
+## 4. language
+### 4.1 语言C++
 
-
-
-## 五、语言Go
+### 4.2 语言Go
