@@ -35,7 +35,6 @@ public:
     };
 
 private:
-    std::mutex _printMutex;
     std::vector<std::unique_ptr<Bucket>> _buckets;
     Hash _hasher;
     const int _getBucketIndex(const K Key);
@@ -63,11 +62,10 @@ const int ThreadSafeHashTableWithBucketLock<K, V, Hash>::_getBucketIndex(const K
 template <typename K, typename V, typename Hash>
 void ThreadSafeHashTableWithBucketLock<K, V, Hash>::put(const K key, const V val) {
     const int bucketIndex = _getBucketIndex(key);
-    //   {
-    //     std::lock_guard<std::mutex> lk(_printMutex);
-    //     std::cout << "key: " << key << std::endl;
-    //   }
+
+    // unique_lock + shared_mutex 独占锁，读写/写写互斥，LOCK
     std::unique_lock<std::shared_mutex> lk(_buckets[bucketIndex]->_bucketLock);
+
     typename std::list<std::pair<K, V>>::iterator it = _buckets[bucketIndex]->findEntry(key);
 
     if (it == _buckets[bucketIndex]->_bucketList.end()) {
@@ -81,9 +79,10 @@ void ThreadSafeHashTableWithBucketLock<K, V, Hash>::put(const K key, const V val
 template <typename K, typename V, typename Hash>
 V ThreadSafeHashTableWithBucketLock<K, V, Hash>::get(const K& key) {
     const int bucketIndex = _getBucketIndex(key);
-    //   std::cout << "key: " << key << " with bucket index: " << bucketIndex
-    //             << std::endl;
+
+    // shared_lock + shared_mutex 共享锁，读与读不阻塞，R_LOCK
     std::shared_lock<std::shared_mutex> lk(_buckets[bucketIndex]->_bucketLock);
+
     typename std::list<std::pair<K, V>>::iterator it = _buckets[bucketIndex]->findEntry(key);
     V res;
     if (it == _buckets[bucketIndex]->_bucketList.end()) {
