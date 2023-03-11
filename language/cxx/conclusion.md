@@ -1,15 +1,51 @@
 ## C/C++语言
 ---
 
-*   ### **new和malloc的区别，placement new, operator new？**
-    - new是一种操作符(对象内默认的操作符)，malloc是一个函数
+*   ### **new和malloc的区别？**
+    -   new是一种操作符(对象内默认的操作符)，malloc是一个向操作系统申请内存的函数
     -   new申请内存返回的类型是对象类型的指针（与对象匹配），而malloc只是单纯地被通知去申请多大的内存块它的返回是无类型指针、需要强制类型转换
     -   new和delete（操作符可重载）会调用对应的构造函数以及析构函数完成对象的创建与析构，malloc和free根据指针申请与释放内存块
     -   new具体步骤：
         -   调用operator new分配足够的内存空间
         -   调用对象的构造函数初始化
         -   构造完毕，返回该对象的类型指针
-    -   malloc具体步骤：申请给定参数的内存块
+    -   malloc具体步骤：
+        -   申请给定参数的内存块
+        -   返回指针指向内存块开始
+---
+
+*   ### **placement new/delete、operator new/delete的区别？他们之间有什么关联？**
+    - operator new 和 operator delete
+        -   operator new 和 operator delete 是内存的分配操作符和归还操作符，编译器会默认添加global operator new 以及 operator delete供使用，为的是正确地申请、释放对象的内存
+        -   在一些情况下，我们对于某个class可能会有特定的需求去执行内存的分配和释放（例如执行一些审计、统计等场景），因此c++允许我们使用定制化的operator new 和 operator delete
+        -   operator new 和 operator delete就是正常签名式的操作符：
+            ``` c++
+            // global
+            void* operator new(std::size_t) throw(std::bad_alloc);
+            // global
+            void* operator delete(void* rawMemory) throw();
+            // class内专属定义
+            void* operator delete(void* rawMemory, std::size_t size) throw();
+            ``` 
+            -   每个class可以编写自己的operator new+delete覆盖global域中的operator new+delete
+            -   必须与正常签名式相符
+    
+    - placement new 和 placement delete
+        -   与正常签名式不同，可以根据定制者传入自己需要的参数，非标准签名式，这些new/delete就是placement的，一个例子：
+            ``` c++
+            void* operator new(std::size_t, std::ostream& longStream) throw(std::bad_alloc);
+            ```
+        -   当有这些自己定制化的placement new时，也必须为这个class定义placement delete + operator delete：
+            ``` c++
+            // placement delete，异常下自动调用
+            void* operator delete(std::size_t, std::ostream& longStream) throw(std::bad_alloc);
+            // class 专属定义，正常delete时调用
+            void* operator delete(void* rawMemory, std::size_t size) throw();
+            ```
+            -   一一对应是为了在异常场景下（正常申请内存、构造函数调用抛出异常）能够进行清理与恢复
+            -   placement delete只会在异常场景被调用，而operator delete是在正常清理下时被调用的，因此一般这两个都需要被实现
+
+
 ---
 
 *   ### **c++中class和struct的主要区别？**
@@ -20,6 +56,7 @@
 *   ### **cout和printf区别**
     -   cout定义在iostream中的一种对象类型，printf是定义在stdio.h头文件中的一种函数
     -   cout更安全，内含大量的运算符重载，可以输出各种基本数据类型，printf需要严格定义的数据类型才可以对应输出
+    -   cout不是线程安全的，因为是一个流式的输出，而printf是线程安全的，支持多线程下依然能够正常打印日志。
 ---
 
 *   ### **sizeof和strlen的区别**
@@ -169,6 +206,35 @@
             输出结果：
                 B: func3
         ```
+---
+
+*   ### **析构函数在什么情况下需要被设置为虚函数？**
+    -   存在继承关系时，base class（多态基类）的析构函数必须为虚函数
+        ```c++
+        Base    *pk1 = new Derived();
+        Derived *pk2 = new Derived();
+        ...
+        // 释放内存
+
+        // 若析构函数不为虚函数，则内存泄漏
+        delete pk1;
+        // 无论如何都正常析构，不会造成内存泄漏
+        delete pk2;
+        ```
+        -   在delete pk2的场景下，析构函数（非虚函数）是这样执行：
+            -   调用子类的析构函数
+            -   沿着继承链层层调用父类的析构函数
+        -   在delete pk1的场景下，析构函数（非虚函数）是这样执行：
+            -   直接调用父类的析构函数
+            -   没有更上层的父类了，停止调用
+        -   在delete pk1的场景下，析构函数（虚函数）是这样执行：
+            -   根据虚函数特性，父类指针，但子类实现，因此调用子类的析构函数
+            -   沿着继承链层层调用父类的析构函数
+            -   本质上是利用虚函数特性调用子类的析构函数，从而正常析构（回到一般化）
+    -   不存在继承关系时，class的析构函数不必为虚函数
+        -   成员函数被设置为虚函数是有代价的，会导致对象的体积膨胀（虚函数指针、虚函数表等）
+        -   毫无意义的开销，并且会有可能破坏代码的移植性
+
 ---
 
 *   ### **C语言中的memcpy与memset对class操作造成什么后果**
