@@ -4,65 +4,69 @@
 #include <vector>
 using namespace std;
 
+// 非线程安全的，需要加锁，或设计无锁结构
 class LFUCache {
 public:
-    int cap;
-    int minFreq;
-    unordered_map<int, int> keyToValue;
-    unordered_map<int, int> keyToFreq;
-    unordered_map<int, list<int>> freqToKey;
+    LFUCache(int capacity) {
+        _cap = capacity;
+        _minFreq = 0;
+    }
+    ~LFUCache() = default;
 
     void increaseFreq(int key) {
-        int curFreq = keyToFreq[key];
-        freqToKey[curFreq].remove(key);
-        keyToFreq[key]++;
-        freqToKey[curFreq + 1].push_back(key);
-        if (freqToKey[curFreq].empty()) {
-            freqToKey.erase(curFreq);
-            if (minFreq == curFreq)
-                minFreq++;
+        int curFreq = _keyToFreq[key];
+        _freqToKey[curFreq].remove(key);
+        _keyToFreq[key]++;
+        _freqToKey[curFreq + 1].push_back(key);
+        if (_freqToKey[curFreq].empty()) {
+            _freqToKey.erase(curFreq);
+            if (_minFreq == curFreq)
+                _minFreq++;
         }
     }
 
     void removeMinFreqKey() {
-        int minKey = freqToKey[minFreq].front();
-        freqToKey[minFreq].pop_front();
-        if (freqToKey[minFreq].empty()) {
-            freqToKey.erase(minFreq);
+        int minKey = _freqToKey[_minFreq].front();
+        _freqToKey[_minFreq].pop_front();
+        if (_freqToKey[_minFreq].empty()) {
+            _freqToKey.erase(_minFreq);
         }
-        keyToValue.erase(minKey);
-        keyToFreq.erase(minKey);
+        _keyToValue.erase(minKey);
+        _keyToFreq.erase(minKey);
     }
 
-    LFUCache(int capacity) {
-        cap = capacity;
-        minFreq = 0;
-    }
 
     int get(int key) {
-        if (keyToValue.find(key) != keyToValue.end()) {
+        if (_keyToValue.find(key) != _keyToValue.end()) {
             increaseFreq(key);
-            return keyToValue[key];
+            return _keyToValue[key];
         }
         return -1;
     }
 
     void put(int key, int value) {
-        if (cap <= 0)
+        if (_cap <= 0)
             return;
-        if (keyToValue.find(key) != keyToValue.end()) {
-            keyToValue[key] = value;
+        if (_keyToValue.find(key) != _keyToValue.end()) {
+            _keyToValue[key] = value;
             increaseFreq(key);
         } else {
-            if (keyToFreq.size() >= cap) {
+            if (_keyToFreq.size() >= _cap) {
                 removeMinFreqKey();
             }
-            keyToValue[key] = value;
-            keyToFreq[key] = 1;
-            minFreq = 1;
-            freqToKey[1].push_back(key);
+            _keyToValue[key] = value;
+            _keyToFreq[key] = 1;
+            _minFreq = 1;
+            _freqToKey[1].push_back(key);
         }
     }
+
+private:
+    int _cap;
+    int _minFreq;
+    unordered_map<int, int> _keyToValue;
+    unordered_map<int, int> _keyToFreq;
+    unordered_map<int, list<int>> _freqToKey;
 };
 
 int main(int argc, char const* argv[]) {

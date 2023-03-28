@@ -4,34 +4,37 @@
 #include <vector>
 using namespace std;
 
+// 非线程安全的，需要加锁，或设计无锁结构
 class LRUCache {
 public:
-    int cap;
-    list<pair<int, int>> lst;
-    unordered_map<int, list<pair<int, int>>::iterator> mp;
-
     LRUCache(int capacity) {
-        cap = capacity;
+        _cap = capacity;
     }
+    ~LRUCache() = delete;
 
     int get(int key) {
-        if (mp.find(key) != mp.end()) {
-            put(key, mp[key]->second);
-            return mp[key]->second;
+        if (_keyToLst.find(key) != _keyToLst.end()) {
+            put(key, _keyToLst[key]->second);
+            return _keyToLst[key]->second;
         }
         return -1;
     }
 
     void put(int key, int value) {
-        if (mp.find(key) != mp.end()) {
-            lst.erase(mp[key]);
-        } else if (lst.size() >= cap) {
-            mp.erase(lst.back().first);
-            lst.pop_back();
+        if (_keyToLst.find(key) != _keyToLst.end()) {
+            _lst.erase(_keyToLst[key]);
+        } else if (_lst.size() >= _cap) {
+            _keyToLst.erase(_lst.back().first);
+            _lst.pop_back();
         }
-        lst.push_front(pair<int, int>(key, value));
-        mp[key] = lst.begin();
+        _lst.push_front(pair<int, int>(key, value));
+        _keyToLst[key] = _lst.begin();
     }
+
+private:
+    int _cap;
+    list<pair<int, int>> _lst;
+    unordered_map<int, list<pair<int, int>>::iterator> _keyToLst;
 };
 
 /**

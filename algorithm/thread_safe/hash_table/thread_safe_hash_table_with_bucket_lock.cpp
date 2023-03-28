@@ -35,9 +35,10 @@ public:
     };
 
 private:
-    std::vector<std::unique_ptr<Bucket>> _buckets;
-    Hash _hasher;
     const int _getBucketIndex(const K Key);
+
+    Hash _hasher;
+    std::vector<std::unique_ptr<Bucket>> _buckets;
 };
 
 template <typename K, typename V, typename Hash>
