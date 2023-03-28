@@ -7,11 +7,6 @@
 
 template <class T>
 class ThreadSafeQueueWithLock {
-private:
-    mutable std::mutex _mutex;
-    std::condition_variable _cond;
-    std::queue<std::shared_ptr<T>> _data;
-
 public:
     // constructor
     ThreadSafeQueueWithLock(ThreadSafeQueueWithLock& other) = delete;
@@ -26,6 +21,11 @@ public:
     std::shared_ptr<T> try_pop();
     bool try_pop(T& res);
     bool isEmpty();
+
+private:
+    mutable std::mutex _mutex;
+    std::condition_variable _cond;
+    std::queue<std::shared_ptr<T>> _data;
 };
 
 template <class T>

@@ -13,14 +13,6 @@ using namespace std::chrono_literals;
 template <class T>
 class ThreadSafeQueueWithDetailLock {
 public:
-    struct Node {
-        std::shared_ptr<T> _value;
-        std::unique_ptr<Node> _next;
-        Node(std::shared_ptr<T> value) : _value(std::move(value)) {}
-        Node() {}
-        ~Node() {}
-    };
-
     ThreadSafeQueueWithDetailLock();
     ~ThreadSafeQueueWithDetailLock();
     // push element
@@ -33,16 +25,26 @@ public:
     void waitAndPopElement(T& val, std::chrono::milliseconds t = 0ms);
     std::shared_ptr<T> waitAndPopElement(std::chrono::milliseconds t = 0ms);
 
+    struct Node {
+        Node() = default;
+        ~Node() = default;
+        Node(std::shared_ptr<T> value) : _value(std::move(value)) {}
+
+        std::shared_ptr<T> _value;
+        std::unique_ptr<Node> _next;
+    };
+
 private:
+    Node* _getTail() {
+        std::lock_guard<std::mutex> lk(_tailMutex);
+        return _tail;
+    }
+
     std::mutex _headMutex;
     std::mutex _tailMutex;
     std::unique_ptr<Node> _head;
     Node* _tail;
     std::condition_variable _cond;
-    Node* _getTail() {
-        std::lock_guard<std::mutex> lk(_tailMutex);
-        return _tail;
-    }
 };
 
 template <class T>
