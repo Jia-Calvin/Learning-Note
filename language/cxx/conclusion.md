@@ -408,4 +408,71 @@
     * 必须返回类的引用类型：```A& A::operator= (const A& other)```，只有返回引用类型，才可以有连等的表达式：```A = B = C```。
     * 必须判断参数other是否为本身，是的话应该直接返回，不做任何变更（边界条件）。
     * 申请内存时，应先用临时变量申请，后变更自身的状态，否则内存不足时抛异常，类实例状态不一致，容易导致程序崩溃。
+---
 
+
+*   ### **C++11 weak_ptr的作用**
+    -   weak_ptr被设计出来其实完全是给shared_ptr服务的，是一种辅助指针，主要解决以下两个场景：
+        -   为了解决shared_ptr可能存在循环引用的场景，程序中shared_ptr若存在循环引用，计数器始终没办法减为0，因此无法正确调用析构函数，造成内存泄漏
+        -   为了解决某些场景无法准确地判断shared_ptr内对象的生命周期，使用weak_ptr可以安全地访问对象，例如在访问前能够通过`expired()`判断对象是否已经被析构，也能够通过`lock()`方法获取对象的shared_ptr
+    <br/>   
+    -   举一个循环引用的例子：
+        ```c++
+        #include <memory>
+
+        class B;  // 前向声明
+
+        class A {
+        public:
+            A() {
+                std::cout << "A Constructor" << std::endl;
+            }
+            ~A() {
+                std::cout << "A Destructor" << std::endl;
+            }
+            std::shared_ptr<B> ptrB;
+        };
+
+        class B {
+        public:
+            B() {
+                std::cout << "B Constructor" << std::endl;
+            }
+            ~B() {
+                std::cout << "B Destructor" << std::endl;
+            }
+            std::shared_ptr<A> ptrA;
+        };
+
+        int main() {
+            std::shared_ptr<A> ptrA(new A());
+            std::shared_ptr<B> ptrB(new B());
+
+            ptrA->ptrB = ptrB; // A 引用 B 
+            ptrB->ptrA = ptrA; // B 引用 A
+
+            std::cout << ptrA.use_count() << std::endl; // 引用计数为2
+            std::cout << ptrB.use_count() << std::endl; // 引用计数为2
+
+            return 0;
+        }
+        ```
+        -   假设有两个类A和B，A中包含一个shared pointer指向B的对象，而B中也包含一个shared pointer指向A的对象，这就形成了相互循环引用的情况。
+        -   在函数退出时，B的引用计数器-1，为1，B不会调用析构函数，因此A的引用计数仍然保持为2，紧接着A的引用计数器-1，为1，也不会调用析构函数，因此最终A与B都不会调用析构函数，造成内存泄漏。
+    <br/>
+    -   如何解决循环引用问题？修改A或者B其中一个指针类型，例如：
+        ```c++
+        class B {
+        public:
+            B() {
+                std::cout << "B Constructor" << std::endl;
+            }
+            ~B() {
+                std::cout << "B Destructor" << std::endl;
+            }
+            // 使用 weak_ptr 规避循环引用问题，weak_ptr不会改变A对象的引用计数器
+            // 并且 使用 weak_ptr 有一系列函数提供安全地访问指针
+            std::weak_ptr<A> ptrA; 
+        };
+        ```
+        -   这样A的引用计数器在函数未退出前，是1，函数退出后，A对象则自然被析构，因此B的引用计数器最终能到达0，B对象也会被析构，内存泄漏问题解决。
