@@ -214,7 +214,6 @@
         Derived *pk2 = new Derived();
         ...
         // 释放内存
-
         // 若析构函数不为虚函数，则内存泄漏
         delete pk1;
         // 无论如何都正常析构，不会造成内存泄漏
@@ -277,11 +276,11 @@
 
 *   ### **C语言中的memcpy与memset对class操作造成什么后果**
 
-    *   void* memset(void* s, int ch, size_t n) 对 class 初始化时：
+    *   `void* memset(void* s, int ch, size_t n)` 对 class 初始化时：
         *   若class内部包含虚函数，memset会将虚函数指针设置为0，若后面继承用到这个类的虚函数指针时，会使程序崩溃。
         *   若class内部包含vector<>, stack<>等STL模板类，memset会将所有的类的变量设置为0，破坏了模板类的内部结构，导致指针指向内存错误或是访问越界等情况，使得程序崩溃。
 
-    *   void* memcpy(void* dest, const void* src, unsigned int count) 对class的复制时：
+    *   `void* memcpy(void* dest, const void* src, unsigned int count)`对class的复制时：
         *   若class内部包含虚函数，memcpy会将这个类的虚函数指针地址也同时复制，这种复制是有效的，因为复制类本身就要求完全相同。
         *   若class内部包含指向其他类的指针，这种拷贝是一种浅拷贝，只会复制指向这个类的指针，而不会将指向类的内存再复制一份，若需要深拷贝则需要在构造函数里在申请空间。
 ---
