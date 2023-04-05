@@ -37,9 +37,9 @@
 
     -   RequestVote RPC（用于投票，是发生在选举阶段的RPC），具体流程如下：
         -   Candidate向所有节点发送RequestVote PRC索要投票，请求中包含最新一条日志的Index以及Term，以及自己当前的Term等信息
-        -   接收到RequestVote RPC请求的节点先比较Candidate节点新一轮的Term是否比自己当前的要小，若Candidate的Term更小（我的数据更新），则拒绝该请求，否则继续往下处理
+        -   接收到RequestVote RPC请求的节点先比较**Candidate节点新一轮的Term**是否比自己当前的要小，若Candidate的Term更小（我的数据更新），则拒绝该请求，否则继续往下处理
         -   节点接着检查是否在新一轮的Term中投过票，若已经投过票，则拒绝该请求，否则继续往下处理
-        -   节点接着将自身的最后一条日志条目的索引和任期号与请求中的信息进行比较，若请求中的信息更小（更旧），则拒绝该请求，否则往下处理
+        -   节点接着将自身的最后一条日志条目的索引和任期号与**Candidate最新一条日志的index序号以及term**进行比较，若Candidate的日志更小（更旧），则拒绝该请求，否则往下处理
         -   节点将自身的投票状态转移为该Candidate，并将投票的状态持久化，避免在一轮的Term中投多次票
         -   节点将自身响应状态发送回给Candidate，包括自己最新一条日志的index与Term，以及一个成功的标志告知投票成功
 
